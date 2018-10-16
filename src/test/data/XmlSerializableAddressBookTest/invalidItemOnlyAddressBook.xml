@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<addressbook>
+    <!-- Item with invalid price field -->
+    <items>
+        <name>Some Name</name>
+        <price isPrivate="false">5.0000</price>
+        <remark isPrivate="false">Some remarks</remark>
+    </items>
+</addressbook>

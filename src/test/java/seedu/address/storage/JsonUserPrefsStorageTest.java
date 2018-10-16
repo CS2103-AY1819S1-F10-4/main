@@ -2,6 +2,7 @@ package seedu.address.storage;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNotEquals;
 
 import java.io.IOException;
 import java.nio.file.Path;
@@ -131,4 +132,25 @@ public class JsonUserPrefsStorageTest {
         assertEquals(original, readBack);
     }
 
+    @Test
+    public void equals() {
+        UserPrefs expected = new UserPrefs();
+        UserPrefs actual = new UserPrefs();
+
+        // same object
+        assertEquals(expected, expected);
+        assertEquals(expected.hashCode(), expected.hashCode());
+
+        // two different objects, but contains same prefs
+        assertEquals(expected, actual);
+        assertEquals(expected.hashCode(), actual.hashCode());
+
+        // not the same type
+        assertNotEquals(1, expected);
+
+        // change the addressbook file path
+        expected.setAddressBookFilePath(Paths.get("data", "elsewhere.xml"));
+        assertNotEquals(expected, actual);
+        assertNotEquals(expected.hashCode(), actual.hashCode());
+    }
 }

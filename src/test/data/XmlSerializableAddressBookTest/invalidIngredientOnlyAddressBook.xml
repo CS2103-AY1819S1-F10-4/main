@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<addressbook>
+  <!-- Ingredient with invalid name field -->
+  <ingredients>
+    <name>Chicken Drums+ick</name>
+    <unit>kilogram</unit>
+    <price>9.90</price>
+    <numUnits>10</numUnits>
+    <minimum>2</minimum>
+  </ingredients>
+</addressbook>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<addressbook>
+    <!-- Person with invalid username field -->
+    <accounts>
+        <username>a zhikai</username>
+        <password>1122qq</password>
+    </accounts>
+</addressbook>

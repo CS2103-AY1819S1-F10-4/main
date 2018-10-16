@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<addressbook>
+  <ingredients>
+    <name>Mexican Avocado</name>
+    <unit>kilogram</unit>
+    <price>6.00</price>
+    <minimum>1</minimum>
+    <numUnits>0</numUnits>
+  </ingredients>
+  <ingredients>
+    <name>Baked Beans</name>
+    <unit>200-gram can</unit>
+    <price>0.80</price>
+    <minimum>10</minimum>
+    <numUnits>0</numUnits>
+  </ingredients>
+  <ingredients>
+    <name>Chinese Cabbage</name>
+    <unit>500 grams</unit>
+    <price>5.50</price>
+    <minimum>10</minimum>
+    <numUnits>0</numUnits>
+  </ingredients>
+  <ingredients>
+    <name>Duck Drumstick</name>
+    <unit>50 grams</unit>
+    <price>3.20</price>
+    <minimum>20</minimum>
+    <numUnits>0</numUnits>
+  </ingredients>
+  <ingredients>
+    <name>Chicken Egg</name>
+    <unit>carton of 30</unit>
+    <price>3.80</price>
+    <minimum>5</minimum>
+    <numUnits>0</numUnits>
+  </ingredients>
+  <ingredients>
+    <name>White Promfret</name>
+    <unit>kilogram</unit>
+    <price>14.00</price>
+    <minimum>8</minimum>
+    <numUnits>0</numUnits>
+  </ingredients>
+  <ingredients>
+    <name>Garlic Cloves</name>
+    <unit>500 gram bag</unit>
+    <price>2.40</price>
+    <minimum>3</minimum>
+    <numUnits>0</numUnits>
+  </ingredients>
+</addressbook>

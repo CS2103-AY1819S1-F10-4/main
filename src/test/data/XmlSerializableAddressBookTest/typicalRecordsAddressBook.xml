@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<!-- AddressBook save file which contains the same Record values as in TypicalRecords#getTypicalAddressBook() -->
+<addressbook>
+    <records>
+        <date>25-09-2018</date>
+        <itemName>Fried Rice</itemName>
+        <quantitySold>35</quantitySold>
+        <price>5.50</price>
+    </records>
+    <records>
+        <date>28-02-2018</date>
+        <itemName>Cheese Pizza</itemName>
+        <quantitySold>100</quantitySold>
+        <price>18.50</price>
+    </records>
+    <records>
+        <date>11-11-2011</date>
+        <itemName>Pasta</itemName>
+        <quantitySold>87</quantitySold>
+        <price>7.99</price>
+    </records>
+</addressbook>

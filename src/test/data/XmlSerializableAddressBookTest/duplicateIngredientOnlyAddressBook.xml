@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<addressbook>
+
+  <ingredients>
+    <name>Chicken Drumstick</name>
+    <unit>kilogram</unit>
+    <price>9.90</price>
+    <numUnits>10</numUnits>
+    <minimum>2</minimum>
+  </ingredients>
+
+  <!-- Person with same identity as Chicken Drumstick -->
+  <ingredients>
+    <name>Chicken Drumstick</name>
+    <unit>kilogram</unit>
+    <price>9.90</price>
+    <numUnits>10</numUnits>
+    <minimum>2</minimum>
+  </ingredients>
+
+</addressbook>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<!-- AddressBook save file which contains the same Person values as in TypicalPersons#getTypicalAddressBook() -->
+<addressbook>
+    <items>
+        <name>Apple Juice</name>
+        <price>2</price>
+        <remark></remark>
+        <tagged>drink</tagged>
+    </items>
+
+    <items>
+        <name>Beef Burger</name>
+        <price>3</price>
+        <remark></remark>
+        <tagged>beef</tagged>
+        <tagged>burger</tagged>
+    </items>
+    <items>
+        <name>Chocolate Cake</name>
+        <price>2</price>
+        <remark></remark>
+    </items>
+    <items>
+        <name>Duck Rice</name>
+        <price>3</price>
+        <remark></remark>
+    </items>
+    <items>
+        <name>Egg</name>
+        <price>0.5</price>
+        <remark></remark>
+    </items>
+    <items>
+        <name>Fruit Cake</name>
+        <price>2</price>
+        <remark></remark>
+    </items>
+    <items>
+        <name>Garlic Bread</name>
+        <price>1</price>
+        <remark>Consists of bread topped with garlic and olive oil</remark>
+    </items>
+</addressbook>

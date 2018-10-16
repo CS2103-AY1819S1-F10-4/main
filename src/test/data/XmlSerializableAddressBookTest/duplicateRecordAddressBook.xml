@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<addressbook>
+
+    <records>
+        <date>12-09-2018</date>
+        <itemName>Mushroom Pie</itemName>
+        <quantitySold>12</quantitySold>
+        <price>5.5</price>
+    </records>
+
+    <!-- Record with same identity -->
+    <records>
+        <date>12-09-2018</date>
+        <itemName>Mushroom Pie</itemName>
+        <quantitySold>84</quantitySold>
+        <price>7.99</price>
+    </records>
+
+</addressbook>

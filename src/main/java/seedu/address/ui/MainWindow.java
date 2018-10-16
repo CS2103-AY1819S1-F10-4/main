@@ -6,6 +6,7 @@ import com.google.common.eventbus.Subscribe;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Label;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.TextInputControl;
 import javafx.scene.input.KeyCombination;
@@ -19,14 +20,19 @@ import seedu.address.commons.events.ui.ExitAppRequestEvent;
 import seedu.address.commons.events.ui.ShowHelpRequestEvent;
 import seedu.address.logic.Logic;
 import seedu.address.model.UserPrefs;
+import seedu.address.ui.menu.ItemListPanel;
+import seedu.address.ui.sales.RecordListPanel;
 
 /**
- * The Main Window. Provides the basic application layout containing
- * a menu bar and space where other JavaFX elements can be placed.
+ * The Main Window. Provides the basic application layout containing a menu bar and space where other JavaFX elements
+ * can be placed.
  */
 public class MainWindow extends UiPart<Stage> {
 
     private static final String FXML = "MainWindow.fxml";
+
+    private static final String ACCOUNT_STATUS_INITIAL = "Guest";
+    private static final String ACCOUNT_STATUS = "Welcome, %s";
 
     private final Logger logger = LogsCenter.getLogger(getClass());
 
@@ -36,9 +42,13 @@ public class MainWindow extends UiPart<Stage> {
     // Independent Ui parts residing in this Ui container
     private BrowserPanel browserPanel;
     private PersonListPanel personListPanel;
+    private IngredientListPanel ingredientListPanel;
+    private RecordListPanel recordListPanel; // Panels stack on top of each other, only one visible at a time
+
     private Config config;
     private UserPrefs prefs;
     private HelpWindow helpWindow;
+    private ItemListPanel itemListPanel;
 
     @FXML
     private StackPane browserPlaceholder;
@@ -50,7 +60,13 @@ public class MainWindow extends UiPart<Stage> {
     private MenuItem helpMenuItem;
 
     @FXML
+    private Label accountStatus;
+
+    @FXML
     private StackPane personListPanelPlaceholder;
+
+    //@FXML
+    //private StackPane ingredientListPanelPlaceholder;
 
     @FXML
     private StackPane resultDisplayPlaceholder;
@@ -69,6 +85,7 @@ public class MainWindow extends UiPart<Stage> {
 
         // Configure the UI
         setTitle(config.getAppTitle());
+        setUsername(ACCOUNT_STATUS_INITIAL);
         setWindowDefaultSize(prefs);
 
         setAccelerators();
@@ -87,6 +104,7 @@ public class MainWindow extends UiPart<Stage> {
 
     /**
      * Sets the accelerator of a MenuItem.
+     *
      * @param keyCombination the KeyCombination value of the accelerator
      */
     private void setAccelerator(MenuItem menuItem, KeyCombination keyCombination) {
@@ -123,7 +141,16 @@ public class MainWindow extends UiPart<Stage> {
         browserPlaceholder.getChildren().add(browserPanel.getRoot());
 
         personListPanel = new PersonListPanel(logic.getFilteredPersonList());
-        personListPanelPlaceholder.getChildren().add(personListPanel.getRoot());
+        personListPanelPlaceholder.getChildren().add(personListPanel.getRoot()); // Show address book
+
+        //recordListPanel = new RecordListPanel(logic.getFilteredRecordList());
+        //personListPanelPlaceholder.getChildren().add(recordListPanel.getRoot()); // Show sales book
+
+        //ingredientListPanel = new IngredientListPanel(logic.getFilteredIngredientList());
+        //ingredientListPanelPlaceholder.getChildren().add(ingredientListPanel.getRoot());
+
+        //itemListPanel = new ItemListPanel(logic.getFilteredItemList());
+        //personListPanelPlaceholder.getChildren().add(itemListPanel.getRoot());
 
         ResultDisplay resultDisplay = new ResultDisplay();
         resultDisplayPlaceholder.getChildren().add(resultDisplay.getRoot());
@@ -141,6 +168,10 @@ public class MainWindow extends UiPart<Stage> {
 
     private void setTitle(String appTitle) {
         primaryStage.setTitle(appTitle);
+    }
+
+    private void setUsername(String message) {
+        accountStatus.setText(message);
     }
 
     /**
@@ -161,6 +192,51 @@ public class MainWindow extends UiPart<Stage> {
     GuiSettings getCurrentGuiSetting() {
         return new GuiSettings(primaryStage.getWidth(), primaryStage.getHeight(),
                 (int) primaryStage.getX(), (int) primaryStage.getY());
+    }
+
+    /**
+     * Switch to the account view.
+     */
+    @FXML
+    public void handleSwitchToAccount() {
+        // TODO: Some might require raising/posting event, for example, if you call the list method, so it
+        // should raise an event and automatically update the UI
+    }
+
+    /**
+     * Switch to the menu view.
+     */
+    @FXML
+    public void handleSwitchToMenu() {
+        // TODO: Some might require raising/posting event, for example, if you call the list method, so it
+        // should raise an event and automatically update the UI
+    }
+
+    /**
+     * Switch to the sales view.
+     */
+    @FXML
+    public void handleSwitchToSales() {
+        // To implement. Some might require raising/posting event, for example, if you call the list method, so it
+        // should raise an event and automatically update the UI
+    }
+
+    /**
+     * Switch to the ingredient view.
+     */
+    @FXML
+    public void handleSwitchToIngredient() {
+        // TODO: Some might require raising/posting event, for example, if you call the list method, so it
+        // should raise an event and automatically update the UI
+    }
+
+    /**
+     * Switch to the reservation view.
+     */
+    @FXML
+    public void handleSwitchToReservation() {
+        // TODO: Some might require raising/posting event, for example, if you call the list method, so it
+        // should raise an event and automatically update the UI
     }
 
     /**
@@ -189,6 +265,10 @@ public class MainWindow extends UiPart<Stage> {
 
     public PersonListPanel getPersonListPanel() {
         return personListPanel;
+    }
+
+    public ItemListPanel getItemListPanel() {
+        return itemListPanel;
     }
 
     void releaseResources() {

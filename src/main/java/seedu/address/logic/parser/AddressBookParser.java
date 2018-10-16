@@ -20,7 +20,31 @@ import seedu.address.logic.commands.RedoCommand;
 import seedu.address.logic.commands.RemarkCommand;
 import seedu.address.logic.commands.SelectCommand;
 import seedu.address.logic.commands.UndoCommand;
+import seedu.address.logic.commands.accounts.RegisterCommand;
+import seedu.address.logic.commands.ingredients.AddIngredientCommand;
+import seedu.address.logic.commands.ingredients.DeleteIngredientCommand;
+import seedu.address.logic.commands.ingredients.EditIngredientCommand;
+import seedu.address.logic.commands.ingredients.ListIngredientsCommand;
+import seedu.address.logic.commands.menu.AddItemCommand;
+import seedu.address.logic.commands.menu.ClearMenuCommand;
+import seedu.address.logic.commands.menu.DeleteItemCommand;
+import seedu.address.logic.commands.menu.EditItemCommand;
+import seedu.address.logic.commands.menu.ListItemsCommand;
+import seedu.address.logic.commands.menu.SelectItemCommand;
+import seedu.address.logic.commands.reservation.AddReservationCommand;
+import seedu.address.logic.commands.salescommands.RecordSalesCommand;
+import seedu.address.logic.parser.accounts.RegisterCommandParser;
 import seedu.address.logic.parser.exceptions.ParseException;
+import seedu.address.logic.parser.ingredients.AddIngredientCommandParser;
+import seedu.address.logic.parser.ingredients.DeleteIngredientCommandParser;
+import seedu.address.logic.parser.ingredients.EditIngredientCommandParser;
+import seedu.address.logic.parser.menu.AddItemCommandParser;
+import seedu.address.logic.parser.menu.DeleteItemCommandParser;
+import seedu.address.logic.parser.menu.EditItemCommandParser;
+import seedu.address.logic.parser.menu.SelectItemCommandParser;
+import seedu.address.logic.parser.reservation.AddReservationCommandParser;
+import seedu.address.logic.parser.salescommandsparser.RecordSalesCommandParser;
+
 
 /**
  * Parses user input.
@@ -97,9 +121,59 @@ public class AddressBookParser {
         case RemarkCommand.COMMAND_WORD:
             return new RemarkCommandParser().parse(arguments);
 
+        case RecordSalesCommand.COMMAND_WORD:
+            return new RecordSalesCommandParser().parse(arguments);
+
+        case RegisterCommand.COMMAND_WORD:
+        case RegisterCommand.COMMAND_ALIAS:
+            return new RegisterCommandParser().parse(arguments);
+
+        case AddIngredientCommand.COMMAND_WORD:
+        case AddIngredientCommand.COMMAND_ALIAS:
+            return new AddIngredientCommandParser().parse(arguments);
+
+        case ListIngredientsCommand.COMMAND_WORD:
+        case ListIngredientsCommand.COMMAND_ALIAS:
+            return new ListIngredientsCommand();
+
+        case DeleteIngredientCommand.COMMAND_WORD:
+        case DeleteIngredientCommand.COMMAND_ALIAS:
+            return new DeleteIngredientCommandParser().parse(arguments);
+
+        case EditIngredientCommand.COMMAND_WORD:
+        case EditIngredientCommand.COMMAND_ALIAS:
+            return new EditIngredientCommandParser().parse(arguments);
+
+        case AddItemCommand.COMMAND_WORD:
+        case AddItemCommand.COMMAND_ALIAS:
+            return new AddItemCommandParser().parse(arguments);
+
+        case DeleteItemCommand.COMMAND_WORD:
+        case DeleteItemCommand.COMMAND_ALIAS:
+            return new DeleteItemCommandParser().parse(arguments);
+
+        case EditItemCommand.COMMAND_WORD:
+        case EditItemCommand.COMMAND_ALIAS:
+            return new EditItemCommandParser().parse(arguments);
+
+        case ListItemsCommand.COMMAND_WORD:
+        case ListItemsCommand.COMMAND_ALIAS:
+            return new ListItemsCommand();
+
+        case SelectItemCommand.COMMAND_WORD:
+        case SelectItemCommand.COMMAND_ALIAS:
+            return new SelectItemCommandParser().parse(arguments);
+
+        case ClearMenuCommand.COMMAND_WORD:
+        case ClearMenuCommand.COMMAND_ALIAS:
+            return new ClearMenuCommand();
+
+        case AddReservationCommand.COMMAND_WORD:
+        case AddReservationCommand.COMMAND_ALIAS:
+            return new AddReservationCommandParser().parse(arguments);
+
         default:
             throw new ParseException(MESSAGE_UNKNOWN_COMMAND);
         }
     }
-
 }

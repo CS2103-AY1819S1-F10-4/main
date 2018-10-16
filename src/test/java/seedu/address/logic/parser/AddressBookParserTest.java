@@ -1,11 +1,12 @@
 package seedu.address.logic.parser;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotEquals;
 import static org.junit.Assert.assertTrue;
 import static seedu.address.commons.core.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
 import static seedu.address.commons.core.Messages.MESSAGE_UNKNOWN_COMMAND;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_REMARK;
-import static seedu.address.testutil.TypicalIndexes.INDEX_FIRST_PERSON;
+import static seedu.address.testutil.TypicalIndexes.INDEX_FIRST;
 
 import java.util.Arrays;
 import java.util.List;
@@ -29,15 +30,41 @@ import seedu.address.logic.commands.RedoCommand;
 import seedu.address.logic.commands.RemarkCommand;
 import seedu.address.logic.commands.SelectCommand;
 import seedu.address.logic.commands.UndoCommand;
+import seedu.address.logic.commands.accounts.RegisterCommand;
+import seedu.address.logic.commands.ingredients.AddIngredientCommand;
+import seedu.address.logic.commands.ingredients.DeleteIngredientCommand;
+import seedu.address.logic.commands.ingredients.EditIngredientCommand;
+import seedu.address.logic.commands.ingredients.EditIngredientCommand.EditIngredientDescriptor;
+import seedu.address.logic.commands.ingredients.ListIngredientsCommand;
+import seedu.address.logic.commands.menu.AddItemCommand;
+import seedu.address.logic.commands.menu.ClearMenuCommand;
+import seedu.address.logic.commands.menu.DeleteItemCommand;
+import seedu.address.logic.commands.menu.ListItemsCommand;
+import seedu.address.logic.commands.menu.SelectItemCommand;
+import seedu.address.logic.commands.salescommands.RecordSalesCommand;
 import seedu.address.logic.parser.exceptions.ParseException;
+import seedu.address.model.accounts.Account;
+import seedu.address.model.ingredient.Ingredient;
+import seedu.address.model.menu.Item;
 import seedu.address.model.person.NameContainsKeywordsPredicate;
 import seedu.address.model.person.Person;
 import seedu.address.model.person.Remark;
+import seedu.address.model.salesrecord.SalesRecord;
 import seedu.address.testutil.EditPersonDescriptorBuilder;
 import seedu.address.testutil.PersonBuilder;
 import seedu.address.testutil.PersonUtil;
+import seedu.address.testutil.accounts.AccountBuilder;
+import seedu.address.testutil.accounts.AccountUtil;
+import seedu.address.testutil.ingredients.EditIngredientDescriptorBuilder;
+import seedu.address.testutil.ingredients.IngredientBuilder;
+import seedu.address.testutil.ingredients.IngredientUtil;
+import seedu.address.testutil.menu.ItemBuilder;
+import seedu.address.testutil.menu.ItemUtil;
+import seedu.address.testutil.salesrecords.RecordBuilder;
+import seedu.address.testutil.salesrecords.RecordUtil;
 
 public class AddressBookParserTest {
+
     @Rule
     public ExpectedException thrown = ExpectedException.none();
 
@@ -64,11 +91,11 @@ public class AddressBookParserTest {
     @Test
     public void parseCommand_delete() throws Exception {
         DeleteCommand command = (DeleteCommand) parser.parseCommand(
-                DeleteCommand.COMMAND_WORD + " " + INDEX_FIRST_PERSON.getOneBased());
-        assertEquals(new DeleteCommand(INDEX_FIRST_PERSON), command);
+                DeleteCommand.COMMAND_WORD + " " + INDEX_FIRST.getOneBased());
+        assertEquals(new DeleteCommand(INDEX_FIRST), command);
         command = (DeleteCommand) parser.parseCommand(DeleteCommand.COMMAND_ALIAS
-                + " " + INDEX_FIRST_PERSON.getOneBased());
-        assertEquals(new DeleteCommand(INDEX_FIRST_PERSON), command);
+                + " " + INDEX_FIRST.getOneBased());
+        assertEquals(new DeleteCommand(INDEX_FIRST), command);
     }
 
     @Test
@@ -76,11 +103,11 @@ public class AddressBookParserTest {
         Person person = new PersonBuilder().build();
         EditPersonDescriptor descriptor = new EditPersonDescriptorBuilder(person).build();
         EditCommand command = (EditCommand) parser.parseCommand(EditCommand.COMMAND_WORD + " "
-                + INDEX_FIRST_PERSON.getOneBased() + " " + PersonUtil.getEditPersonDescriptorDetails(descriptor));
-        assertEquals(new EditCommand(INDEX_FIRST_PERSON, descriptor), command);
+                + INDEX_FIRST.getOneBased() + " " + PersonUtil.getEditPersonDescriptorDetails(descriptor));
+        assertEquals(new EditCommand(INDEX_FIRST, descriptor), command);
         command = (EditCommand) parser.parseCommand(EditCommand.COMMAND_ALIAS + " "
-                + INDEX_FIRST_PERSON.getOneBased() + " " + PersonUtil.getEditPersonDescriptorDetails(descriptor));
-        assertEquals(new EditCommand(INDEX_FIRST_PERSON, descriptor), command);
+                + INDEX_FIRST.getOneBased() + " " + PersonUtil.getEditPersonDescriptorDetails(descriptor));
+        assertEquals(new EditCommand(INDEX_FIRST, descriptor), command);
     }
 
     @Test
@@ -130,11 +157,11 @@ public class AddressBookParserTest {
     @Test
     public void parseCommand_select() throws Exception {
         SelectCommand command = (SelectCommand) parser.parseCommand(
-                SelectCommand.COMMAND_WORD + " " + INDEX_FIRST_PERSON.getOneBased());
-        assertEquals(new SelectCommand(INDEX_FIRST_PERSON), command);
+                SelectCommand.COMMAND_WORD + " " + INDEX_FIRST.getOneBased());
+        assertEquals(new SelectCommand(INDEX_FIRST), command);
         command = (SelectCommand) parser.parseCommand(
-                SelectCommand.COMMAND_ALIAS + " " + INDEX_FIRST_PERSON.getOneBased());
-        assertEquals(new SelectCommand(INDEX_FIRST_PERSON), command);
+                SelectCommand.COMMAND_ALIAS + " " + INDEX_FIRST.getOneBased());
+        assertEquals(new SelectCommand(INDEX_FIRST), command);
     }
 
     @Test
@@ -157,8 +184,15 @@ public class AddressBookParserTest {
     public void parseCommand_remark() throws Exception {
         final Remark remark = new Remark("Some remark.");
         RemarkCommand command = (RemarkCommand) parser.parseCommand(RemarkCommand.COMMAND_WORD + " "
-                + INDEX_FIRST_PERSON.getOneBased() + " " + PREFIX_REMARK + remark.value);
-        assertEquals(new RemarkCommand(INDEX_FIRST_PERSON, remark), command);
+                + INDEX_FIRST.getOneBased() + " " + PREFIX_REMARK + remark.value);
+        assertEquals(new RemarkCommand(INDEX_FIRST, remark), command);
+    }
+
+    @Test
+    public void parseCommand_record_sales() throws Exception {
+        SalesRecord record = new RecordBuilder().build();
+        RecordSalesCommand command = (RecordSalesCommand) parser.parseCommand(RecordUtil.getRecordSalesCommand(record));
+        assertEquals(new RecordSalesCommand(record), command);
     }
 
     @Test
@@ -173,5 +207,115 @@ public class AddressBookParserTest {
         thrown.expect(ParseException.class);
         thrown.expectMessage(MESSAGE_UNKNOWN_COMMAND);
         parser.parseCommand("unknownCommand");
+    }
+
+    @Test
+    public void parseCommand_createAccount() throws ParseException {
+        Account account = new AccountBuilder().build();
+        RegisterCommand command = (RegisterCommand) parser.parseCommand(AccountUtil.getCreateCommand(account));
+        assertEquals(new RegisterCommand(account), command);
+    }
+
+    @Test
+    public void parseCommand_createAccount_notEquals() throws ParseException {
+        Account accountOneCommand = new AccountBuilder().build();
+        Account accountTwoCommand = new AccountBuilder().withUsername("demo1").withPassword("1122qq").build();
+        RegisterCommand commandOne = (RegisterCommand) parser
+                .parseCommand(AccountUtil.getCreateCommand(accountOneCommand));
+        RegisterCommand commandTwo = (RegisterCommand) parser
+                .parseCommand(AccountUtil.getCreateCommand(accountTwoCommand));
+        assertNotEquals(commandOne, commandTwo);
+    }
+
+    @Test
+    public void parseCommand_addIngredient() throws Exception {
+        Ingredient ingredient = new IngredientBuilder().build();
+        AddIngredientCommand command =
+                (AddIngredientCommand) parser.parseCommand(IngredientUtil.getAddIngredientCommand(ingredient));
+        assertEquals(new AddIngredientCommand(ingredient), command);
+        command = (AddIngredientCommand) parser.parseCommand(AddIngredientCommand.COMMAND_ALIAS
+                + " " + IngredientUtil.getIngredientDetails(ingredient));
+        assertEquals(new AddIngredientCommand(ingredient), command);
+    }
+
+    @Test
+    public void parseCommand_listIngredients() throws Exception {
+        assertTrue(parser.parseCommand(ListIngredientsCommand.COMMAND_WORD) instanceof ListIngredientsCommand);
+        assertTrue(parser
+                .parseCommand(ListIngredientsCommand.COMMAND_WORD + " 3") instanceof ListIngredientsCommand);
+        assertTrue(parser.parseCommand(ListIngredientsCommand.COMMAND_ALIAS) instanceof ListIngredientsCommand);
+        assertTrue(parser
+                .parseCommand(ListIngredientsCommand.COMMAND_ALIAS + " 3") instanceof ListIngredientsCommand);
+    }
+
+    @Test
+    public void parseCommand_deleteIngredient() throws Exception {
+        DeleteIngredientCommand command = (DeleteIngredientCommand) parser.parseCommand(
+                DeleteIngredientCommand.COMMAND_WORD + " " + INDEX_FIRST.getOneBased());
+        assertEquals(new DeleteIngredientCommand(INDEX_FIRST), command);
+        command = (DeleteIngredientCommand) parser.parseCommand(
+                DeleteIngredientCommand.COMMAND_ALIAS + " " + INDEX_FIRST.getOneBased());
+        assertEquals(new DeleteIngredientCommand(INDEX_FIRST), command);
+    }
+
+    @Test
+    public void parseCommand_editIngredient() throws Exception {
+        Ingredient ingredient = new IngredientBuilder().build();
+        EditIngredientDescriptor descriptor = new EditIngredientDescriptorBuilder(ingredient).build();
+        EditIngredientCommand command =
+                (EditIngredientCommand) parser.parseCommand(
+                        EditIngredientCommand.COMMAND_WORD + " " + INDEX_FIRST.getOneBased()
+                                + " " + IngredientUtil.getEditIngredientDescriptorDetails(descriptor));
+        assertEquals(new EditIngredientCommand(INDEX_FIRST, descriptor), command);
+        command = (EditIngredientCommand) parser.parseCommand(
+                EditIngredientCommand.COMMAND_ALIAS + " " + INDEX_FIRST.getOneBased()
+                                + " " + IngredientUtil.getEditIngredientDescriptorDetails(descriptor));
+        assertEquals(new EditIngredientCommand(INDEX_FIRST, descriptor), command);
+    }
+
+    @Test
+    public void parseCommand_addItem() throws Exception {
+        Item item = new ItemBuilder().build();
+        AddItemCommand command = (AddItemCommand) parser.parseCommand(ItemUtil.getAddItemCommand(item));
+        assertEquals(new AddItemCommand(item), command);
+        command = (AddItemCommand) parser.parseCommand(AddItemCommand.COMMAND_ALIAS
+                + " " + ItemUtil.getItemDetails(item));
+        assertEquals(new AddItemCommand(item), command);
+    }
+
+    @Test
+    public void parseCommand_deleteItem() throws Exception {
+        DeleteItemCommand command = (DeleteItemCommand) parser.parseCommand(
+                DeleteItemCommand.COMMAND_WORD + " " + INDEX_FIRST.getOneBased());
+        assertEquals(new DeleteItemCommand(INDEX_FIRST), command);
+        command = (DeleteItemCommand) parser.parseCommand(DeleteItemCommand.COMMAND_ALIAS
+                + " " + INDEX_FIRST.getOneBased());
+        assertEquals(new DeleteItemCommand(INDEX_FIRST), command);
+    }
+
+    @Test
+    public void parseCommand_listItems() throws Exception {
+        assertTrue(parser.parseCommand(ListItemsCommand.COMMAND_WORD) instanceof ListItemsCommand);
+        assertTrue(parser.parseCommand(ListItemsCommand.COMMAND_ALIAS) instanceof ListItemsCommand);
+        assertTrue(parser.parseCommand(ListItemsCommand.COMMAND_WORD + " 3") instanceof ListItemsCommand);
+        assertTrue(parser.parseCommand(ListItemsCommand.COMMAND_ALIAS + " 3") instanceof ListItemsCommand);
+    }
+
+    @Test
+    public void parseCommand_selectItem() throws Exception {
+        SelectItemCommand command = (SelectItemCommand) parser.parseCommand(
+                SelectItemCommand.COMMAND_WORD + " " + INDEX_FIRST.getOneBased());
+        assertEquals(new SelectItemCommand(INDEX_FIRST), command);
+        command = (SelectItemCommand) parser.parseCommand(
+                SelectItemCommand.COMMAND_ALIAS + " " + INDEX_FIRST.getOneBased());
+        assertEquals(new SelectItemCommand(INDEX_FIRST), command);
+    }
+
+    @Test
+    public void parseCommand_clearMenu() throws Exception {
+        assertTrue(parser.parseCommand(ClearMenuCommand.COMMAND_WORD) instanceof ClearMenuCommand);
+        assertTrue(parser.parseCommand(ClearMenuCommand.COMMAND_ALIAS) instanceof ClearMenuCommand);
+        assertTrue(parser.parseCommand(ClearMenuCommand.COMMAND_WORD + " 3") instanceof ClearMenuCommand);
+        assertTrue(parser.parseCommand(ClearMenuCommand.COMMAND_ALIAS + " 3") instanceof ClearMenuCommand);
     }
 }

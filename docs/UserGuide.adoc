@@ -12,7 +12,7 @@ ifdef::env-github[]
 :tip-caption: :bulb:
 :note-caption: :information_source:
 endif::[]
-:repoURL: https://github.com/CS2103-AY1819S1-F10-4/main
+:repoURL: https://github.com/CS2103-AY1819S1-F10-4/main/tree/master
 
 By: `Team CS2103-AY1819S1-F10-4`      Since: `Sep 2018`      Licence: `MIT`
 
@@ -28,7 +28,7 @@ from a single location -- menu, inventory, sales and bookings management!
 == Quick Start
 
 .  Ensure you have Java version `9` or later installed in your Computer.
-.  Download the latest `menus.jar` link:{repoURL}/releases[here].
+.  Download the latest `menus.jar` link:https://github.com/CS2103-AY1819S1-F10-4/main/releases[here].
 .  Copy the file to the folder you want to use as the home folder.
 .  Double-click the file to start the app. The GUI should appear in a few seconds.
 +
@@ -288,19 +288,19 @@ Examples:
 Logs out of the account. +
 Format: `logout`
 
-=== Creating user account: `create-account`
+=== Creating user account: `create-acc`
 
 Creates a new user account with a given role. +
-Format: `create-account id/USERNAME pw/PASSWORD r/ROLE_ID`
+Format: `create-acc id/USERNAME pw/PASSWORD r/ROLE_ID`
 
 Examples:
 
-* `create-account id/azhikai pw/p@55w0rd r/0`
+* `create-acc id/azhikai pw/p@55w0rd r/0`
 
-=== Editing user account: `edit-account`
+=== Editing user account: `edit-acc`
 
 Edits an existing user account. +
-Format: `edit-account id/USERNAME [nid/NEW_USERNAME] [pw/NEW_PASSWORD] [r/NEW_ROLE_ID]`
+Format: `edit-acc id/USERNAME [nid/NEW_USERNAME] [pw/NEW_PASSWORD] [r/NEW_ROLE_ID]`
 
 ****
 * The account's data will remain intact if none of the optional fields are provided.
@@ -308,25 +308,25 @@ Format: `edit-account id/USERNAME [nid/NEW_USERNAME] [pw/NEW_PASSWORD] [r/NEW_RO
 
 Examples:
 
-* `edit-account id/azhikai`
+* `edit-acc id/azhikai`
 ** Nothing happens in this case.
-* `edit-account id/azhikai nid/angzhikai`
-* `edit-account id/azhikai nid/angzhikai pw/n3wp@55w0rd`
-* `edit-account id/azhikai r/1`
+* `edit-acc id/azhikai nid/angzhikai`
+* `edit-acc id/azhikai nid/angzhikai pw/n3wp@55w0rd`
+* `edit-acc id/azhikai r/1`
 
-=== Deleting user account: `delete-account`
+=== Deleting user account: `delete-acc`
 
 Deletes an existing user account. +
-Format: `delete-account id/USERNAME `
+Format: `delete-acc id/USERNAME `
 
 Examples:
 
-* `delete-account id/azhikai`
+* `delete-acc id/azhikai`
 
-=== List all user accounts: `list-account`
+=== List all user accounts: `list-acc`
 
 List all existing user accounts. +
-Format: `list-account`
+Format: `list-acc`
 
 === Creating user role: `create-role`
 
@@ -352,8 +352,6 @@ Examples:
 * `edit-role id/0`
 ** Nothing happens in this case.
 * `edit-role id/0 nid/2 n/Supervisor`
-* `edit-account id/0 nid/1`
-* `edit-account id/0 n/Owner`
 
 === Deleting user role: `delete-role`
 
@@ -725,14 +723,12 @@ Deletes the 2nd reservation in the reservations list.
 
 === Recording daily sales volume of a menu item: `record-sales`
 
-Records the quantity of a menu item sold within the specified day into the day's sales report. +
+Records the quantity of a menu item sold within the specified day into the sales book. +
 Format: `record-sales d/DATE n/ITEM_NAME q/QUANTITY SOLD p/ITEM_PRICE`
 
 ****
-* Appends the above record onto the sales report for the day.
-* A sales report will automatically be created if the day does not have one.
-* DATE must be written in the DD/MM/YYYY format.
-* ITEM_NAME must be unique in the sales report for the selected day.
+* DATE must be written in the DD-MM-YYYY format.
+* Both DATE and ITEM_NAME cannot be same as another record in the sales book.
 ****
 
 Examples:
@@ -748,7 +744,7 @@ Displays the sales report for the specified day. +
 Format: `display-sales DATE`
 
 ****
-* DATE must be written in the DD/MM/YYYY format.
+* DATE must be written in the DD-MM-YYYY format.
 ****
 
 Examples:
@@ -759,60 +755,55 @@ Displays the sales report for all days. +
 Displays the sales report dated 25-09-2018.
 
 
-=== Deleting a sales record / report: `delete-sales`
+=== Deleting a sales record: `delete-sales`
 
-Deletes a menu item's sales record in the sales report for the specified day. +
-Format: `delete-sales DATE ITEM_NAME` / `delete-sales DATE ITEM_INDEX` +
-OR +
-Deletes the entire sales report for the specified day. +
-Format: `delete-sales DATE`
+Deletes the sales record with the specified date and item name. +
+Format: `delete-sales DATE ITEM_NAME` / `delete-sales ITEM_INDEX`
 
 ****
 * Deletes the record at the specified `ITEM_INDEX`.
-* The item index refers to the index number shown in the sales report for the specified day.
+* The item index refers to the index number shown in the sales book.
 * The index *must be a positive integer* 1, 2, 3, ...
-* Alternatively, deletes the sales record with the specified `ITEM_NAME`.
-* Alternatively, deletes the entire sales report for the specified day by omitting the record identifier.
+* Alternatively, deletes the sales record with the specified `DATE` and `ITEM_NAME`.
 ****
 
 Examples:
 
 * `display-sales` +
-`delete-sales 25-09-2018 2` +
+`delete-sales 2` +
 `display-sales` +
-Deletes the 2nd record from the sales report dated 25-09-2018.
+Deletes the 2nd record from the sales book.
 
 * `delete-sales 10-02-2018 Fried Rice` +
 `display-sales` +
-Deletes the sales record for `Fried Rice` from the sales report dated 10-02-2018.
+Deletes the sales record for `Fried Rice` dated 10-02-2018 from the sales book.
 
-* `delete-sales 23-06-2018` +
-Deletes the entire sales report dated 23-06-2018.
 
 === Editing a sales record: `edit-sales`
 
-Edit a menu item's sales record in the sales report for the specified day. +
-Format: `edit-sales DATE NAME [n/ITEM_NAME] [q/QUANTITY SOLD] [p/ITEM_PRICE]` / `edit-sales DATE INDEX [n/ITEM_NAME]
+Edits the sales record with the specified date and item name. +
+Format: `edit-sales DATE NAME [n/ITEM_NAME] [q/QUANTITY SOLD] [p/ITEM_PRICE]` / `edit-sales INDEX [n/ITEM_NAME]
 [q/QUANTITY SOLD] [p/ITEM_PRICE]`
 
 ****
-* Edits the record at the specified `INDEX`. The index refers to the index number shown in the sales report for the
-specified day. The index *must be a positive integer* 1, 2, 3, ...
+* Edits the record at the specified `INDEX`. The index refers to the index number shown in the sales book.
+* The index *must be a positive integer* 1, 2, 3, ...
 * At least one of the optional fields must be provided.
 * Existing values will be updated to the input values.
-* Alternatively, edits the sales record with the specified `NAME`.
+* Alternatively, edits the sales record with the specified `DATE` and `NAME`.
 ****
 
 Examples:
 
 * `edit-sales 23-06-2018 Fried Rice n/Fried Rice with Shrimps` +
-In the sales report dated 23-06-2018, edits the name of "Fried Rice" to be "Fried Rice with Shrimps".
+In the sales record of "Fried Rice" dated 23-06-2018, edits its name to be "Fried Rice with Shrimps".
 
 * `edit-sales 12-02-2018 Pasta q/37 p/6.50`  +
-In the sales report dated 12-02-2018, edits the quantity sold and price of "Pasta" to be 37 and 6.50 respectively.
+In the sales record of "Pasta" dated 12-02-2018, edits its quantity sold and price to be 37 and 6.50
+respectively.
 
-* `edit-sales 01-01-2018 3 n/Fried Omelet`  +
-In the sales report dated 01-01-2018, edits the menu item's name of the 3rd record to be "Fried Omelet".
+* `edit-sales 3 n/Fried Omelet`  +
+In the 3rd record in the sales book, edits the menu item's name to be "Fried Omelet".
 
 === Checking sales history of a menu item: `check-sales`
 
@@ -859,10 +850,10 @@ e.g.`select 2`
 * *Redo* : `redo`
 * *Logging in*: `login id/USERNAME pw/PASSWORD`
 * *Logging out*: `logout`
-* *Creating user account*: `create-account id/USERNAME pw/PASSWORD r/ROLE_ID`
-* *Editing user account*: `edit-account id/USERNAME [nid/NEW_USERNAME] [pw/NEW_PASSWORD] [r/NEW_ROLE_ID]`
-* *Deleting user account*: `delete-account id/USERNAME`
-* *Listing user accounts*: `list-account`
+* *Creating user account*: `create-acc id/USERNAME pw/PASSWORD r/ROLE_ID`
+* *Editing user account*: `edit-acc id/USERNAME [nid/NEW_USERNAME] [pw/NEW_PASSWORD] [r/NEW_ROLE_ID]`
+* *Deleting user account*: `delete-acc id/USERNAME`
+* *Listing user accounts*: `list-acc`
 * *Creating user role*: `create-role id/ROLE_ID n/ROLE_NAME`
 * *Editing user role*: `edit-role id/ROLE_ID [nid/NEW_ROLE_ID] [n/NEW_ROLE_NAME]`
 * *Deleting user role*: `delete-role id/ROLE_ID`
@@ -915,13 +906,11 @@ e.g. `delete-reservations 2`
 e.g. `record-sales d/25-09-2018 n/Fried Rice q/35 p/5.50`
 * *Display sales report for all / specific day* : `display-sales` or `display-sales DATE` +
 e.g. `display-sales` or `display-sales 25-09-2018`
-* *Delete sales record* : `delete-sales DATE ITEM_NAME` or `delete-sales DATE ITEM_INDEX` +
-e.g. `delete-sales 10-02-2018 Fried Rice` or `delete-sales 25-09-2018 2`
-* *Delete sales report* : `delete-sales DATE` +
-e.g. `delete-sales 23-06-2018`
-* *Edit sales record* : `edit-sales DATE NAME [n/ITEM_NAME] [q/QUANTITY SOLD] [p/ITEM_PRICE]` or `edit-sales DATE
+* *Delete sales record* : `delete-sales DATE ITEM_NAME` or `delete-sales ITEM_INDEX` +
+e.g. `delete-sales 10-02-2018 Fried Rice` or `delete-sales 2`
+* *Edit sales record* : `edit-sales DATE NAME [n/ITEM_NAME] [q/QUANTITY SOLD] [p/ITEM_PRICE]` or `edit-sales
 INDEX [n/ITEM_NAME] [q/QUANTITY SOLD] [p/ITEM_PRICE]` +
-e.g. `edit-sales 12-02-2018 Pasta q/37 p/6.50` or `edit-sales 01-01-2018 3 n/Fried Omelet`
+e.g. `edit-sales 12-02-2018 Pasta q/37 p/6.50` or `edit-sales 3 n/Fried Omelet`
 * *Check sales history of menu item* : `check-sales ITEM_NAME` +
 e.g. `check-sales Fried Rice`
 * *Rank menu items according to profitability* : `rank-dish` +

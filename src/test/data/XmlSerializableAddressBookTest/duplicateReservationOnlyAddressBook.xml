@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<addressbook>
+
+    <reservations>
+        <name>Jeeves</name>
+        <pax isPrivate="false">4</pax>
+        <dateTime isPrivate="false">2018-11-03T10:15:00</dateTime>
+        <remark isPrivate="false">Some remarks</remark>
+    </reservations>
+
+    <!-- Person with same identity as Jeeves -->
+    <reservations>
+        <name>Jeeves</name>
+        <pax isPrivate="false">4</pax>
+        <dateTime isPrivate="false">2018-11-03T10:15:00</dateTime>
+        <remark isPrivate="false">Some remarks</remark>
+    </reservations>
+
+</addressbook>

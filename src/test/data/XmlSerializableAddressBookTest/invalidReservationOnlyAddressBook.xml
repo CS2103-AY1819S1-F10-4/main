@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<addressbook>
+    <!-- Reservation with invalid pax field -->
+    <reservations>
+        <name>Jeeves</name>
+        <pax isPrivate="false">7.j!</pax>
+        <dateTime isPrivate="false">2018-11-03T10:15:00</dateTime>
+        <remark isPrivate="false">Some remarks</remark>
+    </reservations>
+</addressbook>

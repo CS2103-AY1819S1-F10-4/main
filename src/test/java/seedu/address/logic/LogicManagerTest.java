@@ -52,6 +52,30 @@ public class LogicManagerTest {
         logic.getFilteredPersonList().remove(0);
     }
 
+    @Test
+    public void getFilteredRecordList_modifyList_throwsUnsupportedOperationException() {
+        thrown.expect(UnsupportedOperationException.class);
+        logic.getFilteredRecordList().remove(0);
+    }
+
+    @Test
+    public void getFilteredAccountList_modifyList_throwsUnsupportedOperationException() {
+        thrown.expect(UnsupportedOperationException.class);
+        logic.getFilteredAccountList().remove(0);
+    }
+
+    @Test
+    public void getFilteredIngredientList_modifyList_throwsUnsupportedOperationException() {
+        thrown.expect(UnsupportedOperationException.class);
+        logic.getFilteredIngredientList().remove(0);
+    }
+
+    @Test
+    public void getFilteredItemList_modifyList_throwsUnsupportedOperationException() {
+        thrown.expect(UnsupportedOperationException.class);
+        logic.getFilteredItemList().remove(0);
+    }
+
     /**
      * Executes the command, confirms that no exceptions are thrown and that the result message is correct.
      * Also confirms that {@code expectedModel} is as specified.
@@ -94,7 +118,6 @@ public class LogicManagerTest {
      */
     private void assertCommandBehavior(Class<?> expectedException, String inputCommand,
                                            String expectedMessage, Model expectedModel) {
-
         try {
             CommandResult result = logic.execute(inputCommand);
             assertEquals(expectedException, null);
@@ -103,7 +126,6 @@ public class LogicManagerTest {
             assertEquals(expectedException, e.getClass());
             assertEquals(expectedMessage, e.getMessage());
         }
-
         assertEquals(expectedModel, model);
     }
 

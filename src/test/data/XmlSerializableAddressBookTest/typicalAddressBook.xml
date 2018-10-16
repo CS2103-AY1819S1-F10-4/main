@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<!-- AddressBook save file which contains the same Person values as in TypicalPersons#getTypicalAddressBook() -->
+<addressbook>
+  <persons>
+    <name>Alice Pauline</name>
+    <phone>94351253</phone>
+    <email>alice@example.com</email>
+    <address>123, Jurong West Ave 6, #08-111</address>
+    <remark></remark>
+    <tagged>friends</tagged>
+  </persons>
+
+  <persons>
+    <name>Benson Meier</name>
+    <phone>98765432</phone>
+    <email>johnd@example.com</email>
+    <address>311, Clementi Ave 2, #02-25</address>
+    <remark></remark>
+    <tagged>owesMoney</tagged>
+    <tagged>friends</tagged>
+  </persons>
+  <persons>
+    <name>Carl Kurz</name>
+    <phone>95352563</phone>
+    <email>heinz@example.com</email>
+    <address>wall street</address>
+    <remark></remark>
+  </persons>
+  <persons>
+    <name>Daniel Meier</name>
+    <phone>87652533</phone>
+    <email>cornelia@example.com</email>
+    <address>10th street</address>
+    <remark></remark>
+    <tagged>friends</tagged>
+  </persons>
+  <persons>
+    <name>Elle Meyer</name>
+    <phone>9482224</phone>
+    <email>werner@example.com</email>
+    <address>michegan ave</address>
+    <remark></remark>
+  </persons>
+  <persons>
+    <name>Fiona Kunz</name>
+    <phone>9482427</phone>
+    <email>lydia@example.com</email>
+    <address>little tokyo</address>
+    <remark></remark>
+  </persons>
+  <persons>
+    <name>George Best</name>
+    <phone>9482442</phone>
+    <email>anna@example.com</email>
+    <address>4th street</address>
+    <remark></remark>
+  </persons>
+  <accounts>
+    <username>azhikai</username>
+    <password>1122qq!@#</password>
+  </accounts>
+  <accounts>
+    <username>demo1</username>
+    <password>1122qq</password>
+  </accounts>
+  <accounts>
+    <username>demo2</username>
+    <password>22qqww</password>
+  </accounts>
+  <ingredients>
+    <name>Mexican Avocado</name>
+    <unit>kilogram</unit>
+    <price>6.00</price>
+    <minimum>1</minimum>
+    <numUnits>0</numUnits>
+  </ingredients>
+  <ingredients>
+      <name>Baked Beans</name>
+      <unit>200-gram can</unit>
+      <price>0.80</price>
+      <minimum>10</minimum>
+      <numUnits>0</numUnits>
+  </ingredients>
+  <ingredients>
+    <name>Chinese Cabbage</name>
+    <unit>500 grams</unit>
+    <price>5.50</price>
+    <minimum>10</minimum>
+    <numUnits>0</numUnits>
+  </ingredients>
+  <ingredients>
+    <name>Duck Drumstick</name>
+    <unit>50 grams</unit>
+    <price>3.20</price>
+    <minimum>20</minimum>
+    <numUnits>0</numUnits>
+  </ingredients>
+  <ingredients>
+    <name>Chicken Egg</name>
+    <unit>carton of 30</unit>
+    <price>3.80</price>
+    <minimum>5</minimum>
+    <numUnits>0</numUnits>
+  </ingredients>
+  <ingredients>
+    <name>White Promfret</name>
+    <unit>kilogram</unit>
+    <price>14.00</price>
+    <minimum>8</minimum>
+    <numUnits>0</numUnits>
+  </ingredients>
+  <ingredients>
+    <name>Garlic Cloves</name>
+    <unit>500 gram bag</unit>
+    <price>2.40</price>
+    <minimum>3</minimum>
+    <numUnits>0</numUnits>
+  </ingredients>
+  <records>
+    <date>25-09-2018</date>
+    <itemName>Fried Rice</itemName>
+    <quantitySold>35</quantitySold>
+    <price>5.50</price>
+  </records>
+  <records>
+    <date>28-02-2018</date>
+    <itemName>Cheese Pizza</itemName>
+    <quantitySold>100</quantitySold>
+    <price>18.50</price>
+  </records>
+  <records>
+    <date>11-11-2011</date>
+    <itemName>Pasta</itemName>
+    <quantitySold>87</quantitySold>
+    <price>7.99</price>
+  </records>
+</addressbook>
