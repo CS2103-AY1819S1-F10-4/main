@@ -26,7 +26,7 @@ public interface Model {
     Predicate<Account> PREDICATE_SHOW_ALL_ACCOUNTS = unused -> true;
     Predicate<Ingredient> PREDICATE_SHOW_ALL_INGREDIENTS = unused -> true;
     Predicate<Item> PREDICATE_SHOW_ALL_ITEMS = unused -> true;
-    Predicate<Person> PREDICATE_SHOW_ALL_RESERVATIONS = unused -> true;
+    Predicate<Reservation> PREDICATE_SHOW_ALL_RESERVATIONS = unused -> true;
     Predicate<SalesRecord> PREDICATE_SHOW_ALL_RECORDS = unused -> true;
 
     /**
