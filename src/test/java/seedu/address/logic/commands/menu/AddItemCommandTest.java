@@ -25,7 +25,9 @@ import seedu.address.model.ingredient.Ingredient;
 import seedu.address.model.menu.Item;
 import seedu.address.model.person.Person;
 import seedu.address.model.reservation.Reservation;
+import seedu.address.model.salesrecord.Date;
 import seedu.address.model.salesrecord.SalesRecord;
+import seedu.address.model.salesrecord.SalesReport;
 import seedu.address.model.tag.Tag;
 import seedu.address.testutil.menu.ItemBuilder;
 
@@ -217,6 +219,11 @@ public class AddItemCommandTest {
         }
 
         @Override
+        public SalesReport getSalesReport(Date date) {
+            throw new AssertionError("This method should not be called.");
+        }
+
+        @Override
         public ObservableList<SalesRecord> getFilteredRecordList() {
             throw new AssertionError("This method should not be called.");
         }
@@ -323,7 +330,6 @@ public class AddItemCommandTest {
             throw new AssertionError("This method should not be called.");
         }
 
-        @Override
         public ObservableList<Ingredient> getFilteredIngredientList() {
             throw new AssertionError("This method should not be called.");
         }

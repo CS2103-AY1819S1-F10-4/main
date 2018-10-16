@@ -9,7 +9,9 @@ import seedu.address.model.ingredient.Ingredient;
 import seedu.address.model.menu.Item;
 import seedu.address.model.person.Person;
 import seedu.address.model.reservation.Reservation;
+import seedu.address.model.salesrecord.Date;
 import seedu.address.model.salesrecord.SalesRecord;
+import seedu.address.model.salesrecord.SalesReport;
 import seedu.address.model.tag.Tag;
 
 /**
@@ -107,6 +109,9 @@ public interface Model {
      * book.
      */
     void updateRecord(SalesRecord target, SalesRecord editedRecord);
+
+    /** Returns the sales report of the specified date. */
+    SalesReport getSalesReport(Date date);
 
     /**
      * Returns an unmodifiable view of the filtered record list

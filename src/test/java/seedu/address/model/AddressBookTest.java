@@ -244,6 +244,11 @@ public class AddressBookTest {
         thrown.expect(UnsupportedOperationException.class);
         addressBook.getRecordList().remove(0);
     }
+    @Test
+    public void getSalesReport_nullDate_throwsNullPointerException() {
+        thrown.expect(NullPointerException.class);
+        addressBook.getSalesReport(null);
+    }
 
     @Test
     public void resetData_withDuplicateAccountsWithPersonsAndRecords_throwsDuplicateAccountException() {

@@ -11,9 +11,11 @@ import guitests.guihandles.PersonListPanelHandle;
 import guitests.guihandles.ResultDisplayHandle;
 import guitests.guihandles.menu.ItemCardHandle;
 import guitests.guihandles.reservation.ReservationCardHandle;
+import guitests.guihandles.sales.RecordCardHandle;
 import seedu.address.model.menu.Item;
 import seedu.address.model.person.Person;
 import seedu.address.model.reservation.Reservation;
+import seedu.address.model.salesrecord.SalesRecord;
 
 /**
  * A set of assertion methods useful for writing GUI tests.
@@ -47,6 +49,27 @@ public class GuiTestAssert {
         assertEquals(expectedPerson.getRemark().value, actualCard.getRemark());
         assertEquals(expectedPerson.getTags().stream().map(tag -> tag.tagName).collect(Collectors.toList()),
                 actualCard.getTags());
+    }
+
+    /**
+     * Asserts that {@code actualCard} displays the same values as {@code expectedCard}.
+     */
+    public static void assertRecordCardEquals(RecordCardHandle expectedCard, RecordCardHandle actualCard) {
+        assertEquals(expectedCard.getId(), actualCard.getId());
+        assertEquals(expectedCard.getDate(), actualCard.getDate());
+        assertEquals(expectedCard.getItemName(), actualCard.getItemName());
+        assertEquals(expectedCard.getQuantitySold(), actualCard.getQuantitySold());
+        assertEquals(expectedCard.getPrice(), actualCard.getPrice());
+    }
+
+    /**
+     * Asserts that {@code actualCard} displays the details of {@code expectedRecord}.
+     */
+    public static void assertCardDisplaysRecord(SalesRecord expectedRecord, RecordCardHandle actualCard) {
+        assertEquals(expectedRecord.getDate().toString(), actualCard.getDate());
+        assertEquals(expectedRecord.getName().toString(), actualCard.getItemName());
+        assertEquals("Quantity Sold: " + expectedRecord.getQuantitySold().toString(), actualCard.getQuantitySold());
+        assertEquals("Item Price: $" + expectedRecord.getPrice().toString(), actualCard.getPrice());
     }
 
     /**

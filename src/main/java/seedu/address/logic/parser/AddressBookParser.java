@@ -32,7 +32,8 @@ import seedu.address.logic.commands.menu.EditItemCommand;
 import seedu.address.logic.commands.menu.ListItemsCommand;
 import seedu.address.logic.commands.menu.SelectItemCommand;
 import seedu.address.logic.commands.reservation.AddReservationCommand;
-import seedu.address.logic.commands.salescommands.RecordSalesCommand;
+import seedu.address.logic.commands.sales.DisplaySalesCommand;
+import seedu.address.logic.commands.sales.RecordSalesCommand;
 import seedu.address.logic.parser.accounts.RegisterCommandParser;
 import seedu.address.logic.parser.exceptions.ParseException;
 import seedu.address.logic.parser.ingredients.AddIngredientCommandParser;
@@ -43,7 +44,8 @@ import seedu.address.logic.parser.menu.DeleteItemCommandParser;
 import seedu.address.logic.parser.menu.EditItemCommandParser;
 import seedu.address.logic.parser.menu.SelectItemCommandParser;
 import seedu.address.logic.parser.reservation.AddReservationCommandParser;
-import seedu.address.logic.parser.salescommandsparser.RecordSalesCommandParser;
+import seedu.address.logic.parser.sales.DisplaySalesCommandParser;
+import seedu.address.logic.parser.sales.RecordSalesCommandParser;
 
 
 /**
@@ -123,6 +125,9 @@ public class AddressBookParser {
 
         case RecordSalesCommand.COMMAND_WORD:
             return new RecordSalesCommandParser().parse(arguments);
+
+        case DisplaySalesCommand.COMMAND_WORD:
+            return new DisplaySalesCommandParser().parse(arguments);
 
         case RegisterCommand.COMMAND_WORD:
         case RegisterCommand.COMMAND_ALIAS:
