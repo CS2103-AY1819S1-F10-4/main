@@ -24,6 +24,10 @@ public class Price {
         value = Float.parseFloat(price);
     }
 
+    public float getValue() {
+        return value;
+    }
+
     /**
      * Returns true if a given string is a valid price.
      */

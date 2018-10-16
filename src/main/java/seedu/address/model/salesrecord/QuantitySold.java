@@ -26,6 +26,10 @@ public class QuantitySold {
         value = Integer.parseInt(quantitySold);
     }
 
+    public int getValue() {
+        return value;
+    }
+
     /**
      * Returns true if a given string is a valid positive integer.
      */

@@ -6,6 +6,7 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
 import static seedu.address.testutil.salesrecords.TypicalRecords.RECORD_DEFAULT;
 import static seedu.address.testutil.salesrecords.TypicalRecords.RECORD_ONE;
 import static seedu.address.testutil.salesrecords.TypicalRecords.RECORD_THREE;
+import static seedu.address.testutil.salesrecords.TypicalRecords.RECORD_TWO;
 
 import java.util.Arrays;
 import java.util.Collections;
@@ -15,8 +16,12 @@ import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import seedu.address.model.salesrecord.exceptions.DuplicateRecordException;
 import seedu.address.model.salesrecord.exceptions.SalesRecordNotFoundException;
+import seedu.address.testutil.salesrecords.RecordBuilder;
+import seedu.address.testutil.salesrecords.ReportBuilder;
 
 public class UniqueRecordListTest {
     @Rule
@@ -133,6 +138,22 @@ public class UniqueRecordListTest {
         thrown.expect(UnsupportedOperationException.class);
         uniqueRecordList.asUnmodifiableObservableList().remove(0);
     }
+
+    @Test
+    public void generateSalesReport_returnsSalesReport() {
+        uniqueRecordList.add(RECORD_DEFAULT);
+        SalesRecord recordWithDefaultDate =
+                new RecordBuilder(RECORD_ONE).withDate(RECORD_DEFAULT.getDate().toString()).build();
+        uniqueRecordList.add(recordWithDefaultDate);
+        uniqueRecordList.add(RECORD_TWO);
+        SalesReport report = uniqueRecordList.generateSalesReport(RECORD_DEFAULT.getDate());
+
+        ObservableList<SalesRecord> recordList = FXCollections.observableArrayList();
+        recordList.add(RECORD_DEFAULT);
+        recordList.add(recordWithDefaultDate);
+        assertEquals(new ReportBuilder(RECORD_DEFAULT.getDate(), recordList).build(), report);
+    }
+
     @Test
     public void equals_sameObject_returnsTrue() {
         uniqueRecordList.add(RECORD_DEFAULT);

@@ -17,6 +17,7 @@ public class SalesRecord {
     // Data fields
     private final QuantitySold quantitySold;
     private final Price price;
+    private final double revenue;
 
     /**
      * Every field must be present and not null.
@@ -27,6 +28,7 @@ public class SalesRecord {
         this.name = name;
         this.quantitySold = quantitySold;
         this.price = price;
+        this.revenue = quantitySold.getValue() * price.getValue();
     }
 
     public Date getDate() {
@@ -43,6 +45,10 @@ public class SalesRecord {
 
     public Price getPrice() {
         return price;
+    }
+
+    public double getRevenue() {
+        return revenue;
     }
 
     /**
@@ -76,13 +82,14 @@ public class SalesRecord {
         return otherRecord.getDate().equals(getDate())
                 && otherRecord.getName().equals(getName())
                 && otherRecord.getQuantitySold().equals(getQuantitySold())
-                && otherRecord.getPrice().equals(getPrice());
+                && otherRecord.getPrice().equals(getPrice())
+                && otherRecord.getRevenue() == getRevenue();
     }
 
     @Override
     public int hashCode() {
         // use this method for custom fields hashing instead of implementing your own
-        return Objects.hash(date, name, quantitySold, price);
+        return Objects.hash(date, name, quantitySold, price, revenue);
     }
 
     @Override

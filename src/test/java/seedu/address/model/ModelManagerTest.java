@@ -183,6 +183,11 @@ public class ModelManagerTest {
         assertFalse(modelManager.hasRecord(RECORD_DEFAULT));
         assertTrue(modelManager.hasRecord(record));
     }
+    @Test
+    public void getSalesReport_nullDate_throwsNullPointerException() {
+        thrown.expect(NullPointerException.class);
+        modelManager.getSalesReport(null);
+    }
 
     @Test
     public void hasAccount_nullAccount_throwsNullPointerException() {

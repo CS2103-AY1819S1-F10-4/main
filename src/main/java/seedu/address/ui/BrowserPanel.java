@@ -14,8 +14,10 @@ import seedu.address.MainApp;
 import seedu.address.commons.core.LogsCenter;
 import seedu.address.commons.events.ui.ItemPanelSelectionChangedEvent;
 import seedu.address.commons.events.ui.PersonPanelSelectionChangedEvent;
+import seedu.address.commons.events.ui.RecordPanelSelectionChangedEvent;
 import seedu.address.model.menu.Item;
 import seedu.address.model.person.Person;
+import seedu.address.model.salesrecord.SalesRecord;
 
 /**
  * The Browser Panel of the App.
@@ -52,6 +54,10 @@ public class BrowserPanel extends UiPart<Region> {
         loadPage(SEARCH_PAGE_URL + item.getName().fullName);
     }
 
+    private void loadSalesRecordPage(SalesRecord salesRecord) {
+        loadPage(SEARCH_PAGE_URL + salesRecord.getName().toString());
+    }
+
     public void loadPage(String url) {
         Platform.runLater(() -> browser.getEngine().load(url));
     }
@@ -81,5 +87,11 @@ public class BrowserPanel extends UiPart<Region> {
     private void handleItemPanelSelectionChangedEvent(ItemPanelSelectionChangedEvent event) {
         logger.info(LogsCenter.getEventHandlingLogMessage(event));
         loadItemPage(event.getNewSelection());
+    }
+
+    @Subscribe
+    private void handleSalesRecordPanelSelectionChangedEvent(RecordPanelSelectionChangedEvent event) {
+        logger.info(LogsCenter.getEventHandlingLogMessage(event));
+        loadSalesRecordPage(event.getNewSelection());
     }
 }
