@@ -379,7 +379,7 @@ public class ModelManager extends ComponentManager implements Model {
     @Override
     public void addReservation(Reservation reservation) {
         versionedAddressBook.addReservation(reservation);
-        updateFilteredPersonList(PREDICATE_SHOW_ALL_RESERVATIONS);
+        updateFilteredReservationList(PREDICATE_SHOW_ALL_RESERVATIONS);
         indicateAddressBookChanged();
     }
 
