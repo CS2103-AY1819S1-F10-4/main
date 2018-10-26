@@ -7,6 +7,8 @@ https://travis-ci.org/CS2103-AY1819S1-F10-4/main[image:https://travis-ci.org/CS2
 https://ci.appveyor.com/project/AZhiKai/main-j2jk6[image:https://ci.appveyor.com/api/projects/status/5kwkxt5khmfo0q31/branch/master?svg=true[Build status]]
 https://coveralls.io/github/CS2103-AY1819S1-F10-4/main?branch=master[image:https://coveralls.io/repos/github/CS2103-AY1819S1-F10-4/main/badge.svg?branch=master[Coverage Status]]
 https://www.codacy.com/app/AZhiKai/organisation_main?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=CS2103-AY1819S1-F10-4/main&amp;utm_campaign=Badge_Grade[image:https://api.codacy.com/project/badge/Grade/299f6df960044215a511a90d281af954[Codacy code quality]]
+https://github.com/CS2103-AY1819S1-F10-4/main[image:https://img.shields.io/badge/team-F10%204-blue.svg[Team F10-4]]
+
 
 ifdef::env-github[]
 image::docs/images/Ui.png[width="600"]

@@ -11,26 +11,45 @@
 ifdef::env-github[]
 :tip-caption: :bulb:
 :note-caption: :information_source:
+:warning-caption: :warning:
 endif::[]
 :repoURL: https://github.com/CS2103-AY1819S1-F10-4/main/tree/master
+:toclevels: 3
 
 By: `Team CS2103-AY1819S1-F10-4`      Since: `Sep 2018`      Licence: `MIT`
 
-== Introduction
+// tag::intro[]
+== Welcome to MeNUS
 link:{repoURL}[MeNUS] empowers you to improve the Management(M) and efficiency(e) of your restaurants in NUS.
 
-As long as you feel like your restaurants are using too many overcomplicated and expensive systems,
-link:{repoURL}[MeNUS] is here for you!
+As long as you feel like your restaurants are using too many complex and expensive systems,
+link:{repoURL}[MeNUS] is here to help you!
 
 
 Introducing link:{repoURL}[MeNUS], a revolutionary restaurant management desktop application that is *optimized for
-users who prefer to work with a Command Line Interface (CLI) while still having
-the benefits of a Graphical User Interface (GUI)*. If you can type fast, MeNUS allows you to manage aspects of your
-eatery -- menu, ingredient, sales and reservations management -- all from a single location !
+users who prefer to work with a Command Line Interface (CLI) while still having the benefits of a Graphical User
+Interface (GUI)*. If you can type fast, link:{repoURL}[MeNUS] allows you to manage aspects of your restaurants -- staff accounts,
+menus, ingredient, sales and reservations management -- all from a single location !
+
+=== Legends
+The following *3* legends will be used throughout the documentation which you may wish to pay attention to as it may
+contain important details:
+
+[NOTE]
+Just for your info, do not be alarmed!
+
+[TIP]
+Perhaps something can be done using another approach, but it is up to you to decide.
+
+[WARNING]
+Some things might go wrong if you are not careful, or did not follow the instructions correctly; strongly advised to
+read whatever is in this block.
 
 Let's get started!
+// end::intro[]
 
 == Quick Start
+Follow this installation guide to get *MeNUS* up and running on your computer.
 
 .  Ensure you have Java version `9` or later installed in your Computer.
 
@@ -49,11 +68,10 @@ image::Ui.png[width="790"]
 .  Type the command in the command box and press kbd:[Enter] to execute it. +
 e.g. typing *`help`* and pressing kbd:[Enter] will open the help window.
 .  Some example commands you can try:
-* * `login id/root pw/root` : logs into the root account
-* *`list`* : lists all contacts
-* **`add`**`n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01` : adds a contact named `John Doe` to the Address Book.
-* **`delete`**`3` : deletes the 3rd contact shown in the current list
-* *`exit`* : exits the app
+* **`help`** : Opens up the help page
+* **`login`**`id/root pw/1122qq` : Logs in to the root account
+* **`add-item`**`n/Apple p/2.00 t/fruit` : Creates a new item in the menu
+* *`exit`* : Exits the application
 
 .  Refer to <<Commands>> for details of each command.
 
@@ -80,8 +98,8 @@ sales report for a specific day.
 [[Features]]
 == Key Features
 === Convenience
-MeNUS is an ultimate All-In-One application that will provide you with the utmost convenience you need to manage your
-restaurants in NUS.
+*MeNUS* is an integrated application that will provide you with the utmost convenience and tools you will need to
+manage your restaurants in NUS.
 
 * Exporting data to `.xml` (default) or Excel file `[coming in v2.0]`.
 
@@ -101,7 +119,10 @@ Time is money. *MeNUS* ensures that the application will:
 
 [[Commands]]
 == Commands
+*MeNUS* is jam-packed with features and it may be daunting for new users. The subsequent sections of the user guide
+provides a step by step walk-through of all the commands *MeNUS* has to offer.
 
+Do read our short explanation about Command Format below so that the subsequent portions of this section will make sense to you.
 ====
 *Command Format*
 
@@ -111,149 +132,49 @@ Time is money. *MeNUS* ensures that the application will:
 * Parameters can be in any order e.g. if the command specifies `n/NAME p/PHONE_NUMBER`, `p/PHONE_NUMBER n/NAME` is also acceptable.
 ====
 
-=== Viewing help : `help`
+=== General
+The commands in this section does not tie to any of the 5 components.
 
-Format: `help`
+==== Viewing help : `help` or `h`
+Opens up the help window. Very useful if you are a new user. +
+Format: `help` or `h`
 
-=== Adding a person: `add` or `a`
-
-Adds a person to the address book +
-Format: `add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [t/TAG]...`
-
-[TIP]
-A person can have any number of tags (including 0)
-
-Examples:
-
-* `add n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01`
-* `add n/Betsy Crowe t/friend e/betsycrowe@example.com a/Newgate Prison p/1234567 t/criminal`
-
-=== Listing all persons : `list` or `l`
-
-Shows a list of all persons in the address book. +
-Format: `list`
-
-=== Editing a person : `edit` or `e`
-
-Edits an existing person in the address book. +
-Format: `edit INDEX [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [t/TAG]...`
-
-****
-* Edits the person at the specified `INDEX`. The index refers to the index number shown in the displayed person list. The index *must be a positive integer* 1, 2, 3, ...
-* At least one of the optional fields must be provided.
-* Existing values will be updated to the input values.
-* When editing tags, the existing tags of the person will be removed i.e adding of tags is not cumulative.
-* You can remove all the person's tags by typing `t/` without specifying any tags after it.
-****
-
-Examples:
-
-* `edit 1 p/91234567 e/johndoe@example.com` +
-Edits the phone number and email address of the 1st person to be `91234567` and `johndoe@example.com` respectively.
-* `edit 2 n/Betsy Crower t/` +
-Edits the name of the 2nd person to be `Betsy Crower` and clears all existing tags.
-
-=== Locating persons by name: `find` or `f`
-
-Finds persons whose names contain any of the given keywords. +
-Format: `find KEYWORD [MORE_KEYWORDS]`
-
-****
-* The search is case insensitive. e.g `hans` will match `Hans`
-* The order of the keywords does not matter. e.g. `Hans Bo` will match `Bo Hans`
-* Only the name is searched.
-* Only full words will be matched e.g. `Han` will not match `Hans`
-* Persons matching at least one keyword will be returned (i.e. `OR` search). e.g. `Hans Bo` will return `Hans Gruber`, `Bo Yang`
-****
-
-Examples:
-
-* `find John` +
-Returns `john` and `John Doe`
-* `find Betsy Tim John` +
-Returns any person having names `Betsy`, `Tim`, or `John`
-
-=== Deleting a person : `delete` or `d`
-
-Deletes the specified person from the address book. +
-Format: `delete INDEX`
-
-****
-* Deletes the person at the specified `INDEX`.
-* The index refers to the index number shown in the displayed person list.
-* The index *must be a positive integer* 1, 2, 3, ...
-****
-
-Examples:
-
-* `list` +
-`delete 2` +
-Deletes the 2nd person in the address book.
-* `find Betsy` +
-`delete 1` +
-Deletes the 1st person in the results of the `find` command.
-
-=== Selecting a person : `select` or `s`
-
-Selects the person identified by the index number used in the displayed person list. +
-Format: `select INDEX`
-
-****
-* Selects the person and loads the Google search page the person at the specified `INDEX`.
-* The index refers to the index number shown in the displayed person list.
-* The index *must be a positive integer* `1, 2, 3, ...`
-****
-
-Examples:
-
-* `list` +
-`select 2` +
-Selects the 2nd person in the address book.
-* `find Betsy` +
-`select 1` +
-Selects the 1st person in the results of the `find` command.
-
-=== Listing entered commands : `history`
-
+==== Listing entered commands : `history` or `hist`
 Lists all the commands that you have entered in reverse chronological order. +
-Format: `history`
-
+Format: `history` or `hist`
 [NOTE]
 ====
 Pressing the kbd:[&uarr;] and kbd:[&darr;] arrows will display the previous and next input respectively in the command box
 ====
 
 // tag::undoredo[]
-=== Undoing previous command : `undo` or `u`
+==== Undoing previous command : `undo` or `u`
 
-Restores the address book to the state before the previous _undoable_ command was executed. +
-Format: `undo`
+Restores the restaurant book to the state before the previous _undoable_ command was executed. +
+Format: `undo` or `u`
 
 [NOTE]
 ====
-Undoable commands: those commands that modify the address book's content (`add`, `delete`, `edit` and `clear`)
+Undoable commands: those commands that modify the restaurant book's contents
 ====
 
 Examples:
 
-* `delete 1` +
-`list` +
-`undo` (reverses the `delete 1` command) +
+* `register id/root pw/1122qq` +
+`undo` (reverses the `register id/root pw/1122qq command) +
 
-* `select 1` +
-`list` +
-`undo` +
+* `undo` +
 The `undo` command fails as there are no undoable commands executed previously.
 
-* `delete 1` +
+* `deregister id/root` +
 `clear` +
 `undo` (reverses the `clear` command) +
-`undo` (reverses the `delete 1` command) +
+`undo` (reverses the `deregister id/root` command) +
 
-=== Redoing the previously undone command : `redo` or `r`
+==== Redoing the previously undone command : `redo` or `r`
 
 Reverses the most recent `undo` command. +
-Format: `redo`
+Format: `redo` or `r`
 
 Examples:
 
@@ -273,49 +194,53 @@ The `redo` command fails as there are no `undo` commands executed previously.
 `redo` (reapplies the `clear` command) +
 // end::undoredo[]
 
-=== Clearing all entries : `clear` or `c`
+==== Clearing all entries : `clear` or `c`
 
-Clears all entries from the address book. +
-Format: `clear`
+Clears all entries from the restaurant book. +
+Format: `clear` or `c`
 
-=== Exiting the program : `exit`
+==== Saving the data
+
+Restaurant book data are saved in the hard disk automatically after any command that changes the data. No manual
+saving is required.
+
+==== Exiting the program : `exit` or `ex`
 
 Exits the program. +
-Format: `exit`
+Format: `exit` or `ex`
 
-=== Saving the data
-
-Address book data are saved in the hard disk automatically after any command that changes the data. +
-There is no need to save manually.
-
-=== Logging in: `login`
+// tag::accountmanagement[]
+=== Accounts Management
+==== Logging in: `login`
 
 Logs into an existing account. +
-Format: `login id/USERNAME pw/PASSWORD` +
+Format: `login id/USERNAME pw/PASSWORD` or `li id/USERNAME pw/PASSWORD` +
 
 Examples:
 
 * `login id/azhikai pw/p@55w0rd`
+* `li id/azhikai pw/p@55w0rd`
 
-=== Logging out: `logout`
+==== Logging out: `logout`
 
 Logs out of the account. +
-Format: `logout`
+Format: `logout` or `lo`
 
-=== Creating user account: `register` or `reg`
+==== Creating user account: `register` or `reg`
 
 Creates a new user account. +
-Format: `register id/USERNAME pw/PASSWORD`
+Format: `register id/USERNAME pw/PASSWORD` or `reg id/USERNAME pw/PASSWORD`
 
 Examples:
 
 * `register id/azhikai pw/p@55w0rd`
 * `reg id/azhikai pw/p@55w0rd`
 
-=== Editing user account: `edit-account` or `ea`
+==== Editing user account: `edit-account` or `ea`
 
 Edits an existing user account. +
-Format: `edit-account id/USERNAME [nid/NEW_USERNAME] [pw/NEW_PASSWORD]`
+Format: `edit-account id/USERNAME [nid/NEW_USERNAME] [pw/NEW_PASSWORD]` or
+`ea id/USERNAME [nid/NEW_USERNAME] [pw/NEW_PASSWORD]`
 
 ****
 * The account's data will remain intact if none of the optional fields are provided.
@@ -329,29 +254,26 @@ Examples:
 * `ea id/azhikai nid/angzhikai`
 * `edit-acc id/azhikai nid/angzhikai pw/n3wp@55w0rd`
 
-=== Deleting user account: `deregister` or `dereg`
+==== Deleting user account: `deregister` or `dereg`
 
 Deletes an existing user account. +
-Format: `deregister id/USERNAME`
+Format: `deregister id/USERNAME` or `dereg id/USERNAME`
 
 Examples:
 
 * `deregister id/azhikai`
 * `dereg id/azhikai`
 
-=== List user accounts: `list-accounts` or `la`
+==== List user accounts: `list-accounts` or `la`
 
 List all user accounts. +
-Format: `list-accounts`
+Format: `list-accounts` or `la`
 
-[IMPORTANT]
+[WARNING]
 ====
 Password is masked by default and should never be shown
 ====
-
-=== User roles `[coming in v2.0]`
-With user role, each user will only be able to execute certain commands, other than the administrator and/or
-restaurant owner who is able to execute all commands.
+// end::accountmanagement[]
 
 === Adding an ingredient: `add-ingredient` or `add-ing`
 
@@ -819,30 +741,58 @@ Format: `rank-item`
 Ranks the dates based on their total revenue for that day. +
 Format: `rank-date`
 
-== FAQ
+=== Upcoming Features
+==== Creating user role `[coming in v2.0]`
+Creates a user role. User assigned with higher ranking role can execute more commands. +
+Format: `create-role r/RANK n/ROLE_NAME` or `cr r/RANK n/ROLE_NAME`
+
+Examples:
+
+* `create-role r/999 n/Owner`
+* `cr id/999 n/Owner`
+* `create-role r/2 n/Supervisor`
+* `create-role r/1 n/Employee`
+
+==== Editing user role `[coming in v2.0]`
+Edits an existing user role. +
+Format: `edit-role r/RANK [nr/NEW_RANK] [n/ROLE_NAME]` or `er r/RANK [nr/NEW_RANK] [n/ROLE_NAME]`
+
+Examples:
+
+* `edit-role r/999 n/Administrator`
+* `er id/999 n/Administrator`
+* `edit-role r/2 nr/3 n/Manager`
+
+==== Deleting user role `[coming in v2.0]`
+Deletes an existing user role. +
+Format: `delete-role r/RANK` or `dr r/RANK`
+
+Examples:
+
+* `delete-role r/999`
+* `dr id/999`
+
+== Frequently Asked Questions (FAQ)
 
 *Q: How do I transfer my data to another Computer?* +
 *A*: Install the application in the other computer and overwrite the empty data file it creates with the file that
 contains the data of your previous *MeNUS* folder.
 
+*Q: Where do I find the latest release of the application?* +
+*A*: You can find all releases link:https://github.com/CS2103-AY1819S1-F10-4/main/releases[here].
+
 == Command Summary
 [width="100%",cols="10%,<45%,<45%",options="header",]
 |=======================================================================
-|Command |Format |Example
+|COMMAND |FORMAT |EXAMPLE
 |*Help* |`help` |`help`
-|*Add* |`add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [t/TAG]...` |`add n/James Ho p/22224444 e/jamesho@example.com a/123, Clementi Rd, 1234665 t/friend t/colleague`
 |*Clear* |`clear` |`clear`
-|*Delete* |`delete INDEX` |`delete 3`
-|*Edit* |`edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [t/TAG]...` |`edit 2 n/James Lee e/jameslee@example.com`
-|*Find* |`find KEYWORD [MORE_KEYWORDS]` |`find James Jake`
-|*List* |`list` |`list`
-|*Select* |`select INDEX` |`select 2`
 |*History* |`history` |`history`
 |*Undo* |`undo` |`undo`
 |*Redo* |`redo` |`redo`
 |*Login* |`login id/USERNAME pw/PASSWORD` |`login id/azhikai pw/1122qq`
 |*Logout* |`logout` |`logout`
-|*Create account* |`register id/USERNAME pw/PASSWORD` |`register id/azhikai pw/1122qq`
+|*Create account* |`register/reg id/USERNAME pw/PASSWORD` |`register id/azhikai pw/1122qq`
 |*Edit account* |`edit-acc id/USERNAME [nid/NEW_USERNAME] [pw/NEW_PASSWORD]` |`edit-acc id/azhikai nid/angzhikai`
 |*Delete account* |`deregister id/USERNAME` |`deregister id/azhikai`
 |*Add ingredient* |`add-ingredient n/INGREDIENT_NAME t/UNIT_TYPE p/PRICE_PER_UNIT m/MINIMUM` |`add-ingredient n/cod fish t/kilogram p/20 m/1`

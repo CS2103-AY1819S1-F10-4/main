@@ -17,8 +17,9 @@ endif::[]
 
 By: `Team CS2103-AY1819S1-F10-4`      Since: `Sep 2018`      Licence: `MIT`
 
-== Introduction
-This Developer Guide is written by the MeNUS v1.4 team for the benefits of future developers and maintainers of the
+// tag::intro[]
+== Welcome to MeNUS
+This Developer Guide is written by the *MeNUS* v1.4 team for the benefits of future developers and maintainers of the
 application.
 
 * This guide includes instructions for setting up the development environment.
@@ -28,11 +29,26 @@ methodology.
 
 * This guide offers advice for troubleshooting some common issues.
 
-MeNUS is an open-source project, should any developers be interested, see the link:{repoURL}/docs/AboutUs.adoc[`Contact
-Us`] page
- for more information.
+*MeNUS* is an open-source project, should any developers be interested to contribute, see the
+link:{repoURL}/docs/AboutUs.adoc[`Contact Us`] page for more information.
+
+=== Legends
+The following *3* legends will be used throughout the documentation which you may wish to pay attention to as it may
+contain important details:
+
+[NOTE]
+Just for your info, do not be alarmed!
+
+[TIP]
+Perhaps something can be done using another approach, but it is up to you to decide.
+
+[WARNING]
+Some things might go wrong if you are not careful, or did not follow the instructions correctly; strongly advised to
+read whatever is in this block.
+// end::intro[]
 
 == Setting up
+Follow this setup guide to get *MeNUS* up and running on your computer.
 
 === Prerequisites
 
@@ -40,13 +56,14 @@ Us`] page
 +
 [WARNING]
 JDK `10` on Windows will fail to run tests in <<UsingGradle#Running-Tests, headless mode>> due to a https://github.com/javafxports/openjdk-jfx/issues/66[JavaFX bug].
-Windows developers are highly recommended to use JDK `9`.
+Windows developers are highly recommended to use JDK `9` which can be downloaded
+https://www.oracle.com/technetwork/java/javase/downloads/java-archive-javase9-3934878.html[here]
 
 . *IntelliJ* IDE
 +
 [NOTE]
 IntelliJ by default has Gradle and JavaFX plugins installed. +
-Do not disable them. If you have disabled them, go to `File` > `Settings` > `Plugins` to re-enable them.
+Do not disable them. If you have disabled them, go to `File` > `Settings` > `Plugins` to re-enable them
 
 
 === Setting up the project in your computer
@@ -62,15 +79,16 @@ Do not disable them. If you have disabled them, go to `File` > `Settings` > `Plu
 . Click `OK` to accept the default settings
 . Open a console and run the command `gradlew processResources` (Mac/Linux: `./gradlew processResources`). It should finish with the `BUILD SUCCESSFUL` message. +
 This will generate all resources required by the application and tests.
-. Open link:{repoURL}/src/main/java/seedu/address/storage/XmlAdaptedPerson.java[`XmlAdaptedPerson.java`] and link:{repoURL}/src/main/java/seedu/address/ui/MainWindow.java[`MainWindow.java`] and check for any code errors
+. Open link:{repoURL}/src/main/java/seedu/address/storage/XmlAdaptedAccount.java[`XmlAdaptedAccount.java`] and
+link:{repoURL}/src/main/java/seedu/address/ui/MainWindow.java[`MainWindow.java`] and check for any code errors
 .. Due to an ongoing https://youtrack.jetbrains.com/issue/IDEA-189060[issue] with some of the newer versions of IntelliJ, code errors may be detected even if the project can be built and run successfully
 .. To resolve this, place your cursor over any of the code section highlighted in red. Press kbd:[ALT + ENTER], and select `Add '--add-modules=...' to module compiler options` for each error
 . Repeat this for the test folder as well (e.g. check link:{repoURL}/src/test/java/seedu/address/commons/util/XmlUtilTest.java[`XmlUtilTest.java`] and link:{repoURL}/src/test/java/seedu/address/ui/HelpWindowTest.java[`HelpWindowTest.java`] for code errors, and if so, resolve it the same way)
 
 === Verifying the setup
 
-. Run the `seedu.address.MainApp` and try a few commands
-. <<Testing,Run the tests>> to ensure they all pass
+. Run the `seedu.address.MainApp` and try a few commands.
+. <<Testing,Run the tests>> to ensure they all pass.
 
 === Configurations to do before writing code
 
@@ -88,16 +106,6 @@ standards]. IntelliJ's default style is mostly compliant with ours but it uses a
 
 Optionally, you can follow the <<UsingCheckstyle#, UsingCheckstyle.adoc>> document to configure Intellij to check style-compliance as you write code.
 
-==== Updating documentation to match your fork
-
-After forking the repo, the documentation will still have the SE-EDU branding and refer to the `se-edu/addressbook-level4` repo.
-
-If you plan to develop this fork as a separate product (i.e. instead of contributing to `se-edu/addressbook-level4`), you should do the following:
-
-. Configure the <<Docs-SiteWideDocSettings, site-wide documentation settings>> in link:{repoURL}/build.gradle[`build.gradle`], such as the `site-name`, to suit your own project.
-
-. Replace the URL in the attribute `repoURL` in link:{repoURL}/docs/DeveloperGuide.adoc[`DeveloperGuide.adoc`] and link:{repoURL}/docs/UserGuide.adoc[`UserGuide.adoc`] with the URL of your fork.
-
 ==== Setting up CI
 
 Set up Travis to perform Continuous Integration (CI) for your fork. See <<UsingTravis#, UsingTravis.adoc>> to learn how to set it up.
@@ -111,6 +119,11 @@ Optionally, you can set up AppVeyor as a second CI (see <<UsingAppVeyor#, UsingA
 
 [NOTE]
 Having both Travis and AppVeyor ensures your App works on both Unix-based platforms and Windows-based platforms (Travis is Unix-based and AppVeyor is Windows-based)
+
+////
+=== Using Git with SourceTree
+We use Git for source control. See UsingGit.adoc if you find any difficulty when using Git.
+////
 
 ==== Getting started with coding
 
@@ -168,7 +181,8 @@ The _Sequence Diagram_ below shows how the components interact for the scenario 
 image::SDforDeletePerson.png[width="800"]
 
 [NOTE]
-Note how the `Model` simply raises a `AddressBookChangedEvent` when the Address Book data are changed, instead of asking the `Storage` to save the updates to the hard disk.
+Note how the `Model` simply raises a `RestaurantBookChangedEvent` when the Restaurant Book data are changed, instead of
+asking the `Storage` to save the updates to the hard disk.
 
 The diagram below shows how the `EventsCenter` reacts to that event, which eventually results in the updates being saved to the hard disk and the status bar of the UI being updated to reflect the 'Last Updated' time.
 
@@ -208,35 +222,31 @@ image::LogicClassDiagram.png[width="800"]
 *API* :
 link:{repoURL}/src/main/java/seedu/address/logic/Logic.java[`Logic.java`]
 
-.  `Logic` uses the `AddressBookParser` class to parse the user command.
+.  `Logic` uses the `RestaurantBookParser` class to parse the user command.
 .  This results in a `Command` object which is executed by the `LogicManager`.
 .  The command execution can affect the `Model` (e.g. adding a person) and/or raise events.
 .  The result of the command execution is encapsulated as a `CommandResult` object which is passed back to the `Ui`.
 
-Given below is the Sequence Diagram for interactions within the `Logic` component for the `execute("delete 1")` API call.
+Given below is the Sequence Diagram for interactions within the `Logic` component for the `execute("register
+id/azhikai pw/1122qq")` API call.
 
 .Interactions Inside the Logic Component for the `delete 1` Command
-image::DeletePersonSdForLogic.png[width="800"]
+image::RegisterAccountSdForLogic.png[width="800"]
 
 [[Design-Model]]
 === Model component
 
 .Structure of the Model Component
-image::ModelClassDiagram.png[width="800"]
+image::ModelClassDiagramNew.png[width="800"]
 
 *API* : link:{repoURL}/src/main/java/seedu/address/model/Model.java[`Model.java`]
 
 The `Model`,
 
 * stores a `UserPref` object that represents the user's preferences.
-* stores the Address Book data.
+* stores the Restaurant Book data.
 * exposes an unmodifiable `ObservableList<Person>` that can be 'observed' e.g. the UI can be bound to this list so that the UI automatically updates when the data in the list change.
 * does not depend on any of the other three components.
-
-[NOTE]
-As a more OOP model, we can store a `Tag` list in `Address Book`, which `Person` can reference. This would allow `Address Book` to only require one `Tag` object per unique `Tag`, instead of each `Person` needing their own `Tag` object. An example of how such a model may look like is given below. +
- +
-image:ModelClassBetterOopDiagram.png[width="800"]
 
 [[Design-Storage]]
 === Storage component
@@ -249,7 +259,7 @@ image::StorageClassDiagram.png[width="800"]
 The `Storage` component,
 
 * can save `UserPref` objects in json format and read it back.
-* can save the Address Book data in xml format and read it back.
+* can save the Restaurant Book data in xml format and read it back.
 
 [[Design-Commons]]
 === Common classes
@@ -264,54 +274,70 @@ This section describes some noteworthy details on how certain features are imple
 === Undo/Redo feature
 ==== Current Implementation
 
-The undo/redo mechanism is facilitated by `VersionedAddressBook`.
-It extends `AddressBook` with an undo/redo history, stored internally as an `addressBookStateList` and `currentStatePointer`.
+The undo/redo mechanism is facilitated by `VersionedRestaurantBook`.
+It extends `RestaurantBook` with an undo/redo history, stored internally as an `restaurantBookStateList` and
+`currentStatePointer`.
 Additionally, it implements the following operations:
 
-* `VersionedAddressBook#commit()` -- Saves the current address book state in its history.
-* `VersionedAddressBook#undo()` -- Restores the previous address book state from its history.
-* `VersionedAddressBook#redo()` -- Restores a previously undone address book state from its history.
+* `VersionedRestaurantBook#commit()` -- Saves the current restaurant book state in its history.
+* `VersionedRestaurantBook#undo()` -- Restores the previous restaurant book state from its history.
+* `VersionedRestaurantBook#redo()` -- Restores a previously undone restaurant book state from its history.
 
-These operations are exposed in the `Model` interface as `Model#commitAddressBook()`, `Model#undoAddressBook()` and `Model#redoAddressBook()` respectively.
+These operations are exposed in the `Model` interface as `Model#RestaurantBook()`, `Model#undoRestaurantBook()` and
+`Model#redoRestaurantBook()` respectively.
 
 Given below is an example usage scenario and how the undo/redo mechanism behaves at each step.
 
-Step 1. The user launches the application for the first time. The `VersionedAddressBook` will be initialized with the initial address book state, and the `currentStatePointer` pointing to that single address book state.
+Step 1. The user launches the application for the first time. The `VersionedRestaurantBook` will be initialized with the initial restaurant book state, and the `currentStatePointer` pointing to that single restaurant book state.
 
 image::UndoRedoStartingStateListDiagram.png[width="800"]
 
-Step 2. The user executes `delete 5` command to delete the 5th person in the address book. The `delete` command calls `Model#commitAddressBook()`, causing the modified state of the address book after the `delete 5` command executes to be saved in the `addressBookStateList`, and the `currentStatePointer` is shifted to the newly inserted address book state.
+Step 2. The user executes `delete 5` command to delete the 5th person in the restaurant book. The `delete` command
+calls `Model#commitRestaurantBook()`, causing the modified state of the restaurant book after the `delete 5` command
+executes to be saved in the `restaurantBookStateList`, and the `currentStatePointer` is shifted to the newly inserted restaurant book state.
 
 image::UndoRedoNewCommand1StateListDiagram.png[width="800"]
 
-Step 3. The user executes `add n/David ...` to add a new person. The `add` command also calls `Model#commitAddressBook()`, causing another modified address book state to be saved into the `addressBookStateList`.
+Step 3. The user executes `add n/David ...` to add a new person. The `add` command also calls `Model#commitRestaurantBook()`, causing another modified restaurant book state to be saved into the `restaurantBookStateList`.
 
 image::UndoRedoNewCommand2StateListDiagram.png[width="800"]
 
 [NOTE]
-If a command fails its execution, it will not call `Model#commitAddressBook()`, so the address book state will not be saved into the `addressBookStateList`.
+If a command fails its execution, it will not call `Model#commitRestaurantBook()`, so the restaurant book state will not be saved into the `restaurantBookStateList`.
 
-Step 4. The user now decides that adding the person was a mistake, and decides to undo that action by executing the `undo` command. The `undo` command will call `Model#undoAddressBook()`, which will shift the `currentStatePointer` once to the left, pointing it to the previous address book state, and restores the address book to that state.
+Step 4. The user now decides that adding the person was a mistake, and decides to undo that action by executing the
+`undo` command. The `undo` command will call `Model#undoRestaurantBook()`, which will shift the `currentStatePointer`
+once to the left, pointing it to the previous restaurant book state, and restores the restaurant book to that state.
 
 image::UndoRedoExecuteUndoStateListDiagram.png[width="800"]
 
 [NOTE]
-If the `currentStatePointer` is at index 0, pointing to the initial address book state, then there are no previous address book states to restore. The `undo` command uses `Model#canUndoAddressBook()` to check if this is the case. If so, it will return an error to the user rather than attempting to perform the undo.
+If the `currentStatePointer` is at index 0, pointing to the initial restaurant book state, then there are no previous
+restaurant book states to restore. The `undo` command uses `Model#canUndoRestaurantBook()` to check if this is the
+case. If so, it will return an error to the user rather than attempting to perform the undo.
 
 The following sequence diagram shows how the undo operation works:
 
+.Structure of the Storage Component
 image::UndoRedoSequenceDiagram.png[width="800"]
 
-The `redo` command does the opposite -- it calls `Model#redoAddressBook()`, which shifts the `currentStatePointer` once to the right, pointing to the previously undone state, and restores the address book to that state.
+The `redo` command does the opposite -- it calls `Model#redoRestaurantBook()`, which shifts the `currentStatePointer`
+once to the right, pointing to the previously undone state, and restores the restaurant book to that state.
 
 [NOTE]
-If the `currentStatePointer` is at index `addressBookStateList.size() - 1`, pointing to the latest address book state, then there are no undone address book states to restore. The `redo` command uses `Model#canRedoAddressBook()` to check if this is the case. If so, it will return an error to the user rather than attempting to perform the redo.
+If the `currentStatePointer` is at index `restaurantBookStateList.size() - 1`, pointing to the latest restaurant book
+ state, then there are no undone restaurant book states to restore. The `redo` command uses
+ `Model#canRedoRestaurantBook()` to check if this is the case. If so, it will return an error to the user rather than
+  attempting to perform the redo.
 
-Step 5. The user then decides to execute the command `list`. Commands that do not modify the address book, such as `list`, will usually not call `Model#commitAddressBook()`, `Model#undoAddressBook()` or `Model#redoAddressBook()`. Thus, the `addressBookStateList` remains unchanged.
+Step 5. The user then decides to execute the command `list`. Commands that do not modify the restaurant book, such as
+ `list`, will usually not call `Model#commitRestaurantBook()`, `Model#undoRestaurantBook()` or
+ `Model#redoRestaurantBook()`. Thus, the `restaurantBookStateList` remains unchanged.
 
 image::UndoRedoNewCommand3StateListDiagram.png[width="800"]
 
-Step 6. The user executes `clear`, which calls `Model#commitAddressBook()`. Since the `currentStatePointer` is not pointing at the end of the `addressBookStateList`, all address book states after the `currentStatePointer` will be purged. We designed it this way because it no longer makes sense to redo the `add n/David ...` command. This is the behavior that most modern desktop applications follow.
+Step 6. The user executes `clear`, which calls `Model#commitRestaurantBook()`. Since the `currentStatePointer` is not
+pointing at the end of the `restaurantBookStateList`, all restaurant book states after the `currentStatePointer` will be purged. We designed it this way because it no longer makes sense to redo the `add n/David ...` command. This is the behavior that most modern desktop applications follow.
 
 image::UndoRedoNewCommand4StateListDiagram.png[width="800"]
 
@@ -323,7 +349,7 @@ image::UndoRedoActivityDiagram.png[width="650"]
 
 ===== Aspect: How undo & redo executes
 
-* **Alternative 1 (current choice):** Saves the entire address book.
+* **Alternative 1 (current choice):** Saves the entire restaurant book.
 ** Pros: Easy to implement.
 ** Cons: May have performance issues in terms of memory usage.
 * **Alternative 2:** Individual command knows how to undo/redo by itself.
@@ -332,54 +358,105 @@ image::UndoRedoActivityDiagram.png[width="650"]
 
 ===== Aspect: Data structure to support the undo/redo commands
 
-* **Alternative 1 (current choice):** Use a list to store the history of address book states.
+* **Alternative 1 (current choice):** Use a list to store the history of restaurant book states.
 ** Pros: Easy for new Computer Science student undergraduates to understand, who are likely to be the new incoming developers of our project.
-** Cons: Logic is duplicated twice. For example, when a new command is executed, we must remember to update both `HistoryManager` and `VersionedAddressBook`.
+** Cons: Logic is duplicated twice. For example, when a new command is executed, we must remember to update both
+`HistoryManager` and `VersionedRestaurantBook`.
 * **Alternative 2:** Use `HistoryManager` for undo/redo
 ** Pros: We do not need to maintain a separate list, and just reuse what is already in the codebase.
 ** Cons: Requires dealing with commands that have already been undone: We must remember to skip these commands. Violates Single Responsibility Principle and Separation of Concerns as `HistoryManager` now needs to do two different things.
 // end::undoredo[]
 
+// tag::useraccount[]
 === User account feature
 ==== Current Implementation
 
-The user account mechanism is facilitated by `AddressBook`. Additionally, it implements the following operations:
+The user account mechanism is facilitated by `RestaurantBook`. Additionally, it implements the following operations:
 
-* `AddressBook#getAccount(Account)` -- Retrieves the account.
-* `AddressBook#addAccount(Account)` -- Saves the new account.
-* `AddressBook#updateAccount(Account, Account)` -- Update the existing account's detail(s).
-* `AddressBook#removeAccount(Account)` -- Removes the account.
+* `RestaurantBook#getAccount(Account)` -- Retrieves the account.
+* `RestaurantBook#addAccount(Account)` -- Saves the new account.
+* `RestaurantBook#updateAccount(Account, Account)` -- Update the existing account.
+* `RestaurantBook#removeAccount(Account)` -- Removes the account.
 
 These operations are exposed in the `Model` interface as `Model#getAccount(Account)`, `Model#addAccount(Account)`,
-`Model#updateAccount(Account, Account)` and `Model#removeAccount(Account)`  respectively.
+`Model#updateAccount(Account, Account)` and `Model#removeAccount(Account)`. The following commands will
+invoke the aforementioned operations:
 
-Given below is an example usage scenario and how `AddressBook#addAccount(Account)` behaves at each step.
+* `Command#LoginCommand()` -- Invokes `Model#getAccount(Account)`.
+* `Command#RegisterCommand()` -- Invokes `Model#addAccount(Account)`.
+* `Command#DeregisterCommand()` -- Invokes `Model#removeAccount(Account)`.
+* `Command#EditCommand()` -- Invokes `Model#updateAccount(Account, Account)`.
 
-Step 1. The user launches the application and logs in to an existing account.
-
-Step 2. The user executes `register id/azhikai pw/1122qq` command to create a new user account.
-
-[NOTE]
-If the username already exists, a warning message will be shown to the user
+Described below are example usage scenarios and how each of the command and its respective operations behaves at each
+step which involves two components, `Logic` which is responsible for parsing the user input and `Model` which is
+responsible for manipulating the list, if necessary. Both components are extended by `LogicManager` and
+`ModelManager` respectively.
 
 The following sequence diagram shows how the `register` command works:
 
+[NOTE]
+The `deregister` command works the same way by checking if the account exists before calling `Model#removeAccount
+(Account)`.
+
+.Sequence diagram to illustrate component interactions for the `register` command
 image::RegisterSequenceDiagram.png[width="800"]
+
+[NOTE]
+We assume the user is already logged in
+[NOTE]
+If the username already exists, a warning message will be shown to the user to select another username
+
+Step 1. The user executes `register id/azhikai pw/1122qq` command to create a new user account.
+
+Step 2. `LogicManager` invokes the `RestaurantBookParser#parseCommand()` method which takes in the user input
+as arguments.
+
+Step 3. When the command is parsed, the `Command#RegisterCommand` will be created which is returned to the
+`LogicManager`.
+
+Step 4. `LogicManager` invokes the `execute()` method of the `Command#RegisterCommand`, `rc` which is instantiated in
+Step 3. The `Model` component will be involved as the `Command#RegisterCommand` invokes a request to add the account
+into the storage by calling `Model#addAccount(Account)`.
+
+Step 5: The new account is added into the storage. Then, a `CommandResult` is generated and returned to
+`LogicManager` which is used to display the result to the user.
+
+The following sequence diagram shows how the `login` command works:
+
+.Sequence diagram to illustrate component interactions for the `login` command
+image::LoginSequenceDiagram.png[width="800"]
+
+[NOTE]
+We assume the user will enter the correct password. Otherwise, warning message will be shown to the user to re-enter
+the credential
+
+Step 1. The user executes `login id/azhikai pw/1122qq` command to login to an existing user account.
+
+Step 2. `LogicManager` invokes the `RestaurantBookParser#parseCommand()` method which takes in the user input
+as arguments.
+
+Step 3. When the command is parsed, the `Command#LoginCommand` will be created which is returned to the
+`LogicManager`.
+
+Step 4. `LogicManager` invokes the `execute()` method of the `Command#LoginCommand`, `lc` which is instantiated in Step 3.
+The `Model` component will be involved as the `Command#LoginCommand` invokes a request to retrieve an account based
+on the username. If it exists, the account will be retrieved and the password hash will be compared. If it matches,
+then the credential is valid and the user is authenticated.
 
 === User session feature
 ==== Current Implementation
 
 [NOTE]
-If a private command is executed when a session is not set, it won't be processed. The only commands that can
-be executed without a session being set are `help`, `login` and `exit`.
+If a privileged command is executed when a session is not set, an error will be shown. The only commands that can
+be executed without a session being set are `help`, `login` and `exit`. Any other commands are considered privileged
 
 The user session is facilitated by `UserSession` which stores the authentication state of the application.
 This is triggered by raising a `Login` and `Logout` event upon executing either the `Command#LoginCommand()` or
 `Command#LogoutCommand()`. +
 
-Additionally, it implements the following operations:
+Additionally, it implements the following static operations:
 
-* `UserSession#login()` -- Creates a login session.
+* `UserSession#login()` -- Set a login session.
 * `UserSession#logout()` -- Removes the existing login session.
 * `UserSession#isAuthenticated()` -- Checks if there is an existing login session.
 
@@ -389,16 +466,41 @@ The following activity diagram summarizes what happens when a user logs in or ou
 
 image::UserSessionActivityDiagram.png[width="650"]
 
+The following code snippet demonstrates how these static methods are implemented:
+
+[source,java]
+----
+/**
+ * Stores this {@link Account} info as part of this session.
+ *
+ * @param account logged in for this session.
+ */
+public static void login(Account account) {
+    isAuthenticated = true;
+    username = account.getUsername();
+}
+
+/**
+ * Logs out of this account which releases this session.
+ */
+public static void logout() {
+    if (isAuthenticated) {
+        isAuthenticated = false;
+        username = null;
+    }
+}
+----
+
 ==== Design Considerations
 ===== Aspect: How user session is handled
 
-* **Alternative 1 (current choice):** Use a static flag.
+* **Alternative 1 (current choice):** Use static flags and methods.
 ** Pros: Easy to implement.
-** Cons: Can only support one user.
-* **Alternative 2:** Store a list of user sessions, allowing multiple login.
-** Pros: More user can login and manage the systems.
+** Cons: Can only support one user at any time. If another user wants to login, the current logged in user must log out.
+* **Alternative 2:** Store a list of user sessions to allow multiple login.
+** Pros: More user can login and manage the systems concurrently.
 ** Cons: More memory usage to track each user session.
-
+// end::useraccount[]
 
 // tag::displaySales[]
 === Display sales report feature
@@ -622,13 +724,6 @@ manipulation.
 format.
 //end::reservations[]
 
-// tag::dataencryption[]
-=== [Proposed] Data Encryption
-
-_{Explain here how the data encryption feature will be implemented}_
-
-// end::dataencryption[]
-
 === Logging
 
 We are using `java.util.logging` package for logging. The `LogsCenter` class is used to manage the logging levels and logging destinations.
@@ -803,6 +898,11 @@ e.g. `seedu.address.logic.LogicManagerTest`
 * Reason: One of its dependencies, `HelpWindow.html` in `src/main/resources/docs` is missing.
 * Solution: Execute Gradle task `processResources`.
 
+**Problem: Test failed with `Missing newline at end of file`.**
+
+* Reason: A newline is missing in the file.
+* Solution: `File` > `Settings...` > `Editor` > `General` > `Ensure line feed at file end on Save`.
+
 == Dev Ops
 
 === Build Automation
@@ -831,7 +931,8 @@ Here are the steps to create a new release.
 
 === Managing Dependencies
 
-A project often depends on third-party libraries. For example, Address Book depends on the http://wiki.fasterxml.com/JacksonHome[Jackson library] for XML parsing. Managing these _dependencies_ can be automated using Gradle. For example, Gradle can download the dependencies automatically, which is better than these alternatives. +
+A project often depends on third-party libraries. For example, Restaurant Book depends on the http://wiki.fasterxml
+.com/JacksonHome[Jackson library] for XML parsing. Managing these _dependencies_ can be automated using Gradle. For example, Gradle can download the dependencies automatically, which is better than these alternatives. +
 a. Include those libraries in the repo (this bloats the repo size). +
 b. Require developers to download those libraries manually (this creates extra work for developers).
 
@@ -1701,9 +1802,6 @@ Use case ends.
 Steps 1a1-1a2 are repeated until a valid command format is entered.
 +
 Use case resumes at step 2.
-+
-
-_{More to be added}_
 
 [appendix]
 == Non Functional Requirements
@@ -1714,10 +1812,10 @@ _{More to be added}_
 .  Menu size should not be limited.
 .  System must be secured such that only authorised staffs can access it and execute commands.
 .  System should not require constant maintenance and work off-the-shelf without any installation.
-.  JAR file should not exceed 100 MB.
+.  JAR file should not exceed 50 MB.
 .  Test coverage should be at least 80%.
 .  Should always favour security over efficiency in development.
-.  Any user who has the basic proficiency of the English language should be able to use the App with the help
+.  Any user who has the basic proficiency of the English language should be able to use the application with the help
  of the link:{repoURL}/docs/UserGuide.adoc[`UserGuide.adoc`].
 .  System should not require any internet access except for updating.
 
@@ -1742,14 +1840,13 @@ These instructions only provide a starting point for testers to work on; testers
 
 . Initial launch
 
-.. Download the jar file and copy into an empty folder
-.. Double-click the jar file +
-   Expected: Shows the GUI with a set of sample contacts. The window size may not be optimum.
+.. Download the `jar` file and copy into an empty folder.
+.. Double-click the `jar` file. +
+   *Expected*: Shows the GUI with a set of sample contacts. The window size may not be optimum.
 
 . Saving window preferences
 
 .. Resize the window to an optimum size. Move the window to a different location. Close the window.
-.. Re-launch the app by double-clicking the jar file. +
-   Expected: The most recent window size and location is retained.
+.. Re-launch the app by double-clicking the `jar` file. +
+   *Expected*: The most recent window size and location is retained.
 
-_{ more test cases ... }_

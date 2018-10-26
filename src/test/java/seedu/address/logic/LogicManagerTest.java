@@ -3,7 +3,8 @@ package seedu.address.logic;
 import static org.junit.Assert.assertEquals;
 import static seedu.address.commons.core.Messages.MESSAGE_INVALID_PERSON_DISPLAYED_INDEX;
 import static seedu.address.commons.core.Messages.MESSAGE_UNKNOWN_COMMAND;
-import static seedu.address.testutil.accounts.AccountUtil.getCreateCommand;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_ID;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_PASSWORD;
 
 import org.junit.Before;
 import org.junit.Rule;
@@ -17,11 +18,13 @@ import seedu.address.commons.events.ui.LogoutEvent;
 import seedu.address.logic.commands.CommandResult;
 import seedu.address.logic.commands.HistoryCommand;
 import seedu.address.logic.commands.ListCommand;
+import seedu.address.logic.commands.accounts.RegisterCommand;
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.logic.parser.exceptions.ParseException;
 import seedu.address.model.Model;
 import seedu.address.model.ModelManager;
 import seedu.address.model.UserPrefs;
+import seedu.address.model.accounts.Account;
 import seedu.address.testutil.accounts.AccountBuilder;
 
 public class LogicManagerTest {
@@ -46,8 +49,12 @@ public class LogicManagerTest {
 
     @Test
     public void execute_privateCommandsWhileLoggedOut_throwsCommandException() {
+        Account account = new AccountBuilder().build();
         EventsCenter.getInstance().post(new LogoutEvent());
-        assertCommandException(getCreateCommand(new AccountBuilder().build()), Messages.MESSAGE_COMMAND_FORBIDDEN);
+        assertCommandException(RegisterCommand.COMMAND_WORD + " "
+                + PREFIX_ID + account.getUsername().toString() + " "
+                + PREFIX_PASSWORD + account.getPassword().toString(),
+                Messages.MESSAGE_COMMAND_FORBIDDEN);
     }
 
     @Test

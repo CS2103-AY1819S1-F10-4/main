@@ -1,70 +1,95 @@
-= John Doe - Project Portfolio
+= Ang Zhi Kai - Project Portfolio
 :site-section: AboutUs
 :imagesDir: ../images
 :stylesDir: ../stylesheets
 
-== PROJECT: AddressBook - Level 4
+== PROJECT: MeNUS
 
 ---
 
 == Overview
 
-AddressBook - Level 4 is a desktop address book application used for teaching Software Engineering principles. The user interacts with it using a CLI, and it has a GUI created with JavaFX. It is written in Java, and has about 10 kLoC.
+*MeNUS* is a restaurant management desktop application targeting restaurant owners in the National University
+of Singapore (NUS). It is built to help them better manage their restaurants, especially if they are using complex,
+expensive and independent systems. +
+
+Restaurant owners interact with *MeNUS* using a Command Line Interface
+(CLI). *MeNUS* also has a Graphical User Interface(GUI) created with https://docs.oracle.com/javafx/2/[JavaFX] and it
+is written using https://www.oracle.com/technetwork/java/javase/downloads/java-archive-javase9-3934878.html[Java 9] with
+approximately 30 KLOC.
 
 == Summary of contributions
 
-* *Major enhancement*: added *the ability to undo/redo previous commands*
-** What it does: allows the user to undo all previous commands one at a time. Preceding undo commands can be reversed by using the redo command.
-** Justification: This feature improves the product significantly because a user can make mistakes in commands and the app should provide a convenient way to rectify them.
-** Highlights: This enhancement affects existing commands and commands to be added in future. It required an in-depth analysis of design alternatives. The implementation too was challenging as it required changes to existing commands.
-** Credits: _{mention here if you reused any code/ideas from elsewhere or if a third-party library is heavily used in the feature so that a reader can make a more accurate judgement of how much effort went into the feature}_
+* *Major enhancement*: Added the *user management* feature
+** *What it does*: Allows the restaurant owner to create account for each of his employee to manage the system.
+** *Justification*: This feature introduce the security layer to the application by ensuring that only
+authorised personnel are able to execute certain sets of commands depending on their level of privilege.
+** *Highlights*: This enhancement affects existing commands such that certain commands require the user to be
+authenticated, otherwise it will not be executed. It required an in-depth analysis and understanding of the `Logic`,
+`Model` and `Storage` components. The implementation too was challenging as it required modifications to existing
+commands.
+** *Credits*: Account password is hashed using https://github.com/patrickfav/bcrypt[`bcrypt`].
 
-* *Minor enhancement*: added a history command that allows the user to navigate to previous commands using up/down keys.
-
-* *Code contributed*: [https://github.com[Functional code]] [https://github.com[Test code]] _{give links to collated code files}_
+* *Minor enhancement*: Added side navigation bar to access the different components of the application.
 
 * *Other contributions*:
 
-** Project management:
-*** Managed releases `v1.3` - `v1.5rc` (3 releases) on GitHub
+** Project Management:
+*** Team Lead; responsible for overall project coordination.
+*** Set up GitHub repository, Travis, AppVeyor, Codacy and Coveralls.
+*** Maintained issue tracker, milestone, pull request approval and merger.
+*** Managed releases `v1.1`, `v1.2`, `v1.2.1`, `v1.3` and `v1.4` (5 releases) on GitHub.
+*** Configured deployment of static pages to GitHub Pages and Netlify.
 ** Enhancements to existing features:
-*** Updated the GUI color scheme (Pull requests https://github.com[#33], https://github.com[#34])
-*** Wrote additional tests for existing features to increase coverage from 88% to 92% (Pull requests https://github.com[#36], https://github.com[#38])
+*** TBU
 ** Documentation:
-*** Did cosmetic tweaks to existing contents of the User Guide: https://github.com[#14]
+*** Morphed existing contents (UML and Sequence diagrams) of the User Guide and Developer Guide.
 ** Community:
-*** PRs reviewed (with non-trivial review comments): https://github.com[#12], https://github.com[#32], https://github.com[#19], https://github.com[#42]
-*** Contributed to forum discussions (examples:  https://github.com[1], https://github.com[2], https://github.com[3], https://github.com[4])
-*** Reported bugs and suggestions for other teams in the class (examples:  https://github.com[1], https://github.com[2], https://github.com[3])
-*** Some parts of the history feature I added was adopted by several other class mates (https://github.com[1], https://github.com[2])
+*** Reviewed significant number of pull requests with non-trivial review comments:
+https://github.com/CS2103-AY1819S1-F10-4/main/pull/27[#27],
+https://github.com/CS2103-AY1819S1-F10-4/main/pull/36[#36],
+https://github.com/CS2103-AY1819S1-F10-4/main/pull/37[#37],
+https://github.com/CS2103-AY1819S1-F10-4/main/pull/42[#42],
+https://github.com/CS2103-AY1819S1-F10-4/main/pull/44[#44],
+https://github.com/CS2103-AY1819S1-F10-4/main/pull/50[#50],
+https://github.com/CS2103-AY1819S1-F10-4/main/pull/51[#51],
+https://github.com/CS2103-AY1819S1-F10-4/main/pull/52[#52],
+https://github.com/CS2103-AY1819S1-F10-4/main/pull/53[#53],
+https://github.com/CS2103-AY1819S1-F10-4/main/pull/83[#83],
+https://github.com/CS2103-AY1819S1-F10-4/main/pull/84[#84],
+https://github.com/CS2103-AY1819S1-F10-4/main/pull/91[#91],
+https://github.com/CS2103-AY1819S1-F10-4/main/pull/92[#92],
+https://github.com/CS2103-AY1819S1-F10-4/main/pull/136[#136]
+*** Contributed to forum discussions using GitHub's Issue Tracker:
+https://github.com/nus-cs2103-AY1819S1/forum/issues/7[#7],
+https://github.com/nus-cs2103-AY1819S1/forum/issues/20[#20],
+https://github.com/nus-cs2103-AY1819S1/forum/issues/33[#33],
+https://github.com/nus-cs2103-AY1819S1/forum/issues/79[#79]
+*** Reported bugs and suggestions for other teams in the class:
+https://github.com/nus-cs2103-AY1819S1/forum/issues/74#issuecomment-430956137[#74]
 ** Tools:
-*** Integrated a third party library (Natty) to the project (https://github.com[#42])
-*** Integrated a new Github plugin (CircleCI) to the team repo
-
-_{you can add/remove categories in the list above}_
+*** Integrated a third party library (bcrypt) to the project:
+https://github.com/CS2103-AY1819S1-F10-4/main/pull/38[#38],
+https://github.com/CS2103-AY1819S1-F10-4/main/pull/70[#70]
 
 == Contributions to the User Guide
 
-
 |===
-|_Given below are sections I contributed to the User Guide. They showcase my ability to write documentation targeting end-users._
+|_The following sections are my contribution to the User Guide. They showcase my ability to write documentation
+targeting end-users with little or no technical knowledge._
 |===
 
-include::../UserGuide.adoc[tag=undoredo]
+include::../UserGuide.adoc[tag=intro]
+
+include::../UserGuide.adoc[tag=accountmanagement]
 
 == Contributions to the Developer Guide
 
 |===
-|_Given below are sections I contributed to the Developer Guide. They showcase my ability to write technical documentation and the technical depth of my contributions to the project._
+|_The following sections are my contribution to the Developer Guide. They showcase my ability to write
+technical documentation and the technical depth of my contributions to the project._
 |===
 
-include::../DeveloperGuide.adoc[tag=undoredo]
+include::../DeveloperGuide.adoc[tag=intro]
 
-include::../DeveloperGuide.adoc[tag=dataencryption]
-
-
-== PROJECT: PowerPointLabs
-
----
-
-_{Optionally, you may include other projects in your portfolio.}_
+include::../DeveloperGuide.adoc[tag=useraccount]
