@@ -22,7 +22,7 @@ import seedu.address.model.menu.Item;
  * Adds required ingredients to an item in the menu.
  */
 public class AddRequiredIngredientsCommand extends Command {
-    public static final String COMMAND_WORD = "addRequiredIngredients";
+    public static final String COMMAND_WORD = "add-required-ingredients";
     public static final String COMMAND_ALIAS = "ari";
 
     public static final String MESSAGE_USAGE = COMMAND_WORD + ": Edits the required ingredients for a item identified "
