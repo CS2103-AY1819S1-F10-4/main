@@ -103,8 +103,8 @@ public class RequiredIngredientsItemCommandTest {
         // ensures that outOfBoundIndex is still in bounds of address book list
         assertTrue(outOfBoundIndex.getZeroBased() < model.getAddressBook().getItemList().size());
 
-        RequiredIngredientsItemCommand requiredIngredientsItemCommand = new RequiredIngredientsItemCommand(outOfBoundIndex,
-                REQUIRED_INGREDIENTS_STUB);
+        RequiredIngredientsItemCommand requiredIngredientsItemCommand =
+                new RequiredIngredientsItemCommand(outOfBoundIndex, REQUIRED_INGREDIENTS_STUB);
         assertCommandFailure(requiredIngredientsItemCommand, model, commandHistory,
                 Messages.MESSAGE_INVALID_ITEM_DISPLAYED_INDEX);
     }
