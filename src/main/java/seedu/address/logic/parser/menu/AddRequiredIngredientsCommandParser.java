@@ -9,7 +9,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import seedu.address.commons.core.index.Index;
-import seedu.address.logic.commands.menu.RequiredIngredientsItemCommand;
+import seedu.address.logic.commands.menu.AddRequiredIngredientsCommand;
 import seedu.address.logic.parser.ArgumentIndexAndPairMultimap;
 import seedu.address.logic.parser.ArgumentTokenizer;
 import seedu.address.logic.parser.Parser;
@@ -19,9 +19,9 @@ import seedu.address.logic.parser.exceptions.ParseException;
 import seedu.address.model.ingredient.IngredientName;
 
 /**
- * Parses input arguments and creates a new RequiredIngredientsItemCommand object
+ * Parses input arguments and creates a new AddRequiredIngredientsCommand object
  */
-public class RequiredIngredientsItemCommandParser implements Parser<RequiredIngredientsItemCommand> {
+public class AddRequiredIngredientsCommandParser implements Parser<AddRequiredIngredientsCommand> {
     public static final String MESSAGE_INTEGER_CONSTRAINTS =
             "Number of ingredients should only contain positive numbers";
     public static final String INTEGER_VALIDATION_REGEX = "\\d+";
@@ -29,10 +29,10 @@ public class RequiredIngredientsItemCommandParser implements Parser<RequiredIngr
 
     /**
      * Parses the given {@code String} of arguments in the context of the RecipeItemCommand
-     * and returns an RequiredIngredientsItemCommand object for execution.
+     * and returns an AddRequiredIngredientsCommand object for execution.
      * @throws ParseException if the user input does not conform the expected format
      */
-    public RequiredIngredientsItemCommand parse(String args) throws ParseException {
+    public AddRequiredIngredientsCommand parse(String args) throws ParseException {
         requireNonNull(args);
 
         ArgumentIndexAndPairMultimap argMultimap =
@@ -44,7 +44,7 @@ public class RequiredIngredientsItemCommandParser implements Parser<RequiredIngr
             index = ParserUtil.parseIndex(argMultimap.getValue(0).get(new Prefix("")));
         } catch (ParseException pe) {
             throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT,
-                    RequiredIngredientsItemCommand.MESSAGE_USAGE), pe);
+                    AddRequiredIngredientsCommand.MESSAGE_USAGE), pe);
         }
 
         int count = 1;
@@ -54,7 +54,7 @@ public class RequiredIngredientsItemCommandParser implements Parser<RequiredIngr
 
             if (!map.containsKey(PREFIX_INGREDIENT_NAME)) {
                 throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT,
-                        RequiredIngredientsItemCommand.MESSAGE_USAGE));
+                        AddRequiredIngredientsCommand.MESSAGE_USAGE));
             }
             IngredientName name = ParserUtil.parseIngredientName(map.get(PREFIX_INGREDIENT_NAME));
             if (requiredIngredients.containsKey(name)) {
@@ -63,7 +63,7 @@ public class RequiredIngredientsItemCommandParser implements Parser<RequiredIngr
 
             if (!map.containsKey(PREFIX_INGREDIENT_NUM)) {
                 throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT,
-                        RequiredIngredientsItemCommand.MESSAGE_USAGE));
+                        AddRequiredIngredientsCommand.MESSAGE_USAGE));
             }
             String trimmedInteger = map.get(PREFIX_INGREDIENT_NUM);
             if (!isValidNumberOfIngredients(trimmedInteger)) {
@@ -75,7 +75,7 @@ public class RequiredIngredientsItemCommandParser implements Parser<RequiredIngr
             count++;
         }
 
-        return new RequiredIngredientsItemCommand(index, requiredIngredients);
+        return new AddRequiredIngredientsCommand(index, requiredIngredients);
     }
 
     /**

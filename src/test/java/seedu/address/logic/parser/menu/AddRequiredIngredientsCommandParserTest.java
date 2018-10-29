@@ -9,8 +9,8 @@ import static seedu.address.logic.commands.CommandTestUtil.VALID_NAME_BROCCOLI;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_INGREDIENT_NUM;
 import static seedu.address.logic.parser.CommandParserTestUtil.assertParseFailure;
 import static seedu.address.logic.parser.CommandParserTestUtil.assertParseSuccess;
-import static seedu.address.logic.parser.menu.RequiredIngredientsItemCommandParser.MESSAGE_DUPLICATE_INGREDIENT_NAME;
-import static seedu.address.logic.parser.menu.RequiredIngredientsItemCommandParser.MESSAGE_INTEGER_CONSTRAINTS;
+import static seedu.address.logic.parser.menu.AddRequiredIngredientsCommandParser.MESSAGE_DUPLICATE_INGREDIENT_NAME;
+import static seedu.address.logic.parser.menu.AddRequiredIngredientsCommandParser.MESSAGE_INTEGER_CONSTRAINTS;
 import static seedu.address.testutil.TypicalIndexes.INDEX_FIRST;
 
 import java.util.HashMap;
@@ -19,12 +19,12 @@ import java.util.Map;
 import org.junit.Test;
 
 import seedu.address.commons.core.index.Index;
-import seedu.address.logic.commands.menu.RequiredIngredientsItemCommand;
+import seedu.address.logic.commands.menu.AddRequiredIngredientsCommand;
 import seedu.address.model.ingredient.IngredientName;
 
-public class RequiredIngredientsItemCommandParserTest {
+public class AddRequiredIngredientsCommandParserTest {
     private static final String MESSAGE_INVALID_FORMAT =
-            String.format(MESSAGE_INVALID_COMMAND_FORMAT, RequiredIngredientsItemCommand.MESSAGE_USAGE);
+            String.format(MESSAGE_INVALID_COMMAND_FORMAT, AddRequiredIngredientsCommand.MESSAGE_USAGE);
     private static final String VALID_NUMBER_OF_INGREDIENTS = "3";
     private static final Map<IngredientName, Integer> REQUIRED_INGREDIENTS_STUB = new HashMap<>();
     static {
@@ -38,7 +38,7 @@ public class RequiredIngredientsItemCommandParserTest {
         REQUIRED_INGREDIENTS_MULITPLE_STUB.put(new IngredientName(VALID_NAME_BROCCOLI),
                 Integer.parseInt(VALID_NUMBER_OF_INGREDIENTS));
     }
-    private RequiredIngredientsItemCommandParser parser = new RequiredIngredientsItemCommandParser();
+    private AddRequiredIngredientsCommandParser parser = new AddRequiredIngredientsCommandParser();
     private Index targetIndex = INDEX_FIRST;
 
     @Test
@@ -93,8 +93,8 @@ public class RequiredIngredientsItemCommandParserTest {
 
     @Test
     public void parse_validIndexAndValidArgumentPair_success() {
-        RequiredIngredientsItemCommand expectedCommand =
-                new RequiredIngredientsItemCommand(targetIndex, REQUIRED_INGREDIENTS_STUB);
+        AddRequiredIngredientsCommand expectedCommand =
+                new AddRequiredIngredientsCommand(targetIndex, REQUIRED_INGREDIENTS_STUB);
         String userInput = targetIndex.getOneBased() + INGREDIENT_NAME_DESC_APPLE + " "
                 + PREFIX_INGREDIENT_NUM + VALID_NUMBER_OF_INGREDIENTS;
         assertParseSuccess(parser, userInput, expectedCommand);
@@ -102,8 +102,8 @@ public class RequiredIngredientsItemCommandParserTest {
 
     @Test
     public void parse_validIndexAndValidMultipleArgumentPairs_success() {
-        RequiredIngredientsItemCommand expectedCommand =
-                new RequiredIngredientsItemCommand(targetIndex, REQUIRED_INGREDIENTS_MULITPLE_STUB);
+        AddRequiredIngredientsCommand expectedCommand =
+                new AddRequiredIngredientsCommand(targetIndex, REQUIRED_INGREDIENTS_MULITPLE_STUB);
         String userInput = targetIndex.getOneBased() + INGREDIENT_NAME_DESC_APPLE + " "
                 + PREFIX_INGREDIENT_NUM + VALID_NUMBER_OF_INGREDIENTS + INGREDIENT_NAME_DESC_BROCCOLI + " "
                 + PREFIX_INGREDIENT_NUM + VALID_NUMBER_OF_INGREDIENTS;

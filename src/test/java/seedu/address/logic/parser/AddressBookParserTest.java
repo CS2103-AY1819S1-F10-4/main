@@ -57,6 +57,7 @@ import seedu.address.logic.commands.ingredients.EditIngredientCommand;
 import seedu.address.logic.commands.ingredients.EditIngredientCommand.EditIngredientDescriptor;
 import seedu.address.logic.commands.ingredients.ListIngredientsCommand;
 import seedu.address.logic.commands.menu.AddItemCommand;
+import seedu.address.logic.commands.menu.AddRequiredIngredientsCommand;
 import seedu.address.logic.commands.menu.ClearMenuCommand;
 import seedu.address.logic.commands.menu.DeleteItemCommand;
 import seedu.address.logic.commands.menu.DiscountItemCommand;
@@ -65,7 +66,6 @@ import seedu.address.logic.commands.menu.EditItemCommand.EditItemDescriptor;
 import seedu.address.logic.commands.menu.FilterMenuCommand;
 import seedu.address.logic.commands.menu.ListItemsCommand;
 import seedu.address.logic.commands.menu.RecipeItemCommand;
-import seedu.address.logic.commands.menu.RequiredIngredientsItemCommand;
 import seedu.address.logic.commands.menu.SelectItemCommand;
 import seedu.address.logic.commands.menu.SortMenuCommand;
 import seedu.address.logic.commands.menu.SortMenuCommand.SortMethod;
@@ -555,12 +555,12 @@ public class AddressBookParserTest {
         requiredIngredients.put(new IngredientName(VALID_NAME_APPLE), 3);
         String userInput = INDEX_FIRST.getOneBased() + " " + INGREDIENT_NAME_DESC_APPLE + " "
                 + PREFIX_INGREDIENT_NUM + "3";
-        RequiredIngredientsItemCommand command = (RequiredIngredientsItemCommand) parser.parseCommand(
-                RequiredIngredientsItemCommand.COMMAND_WORD + " " + userInput);
-        assertEquals(new RequiredIngredientsItemCommand(INDEX_FIRST, requiredIngredients), command);
-        command = (RequiredIngredientsItemCommand) parser.parseCommand(
-                RequiredIngredientsItemCommand.COMMAND_ALIAS + " " + userInput);
-        assertEquals(new RequiredIngredientsItemCommand(INDEX_FIRST, requiredIngredients), command);
+        AddRequiredIngredientsCommand command = (AddRequiredIngredientsCommand) parser.parseCommand(
+                AddRequiredIngredientsCommand.COMMAND_WORD + " " + userInput);
+        assertEquals(new AddRequiredIngredientsCommand(INDEX_FIRST, requiredIngredients), command);
+        command = (AddRequiredIngredientsCommand) parser.parseCommand(
+                AddRequiredIngredientsCommand.COMMAND_ALIAS + " " + userInput);
+        assertEquals(new AddRequiredIngredientsCommand(INDEX_FIRST, requiredIngredients), command);
     }
 
     @Test

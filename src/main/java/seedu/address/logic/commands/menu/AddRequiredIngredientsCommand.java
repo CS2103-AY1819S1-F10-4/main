@@ -21,9 +21,9 @@ import seedu.address.model.menu.Item;
 /**
  * Adds required ingredients to an item in the menu.
  */
-public class RequiredIngredientsItemCommand extends Command {
-    public static final String COMMAND_WORD = "requiredIngredients-item";
-    public static final String COMMAND_ALIAS = "ring";
+public class AddRequiredIngredientsCommand extends Command {
+    public static final String COMMAND_WORD = "addRequiredIngredients";
+    public static final String COMMAND_ALIAS = "ari";
 
     public static final String MESSAGE_USAGE = COMMAND_WORD + ": Edits the required ingredients for a item identified "
             + "by the index number used in the displayed item list. "
@@ -46,7 +46,7 @@ public class RequiredIngredientsItemCommand extends Command {
      * @param index of the item in the filtered item list to edit
      * @param requiredIngredients the requiredIngredients of the item
      */
-    public RequiredIngredientsItemCommand(Index index, Map<IngredientName, Integer> requiredIngredients) {
+    public AddRequiredIngredientsCommand(Index index, Map<IngredientName, Integer> requiredIngredients) {
         requireAllNonNull(index, requiredIngredients);
 
         this.index = index;
@@ -89,11 +89,11 @@ public class RequiredIngredientsItemCommand extends Command {
             return true;
         }
         // instanceof handles nulls
-        if (!(other instanceof RequiredIngredientsItemCommand)) {
+        if (!(other instanceof AddRequiredIngredientsCommand)) {
             return false;
         }
         // state check
-        RequiredIngredientsItemCommand e = (RequiredIngredientsItemCommand) other;
+        AddRequiredIngredientsCommand e = (AddRequiredIngredientsCommand) other;
         return index.equals(e.index)
                 && requiredIngredients.equals(e.requiredIngredients);
     }

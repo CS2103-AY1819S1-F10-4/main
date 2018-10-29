@@ -31,6 +31,7 @@ import seedu.address.logic.commands.ingredients.EditIngredientCommand;
 import seedu.address.logic.commands.ingredients.ListIngredientsCommand;
 import seedu.address.logic.commands.ingredients.StockUpCommand;
 import seedu.address.logic.commands.menu.AddItemCommand;
+import seedu.address.logic.commands.menu.AddRequiredIngredientsCommand;
 import seedu.address.logic.commands.menu.ClearMenuCommand;
 import seedu.address.logic.commands.menu.DeleteItemCommand;
 import seedu.address.logic.commands.menu.DiscountItemCommand;
@@ -39,7 +40,6 @@ import seedu.address.logic.commands.menu.FilterMenuCommand;
 import seedu.address.logic.commands.menu.FindItemCommand;
 import seedu.address.logic.commands.menu.ListItemsCommand;
 import seedu.address.logic.commands.menu.RecipeItemCommand;
-import seedu.address.logic.commands.menu.RequiredIngredientsItemCommand;
 import seedu.address.logic.commands.menu.SelectItemCommand;
 import seedu.address.logic.commands.menu.SortMenuCommand;
 import seedu.address.logic.commands.menu.TodaySpecialCommand;
@@ -63,13 +63,13 @@ import seedu.address.logic.parser.ingredients.DeleteIngredientCommandParser;
 import seedu.address.logic.parser.ingredients.EditIngredientCommandParser;
 import seedu.address.logic.parser.ingredients.StockUpCommandParser;
 import seedu.address.logic.parser.menu.AddItemCommandParser;
+import seedu.address.logic.parser.menu.AddRequiredIngredientsCommandParser;
 import seedu.address.logic.parser.menu.DeleteItemCommandParser;
 import seedu.address.logic.parser.menu.DiscountItemCommandParser;
 import seedu.address.logic.parser.menu.EditItemCommandParser;
 import seedu.address.logic.parser.menu.FilterMenuCommandParser;
 import seedu.address.logic.parser.menu.FindItemCommandParser;
 import seedu.address.logic.parser.menu.RecipeItemCommandParser;
-import seedu.address.logic.parser.menu.RequiredIngredientsItemCommandParser;
 import seedu.address.logic.parser.menu.SelectItemCommandParser;
 import seedu.address.logic.parser.menu.SortMenuCommandParser;
 import seedu.address.logic.parser.reservation.AddReservationCommandParser;
@@ -256,9 +256,9 @@ public class AddressBookParser {
         case DiscountItemCommand.COMMAND_ALIAS:
             return new DiscountItemCommandParser().parse(arguments);
 
-        case RequiredIngredientsItemCommand.COMMAND_WORD:
-        case RequiredIngredientsItemCommand.COMMAND_ALIAS:
-            return new RequiredIngredientsItemCommandParser().parse(arguments);
+        case AddRequiredIngredientsCommand.COMMAND_WORD:
+        case AddRequiredIngredientsCommand.COMMAND_ALIAS:
+            return new AddRequiredIngredientsCommandParser().parse(arguments);
 
         case ClearMenuCommand.COMMAND_WORD:
         case ClearMenuCommand.COMMAND_ALIAS:
