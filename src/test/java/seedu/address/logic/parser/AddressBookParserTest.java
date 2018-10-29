@@ -553,8 +553,8 @@ public class AddressBookParserTest {
     public void parseCommand_requiredIngredientsItem() throws Exception {
         Map<IngredientName, Integer> requiredIngredients = new HashMap<>();
         requiredIngredients.put(new IngredientName(VALID_NAME_APPLE), 3);
-        String userInput = INDEX_FIRST.getOneBased() + " " + INGREDIENT_NAME_DESC_APPLE + " " +
-                PREFIX_INGREDIENT_NUM + "3";
+        String userInput = INDEX_FIRST.getOneBased() + " " + INGREDIENT_NAME_DESC_APPLE + " "
+                + PREFIX_INGREDIENT_NUM + "3";
         RequiredIngredientsItemCommand command = (RequiredIngredientsItemCommand) parser.parseCommand(
                 RequiredIngredientsItemCommand.COMMAND_WORD + " " + userInput);
         assertEquals(new RequiredIngredientsItemCommand(INDEX_FIRST, requiredIngredients), command);

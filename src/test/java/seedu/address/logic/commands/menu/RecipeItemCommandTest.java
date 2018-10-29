@@ -75,7 +75,8 @@ public class RecipeItemCommandTest {
     @Test
     public void execute_invalidItemIndexUnfilteredList_failure() {
         Index outOfBoundIndex = Index.fromOneBased(model.getFilteredPersonList().size() + 1);
-        RecipeItemCommand recipeItemCommand = new RecipeItemCommand(outOfBoundIndex, new Recipe(VALID_ITEM_RECIPE_FRIES));
+        RecipeItemCommand recipeItemCommand = new RecipeItemCommand(outOfBoundIndex,
+                new Recipe(VALID_ITEM_RECIPE_FRIES));
 
         assertCommandFailure(recipeItemCommand, model, commandHistory, Messages.MESSAGE_INVALID_ITEM_DISPLAYED_INDEX);
     }

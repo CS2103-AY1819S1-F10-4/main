@@ -47,7 +47,7 @@ public class RequiredIngredientsItemCommandParserTest {
     }
 
     @Test
-    public void parse_InvalidIndex_failure() {
+    public void parse_invalidIndex_failure() {
         // negative index
         assertParseFailure(parser, "-5" + INGREDIENT_NAME_DESC_APPLE + " "
                 + PREFIX_INGREDIENT_NUM + VALID_NUMBER_OF_INGREDIENTS, MESSAGE_INVALID_FORMAT);
@@ -64,7 +64,7 @@ public class RequiredIngredientsItemCommandParserTest {
     }
 
     @Test
-    public void parse_ValidIndexInvalidArgumentPair_failure() {
+    public void parse_validIndexInvalidArgumentPair_failure() {
         // duplicated ingredient name
         assertParseFailure(parser, targetIndex.getOneBased() + INGREDIENT_NAME_DESC_APPLE + " "
                 + PREFIX_INGREDIENT_NUM + VALID_NUMBER_OF_INGREDIENTS + INGREDIENT_NAME_DESC_APPLE + " "
@@ -83,8 +83,8 @@ public class RequiredIngredientsItemCommandParserTest {
                 + PREFIX_INGREDIENT_NUM + "-3", MESSAGE_INTEGER_CONSTRAINTS);
 
         // missing ingredient name
-        assertParseFailure(parser, targetIndex.getOneBased() + " " + PREFIX_INGREDIENT_NUM +
-                        VALID_NUMBER_OF_INGREDIENTS, MESSAGE_INVALID_FORMAT);
+        assertParseFailure(parser, targetIndex.getOneBased() + " " + PREFIX_INGREDIENT_NUM
+                + VALID_NUMBER_OF_INGREDIENTS, MESSAGE_INVALID_FORMAT);
 
         // missing number of ingredient
         assertParseFailure(parser, targetIndex.getOneBased() + " " + INGREDIENT_NAME_DESC_APPLE,

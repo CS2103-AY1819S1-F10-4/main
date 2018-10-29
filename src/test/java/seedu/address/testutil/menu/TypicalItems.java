@@ -20,16 +20,11 @@ import seedu.address.model.menu.Item;
  * A utility class containing a list of {@code Item} objects to be used in tests.
  */
 public class TypicalItems {
-
     public static final Item ITEM_DEFAULT = new ItemBuilder().build();
-    private static final Map<IngredientName, Integer> APPLE_JUICE_REQUIRED_INGREDIENTS = new HashMap<>();
-    static {
-        APPLE_JUICE_REQUIRED_INGREDIENTS.put(new IngredientName("Apple"), 3);
-    }
 
     public static final Item APPLE_JUICE = new ItemBuilder().withName("Apple Juice")
             .withPrice("2")
-            .withTags("drink", "monday").withRequiredIngredients(APPLE_JUICE_REQUIRED_INGREDIENTS).build();
+            .withTags("drink", "monday").withRequiredIngredients(Map.of("Apple", "3")).build();
     public static final Item BEEF_BURGER = new ItemBuilder().withName("Beef Burger")
             .withPrice("3")
             .withTags("beef", VALID_ITEM_TAG_BURGER, "tuesday").build();

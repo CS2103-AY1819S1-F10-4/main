@@ -82,8 +82,12 @@ public class ItemBuilder {
     /**
      * Sets the requiredIngredients of the {@code Item} that we are building..
      */
-    public ItemBuilder withRequiredIngredients(Map<IngredientName, Integer> requiredIngredients) {
-        this.requiredIngredients = requiredIngredients;
+    public ItemBuilder withRequiredIngredients(Map<String, String> requiredIngredients) {
+        this.requiredIngredients = new HashMap<>();
+        for (Map.Entry<String, String> entry : requiredIngredients.entrySet()) {
+            this.requiredIngredients.put(new IngredientName(entry.getKey()),
+                    Integer.parseInt(entry.getValue()));
+        }
         return this;
     }
 
