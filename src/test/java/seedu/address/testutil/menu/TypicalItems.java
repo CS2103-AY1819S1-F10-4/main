@@ -9,11 +9,9 @@ import static seedu.address.logic.commands.CommandTestUtil.VALID_ITEM_TAG_CHEESE
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import seedu.address.model.ingredient.IngredientName;
 import seedu.address.model.menu.Item;
 
 /**
