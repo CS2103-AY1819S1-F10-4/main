@@ -31,9 +31,13 @@ import seedu.address.testutil.menu.ItemBuilder;
  * Contains integration tests (interaction with the Model) and unit tests for RequiredIngredientsItemCommand.
  */
 public class RequiredIngredientsItemCommandTest {
-    private static final Map<String, String> REQUIRED_INGREDIENTS_STUB = new HashMap<>();
+    private static final Map<String, String> REQUIRED_INGREDIENTS_STUB_STRING = new HashMap<>();
     static {
-        REQUIRED_INGREDIENTS_STUB.put("Apple", "3");
+        REQUIRED_INGREDIENTS_STUB_STRING.put("Apple", "3");
+    }
+    private static final Map<IngredientName, Integer> REQUIRED_INGREDIENTS_STUB = new HashMap<>();
+    static {
+        REQUIRED_INGREDIENTS_STUB.put(new IngredientName("Apple"), 3);
     }
 
     private Model model = new ModelManager(getTypicalAddressBook(), new UserPrefs());
@@ -63,7 +67,7 @@ public class RequiredIngredientsItemCommandTest {
 
         Item firstItem = model.getFilteredItemList().get(INDEX_FIRST.getZeroBased());
         Item editedItem = new ItemBuilder(model.getFilteredItemList().get(INDEX_FIRST.getZeroBased()))
-                .withRequiredIngredients(REQUIRED_INGREDIENTS_STUB).build();
+                .withRequiredIngredients(REQUIRED_INGREDIENTS_STUB_STRING).build();
 
         RequiredIngredientsItemCommand requiredIngredientsItemCommand = new RequiredIngredientsItemCommand(INDEX_FIRST,
                 editedItem.getRequiredIngredients());
@@ -108,7 +112,8 @@ public class RequiredIngredientsItemCommandTest {
     @Test
     public void executeUndoRedo_validIndexUnfilteredList_success() throws Exception {
         Item itemToModify = model.getFilteredItemList().get(INDEX_FIRST.getZeroBased());
-        Item modifiedItem = new ItemBuilder(itemToModify).withRequiredIngredients(REQUIRED_INGREDIENTS_STUB).build();
+        Item modifiedItem = new ItemBuilder(itemToModify)
+                .withRequiredIngredients(REQUIRED_INGREDIENTS_STUB_STRING).build();
 
         RequiredIngredientsItemCommand requiredIngredientsItemCommand =
                 new RequiredIngredientsItemCommand(INDEX_FIRST, REQUIRED_INGREDIENTS_STUB);
