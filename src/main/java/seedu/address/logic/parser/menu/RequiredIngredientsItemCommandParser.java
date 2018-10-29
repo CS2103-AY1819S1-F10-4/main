@@ -66,7 +66,7 @@ public class RequiredIngredientsItemCommandParser implements Parser<RequiredIngr
                         RequiredIngredientsItemCommand.MESSAGE_USAGE));
             }
             String trimmedInteger = map.get(PREFIX_INGREDIENT_NUM);
-            if (!isValidInteger(trimmedInteger)) {
+            if (!isValidNumberOfIngredients(trimmedInteger)) {
                 throw new ParseException(MESSAGE_INTEGER_CONSTRAINTS);
             }
             Integer num = Integer.parseInt(trimmedInteger);
@@ -78,7 +78,10 @@ public class RequiredIngredientsItemCommandParser implements Parser<RequiredIngr
         return new RequiredIngredientsItemCommand(index, requiredIngredients);
     }
 
-    public static boolean isValidInteger(String test) {
+    /**
+     * Returns true if a given string is a valid number of ingredient.
+     */
+    public static boolean isValidNumberOfIngredients(String test) {
         if (!test.matches(INTEGER_VALIDATION_REGEX)) {
             return false;
         }

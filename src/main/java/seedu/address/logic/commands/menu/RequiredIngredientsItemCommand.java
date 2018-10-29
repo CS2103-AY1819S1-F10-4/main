@@ -77,8 +77,8 @@ public class RequiredIngredientsItemCommand extends Command {
      * {@code itemToEdit}.
      */
     private String generateSuccessMessage(Item itemToEdit) {
-        String message = !requiredIngredients.isEmpty() ? MESSAGE_ADD_REQUIRED_INGREDIENT_SUCCESS :
-                MESSAGE_DELETE_REQUIRED_INGREDIENT_SUCCESS;
+        String message = !requiredIngredients.isEmpty() ? MESSAGE_ADD_REQUIRED_INGREDIENT_SUCCESS
+                : MESSAGE_DELETE_REQUIRED_INGREDIENT_SUCCESS;
         return String.format(message, itemToEdit);
     }
 
