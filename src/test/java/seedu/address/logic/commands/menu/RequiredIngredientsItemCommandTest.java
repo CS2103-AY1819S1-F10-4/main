@@ -31,10 +31,6 @@ import seedu.address.testutil.menu.ItemBuilder;
  * Contains integration tests (interaction with the Model) and unit tests for RequiredIngredientsItemCommand.
  */
 public class RequiredIngredientsItemCommandTest {
-    private static final Map<String, String> REQUIRED_INGREDIENTS_STUB_STRING = new HashMap<>();
-    static {
-        REQUIRED_INGREDIENTS_STUB_STRING.put("Apple", "3");
-    }
     private static final Map<IngredientName, Integer> REQUIRED_INGREDIENTS_STUB = new HashMap<>();
     static {
         REQUIRED_INGREDIENTS_STUB.put(new IngredientName("Apple"), 3);
@@ -67,7 +63,7 @@ public class RequiredIngredientsItemCommandTest {
 
         Item firstItem = model.getFilteredItemList().get(INDEX_FIRST.getZeroBased());
         Item editedItem = new ItemBuilder(model.getFilteredItemList().get(INDEX_FIRST.getZeroBased()))
-                .withRequiredIngredients(REQUIRED_INGREDIENTS_STUB_STRING).build();
+                .withRequiredIngredients(Map.of("Apple", "3")).build();
 
         RequiredIngredientsItemCommand requiredIngredientsItemCommand = new RequiredIngredientsItemCommand(INDEX_FIRST,
                 editedItem.getRequiredIngredients());
@@ -84,7 +80,7 @@ public class RequiredIngredientsItemCommandTest {
 
     @Test
     public void execute_invalidItemIndexUnfilteredList_failure() {
-        Index outOfBoundIndex = Index.fromOneBased(model.getFilteredPersonList().size() + 1);
+        Index outOfBoundIndex = Index.fromOneBased(model.getFilteredItemList().size() + 1);
         RequiredIngredientsItemCommand requiredIngredientsItemCommand =
                 new RequiredIngredientsItemCommand(outOfBoundIndex, REQUIRED_INGREDIENTS_STUB);
 
@@ -113,7 +109,7 @@ public class RequiredIngredientsItemCommandTest {
     public void executeUndoRedo_validIndexUnfilteredList_success() throws Exception {
         Item itemToModify = model.getFilteredItemList().get(INDEX_FIRST.getZeroBased());
         Item modifiedItem = new ItemBuilder(itemToModify)
-                .withRequiredIngredients(REQUIRED_INGREDIENTS_STUB_STRING).build();
+                .withRequiredIngredients(Map.of("Apple", "3")).build();
 
         RequiredIngredientsItemCommand requiredIngredientsItemCommand =
                 new RequiredIngredientsItemCommand(INDEX_FIRST, REQUIRED_INGREDIENTS_STUB);

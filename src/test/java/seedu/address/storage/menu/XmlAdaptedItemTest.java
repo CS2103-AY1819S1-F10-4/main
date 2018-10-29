@@ -65,10 +65,10 @@ public class XmlAdaptedItemTest {
 
     @Test
     public void toModelType_invalidPrice_throwsIllegalValueException() {
-        XmlAdaptedItem person = new XmlAdaptedItem(VALID_NAME, INVALID_PRICE, VALID_REMARK, VALID_TAGS,
+        XmlAdaptedItem item = new XmlAdaptedItem(VALID_NAME, INVALID_PRICE, VALID_REMARK, VALID_TAGS,
                 VALID_REQUIRED_INGREDIENTS);
         String expectedMessage = Price.MESSAGE_PRICE_CONSTRAINTS;
-        Assert.assertThrows(IllegalValueException.class, expectedMessage, person::toModelType);
+        Assert.assertThrows(IllegalValueException.class, expectedMessage, item::toModelType);
     }
 
     @Test
