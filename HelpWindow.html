@@ -949,7 +949,8 @@ Deletes the ingredient <code>cod fish</code> from the ingredient list.</p>
 <h4 id="editing-an-ingredient-code-edit-ingredient-code-or-code-edit-ing-code"><a class="link" href="#editing-an-ingredient-code-edit-ingredient-code-or-code-edit-ing-code">5.3.5. Editing an ingredient: <code>edit-ingredient</code> or <code>edit-ing</code></a></h4>
 <div class="paragraph">
 <p>Edits an ingredient in the ingredient list.<br>
-Format: <code>edit-ingredient INDEX [n/INGREDIENT_NAME] [t/UNIT_TYPE] [p/PRICE_PER_UNIT] [m/MINIMUM]</code> or <code>edit-ingredient NAME [n/INGREDIENT_NAME] [t/UNIT_TYPE] [p/PRICE_PER_UNIT] [m/MINIMUM]</code></p>
+Format: <code>edit-ingredient INDEX [n/INGREDIENT_NAME] [u/UNIT_TYPE] [p/PRICE_PER_UNIT]
+[m/MINIMUM]</code> or <code>edit-ingredient on/ORIGINAL_INGREDIENT_NAME [n/NEW_INGREDIENT_NAME] [t/UNIT_TYPE] [p/PRICE_PER_UNIT] [m/MINIMUM]</code></p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -967,7 +968,7 @@ Format: <code>edit-ingredient INDEX [n/INGREDIENT_NAME] [t/UNIT_TYPE] [p/PRICE_P
 <p>Existing values will be updated to the input values.</p>
 </li>
 <li>
-<p>Alternatively, edits the ingredient with the specified <code>NAME</code>.</p>
+<p>Alternatively, edits the ingredient with the specified <code>ORIGNAL_INGREDIENT_NAME</code>.</p>
 </li>
 </ul>
 </div>
@@ -2513,8 +2514,9 @@ contains the data of your previous <strong>MeNUS</strong> folder.</p>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Edit ingredient</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>edit-ingredient INDEX [n/INGREDIENT_NAME] [t/UNIT_TYPE] [p/PRICE_PER_UNIT] [m/MINIMUM]</code> or <code>edit-ingredient NAME [n/INGREDIENT_NAME] [t/UNIT_TYPE] [p/PRICE_PER_UNIT] [m/MINIMUM]</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>edit-ingredient 3 n/thin fries</code> or <code>edit-ingredient ketchup n/tomato ketchup</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>edit-ingredient [INDEX] [on/ORIGINAL_INGREDIENT_NAME] [n/NEW_INGREDIENT_NAME] [u/UNIT_TYPE] [p/PRICE_PER_UNIT] [m/MINIMUM]</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>edit-ingredient 3 n/thin fries</code> or
+<code>edit-ingredient on/ketchup n/tomato ketchup</code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Delete ingredient</strong></p></td>
@@ -2673,4 +2675,4 @@ rather than using only text via the command line.</p>
 </dl>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-11 08:07:01 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-11 09:28:58 UTC</div></div></div></body></html>
