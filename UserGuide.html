@@ -754,7 +754,7 @@ Format: <code>select-account INDEX</code> or <code>sa INDEX</code></p>
 <div class="ulist">
 <ul>
 <li>
-<p>The index refers to the index number shown in the displayed item list.</p>
+<p>The index refers to the index number shown in the displayed item list</p>
 </li>
 <li>
 <p>The index <strong>must be a positive integer</strong> <code>1, 2, 3, &#8230;&#8203;</code></p>
@@ -784,7 +784,7 @@ Selects the 1st account in the results of the <code>find-account</code> command.
 <div class="sect3">
 <h4 id="locating-account-by-username-code-find-account-code-or-code-fa-code"><a class="link" href="#locating-account-by-username-code-find-account-code-or-code-fa-code">5.2.7. Locating account by username: <code>find-account</code> or <code>fa</code></a></h4>
 <div class="paragraph">
-<p>Finds account whose username contain any of the given keywords.<br>
+<p>Finds account whose username contains the keyword.<br>
 Format: <code>find-account KEYWORD</code> or <code>fa KEYWORD</code></p>
 </div>
 <div class="sidebarblock">
@@ -792,13 +792,16 @@ Format: <code>find-account KEYWORD</code> or <code>fa KEYWORD</code></p>
 <div class="ulist">
 <ul>
 <li>
-<p>The search is case insensitive. e.g <code>root</code> will match <code>Root</code></p>
+<p>The search is case insensitive. e.g <code>Root</code> will match <code>root</code></p>
 </li>
 <li>
-<p>Only the username is searched.</p>
+<p>Only the username is searched</p>
 </li>
 <li>
-<p>Only full words will be matched e.g. <code>roo</code> will not match <code>root</code></p>
+<p>Only one keyword is allowed since <code>username</code> does not contain spaces</p>
+</li>
+<li>
+<p>Full keyword is not necessary; e.g. <code>roo</code> and <code>root</code> will match <code>root</code></p>
 </li>
 </ul>
 </div>
@@ -810,12 +813,8 @@ Format: <code>find-account KEYWORD</code> or <code>fa KEYWORD</code></p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>find-account root</code><br>
-Returns <code>root</code></p>
-</li>
-<li>
-<p><code>fa root azhikai rebstan97</code><br>
-Returns any account having username <code>root</code>, <code>azhikai</code>, or <code>rebstan97</code></p>
+<p><code>find-account root</code> or <code>fa root</code><br>
+Return any accounts whose username contains the string <code>root</code></p>
 </li>
 </ul>
 </div>
@@ -2493,6 +2492,11 @@ contains the data of your previous <strong>MeNUS</strong> folder.</p>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>deregister id/azhikai</code></p></td>
 </tr>
 <tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Find account</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>find-account/fa</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>find-account/fa root</code></p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>List accounts</strong></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>list-accounts/la</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>list-accounts/la</code></p></td>
@@ -2675,4 +2679,4 @@ rather than using only text via the command line.</p>
 </dl>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-11 09:28:58 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-11 13:04:08 UTC</div></div></div></body></html>
