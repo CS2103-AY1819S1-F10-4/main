@@ -1592,7 +1592,7 @@ Format: <code>add-reservation n/NAME px/PAX d/DATE ti/TIME</code> or <code>ar n/
 <div class="ulist">
 <ul>
 <li>
-<p>We use natural language processing to parse the date and time values.</p>
+<p>We use natural language processing to parse the date and time values</p>
 </li>
 <li>
 <p>For example, phrases like <code>21st Dec</code> or <code>12 p.m.</code> will be accepted. Try it out!</p>
@@ -1613,7 +1613,7 @@ Format: <code>add-reservation n/NAME px/PAX d/DATE ti/TIME</code> or <code>ar n/
 <div class="ulist">
 <ul>
 <li>
-<p>Try to avoid ambiguous language as it might be interpreted incorrectly.</p>
+<p>Try to avoid ambiguous language as it might be interpreted incorrectly</p>
 </li>
 <li>
 <p>For example, <code>3/12</code> is ambiguous as it could mean <code>3rd December</code> or <code>12th March</code>!</p>
@@ -1630,6 +1630,9 @@ Format: <code>add-reservation n/NAME px/PAX d/DATE ti/TIME</code> or <code>ar n/
 </li>
 </ul>
 </div>
+</li>
+<li>
+<p>Dates that have already passed will be rejected</p>
 </li>
 </ul>
 </div>
@@ -1738,7 +1741,7 @@ Format: <code>delete-reservation INDEX</code> or <code>dr INDEX</code></p>
 <ul>
 <li>
 <p><code>list-reservations</code><br>
-<code>delete-reservations 2</code><br>
+<code>delete-reservation 2</code><br>
 <code>list-reservations</code><br>
 Deletes the 2nd reservation in the reservations list.</p>
 </li>
@@ -2679,4 +2682,4 @@ rather than using only text via the command line.</p>
 </dl>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-11 15:37:28 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-12 11:39:28 UTC</div></div></div></body></html>
