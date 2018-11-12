@@ -2793,93 +2793,93 @@ fish u/kilogram p/20 m/1</code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Discount item</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">`discount-item INDEX</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">ALL [ei/INDEX] dp/PERCENTAGE`</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>discount-item INDEX/ALL [ei/INDEX] dp/PERCENTAGE</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>discount-item 2 dp/20</code></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>discount-item 2 dp/20</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Today&#8217;s special</strong></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>today-special</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>today-special</code></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>today-special</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Add recipe to item</strong></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>recipe-item r/RECIPE</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>recipe-item r/some recipe</code></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>recipe-item r/some recipe</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Add required ingredients to item</strong></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>add-required-ingredients n/INGREDIENT_NAME nu/NUMBER_OF_INGREDIENTS</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>add-required-ingredients n/Apple nu/3</code></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>add-required-ingredients n/Apple nu/3</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Add reservation</strong></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>add-reservation n/NAME px/PAX d/DATE ti/TIME</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>add-reservation n/TAN px/4 d/21-07-2019 ti/10:00</code></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>add-reservation n/TAN px/4 d/21-07-2019 ti/10:00</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Edit reservation</strong></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>edit-reservation INDEX [n/NAME] [px/PAX] [d/DATE] [ti/TIME]</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>edit-reservation 2 px/2</code></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>edit-reservation 2 px/2</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Delete reservation</strong></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>delete-reservation INDEX</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>delete-reservation 2</code></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>delete-reservation 2</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Select reservation</strong></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>select-reservation INDEX</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>select-reservation 1</code></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>select-reservation 1</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>List reservation</strong></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>list-reservations</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>list-reservations</code></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>list-reservations</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Sort reservation</strong></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>sort-reservations</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>sort-reservations</code></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>sort-reservations</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Record sales volume</strong></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>record-sales d/DATE n/ITEM_NAME q/QUANTITY_SOLD p/ITEM_PRICE</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>record-sales d/25-09-2018 n/Fried Rice q/35 p/5.50</code></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>record-sales d/25-09-2018 n/Fried Rice q/35 p/5.50</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Display sales report</strong></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>display-sales DATE</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>display-sales 25-09-2018</code></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>display-sales 25-09-2018</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Edit sales record</strong></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>edit-sales INDEX [d/DATE] [n/ITEM_NAME] [q/QUANTITY_SOLD] [p/ITEM_PRICE]</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>edit-sales 3 n/Fried Omelet p/7.99</code></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>edit-sales 3 n/Fried Omelet p/7.99</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Delete sales record</strong></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>delete-sales INDEX</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>delete-sales 2</code></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>delete-sales 2</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Display sales chart</strong></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>chart-sales</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>chart-sales</code></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>chart-sales</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Rank items by total revenue</strong></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>rank-item</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>rank-item</code></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>rank-item</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Rank dates by total revenue</strong></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>rank-date</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>rank-date</code></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>rank-date</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Select sales record</strong></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>select-sales INDEX</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>select-sales 3</code></p></td>
 </tr>
 </tbody>
 </table>
@@ -2918,4 +2918,4 @@ single entry in the record list. It comprises 6 different attributes, namely<br>
 </dl>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-12 15:11:13 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-12 15:26:21 UTC</div></div></div></body></html>
