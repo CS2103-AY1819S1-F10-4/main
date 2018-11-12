@@ -1249,9 +1249,10 @@ the ingredients used before deducting them from the ingredient list automaticall
 <h4 id="current-implementation-4"><a class="link" href="#current-implementation-4">4.4.1. Current Implementation</a></h4>
 <div class="paragraph">
 <p>A <code>SalesRecord</code> is associated with 6 attributes - <code>Date</code>, <code>ItemName</code>, <code>QuantitySold</code>, <code>Price</code>, <code>Revenue</code> and
-<code>IngredientUsed</code>. The success of the auto-ingredient update mechanism is subjected to the following conditions:<br></p>
+<code>IngredientUsed</code>.<br>
+<strong>The success of the auto-ingredient update mechanism is subjected to the following conditions:</strong><br></p>
 </div>
-<div id="condition" class="paragraph">
+<div id="criteria" class="paragraph">
 <p>1) <code>ItemName</code> exists in the <code>Menu</code>. <br>
 2) The required ingredients to make one unit of <code>ItemName</code> is specified in the <code>Menu</code>.<br>
 3) The required ingredients exist in the <code>Ingredient</code> list.<br>
@@ -1264,8 +1265,7 @@ the ingredients used before deducting them from the ingredient list automaticall
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-If any of the above conditions is not satisfied, the sales will be recorded without updating the ingredient
-list.
+If any of the above conditions are not satisfied, sales volume will be recorded without updating the ingredient list
 </td>
 </tr>
 </table>
@@ -1278,7 +1278,7 @@ list.
 </td>
 <td class="content">
 If conditions 1 and 2 are satisfied, <code>RecordSalesCommand</code> will compute all the ingredients used and store the data in
- <code>IngredientUsed</code> attribute of <code>SalesRecord</code>.
+ <code>IngredientUsed</code> attribute of <code>SalesRecord</code>
 </td>
 </tr>
 </table>
@@ -1288,30 +1288,29 @@ If conditions 1 and 2 are satisfied, <code>RecordSalesCommand</code> will comput
 <code>Model</code> interface. Given below is an example scenario and how the auto-ingredient update mechanism behaves at each step.</p>
 </div>
 <div class="paragraph">
-<p>Step 1. The user executes <code>record-sales d/11-01-2018 n/Fried Rice q/35 p/5.50</code> command to record the sales volume of
+<p><strong>Step 1</strong>. The user executes <code>record-sales d/11-01-2018 n/Fried Rice q/35 p/5.50</code> command to record the sales volume of
 <code>Fried Rice</code> on <code>11-01-2018</code>. A <code>SalesRecord</code> would be instantiated based on the command arguments given.</p>
 </div>
 <div class="paragraph">
-<p>Step 2. <code>RecordSalesCommand</code> will request for the item <code>Fried Rice</code> from <code>Menu</code>. This is done through the <code>Item findItem
-(Name)</code> method given in <code>Menu</code> component. This also checks if <a href="#condition">[condition]</a> 1 is satisfied.</p>
+<p><strong>Step 2</strong>. <code>RecordSalesCommand</code> will request for the item <code>Fried Rice</code> from <code>Menu</code>. This is done through the <code>Item
+findItem (Name)</code> method given in <code>Menu</code> component. This also checks if <a href="#criteria">condition 1</a> is satisfied.</p>
 </div>
-<div class="paragraph">
-<p>Step 3. <code>RecordSalesCommand</code> then proceeds to request for the required ingredients to make a unit of <code>Fried Rice</code>
+<div id="required-ingredient" class="paragraph">
+<p><strong>Step 3</strong>. <code>RecordSalesCommand</code> then proceeds to request for the required ingredients to make a unit of <code>Fried Rice</code>
 from <code>Menu</code>. This is done through the <code>Map&lt;IngredientName, Integer&gt; getRequiredIngredients(Item)</code> method given
-in <code>Menu</code>. This also checks if <a href="#condition">[condition]</a> 2 is satisfied.</p>
+in <code>Menu</code>. This also checks if <a href="#criteria">condition 2</a> is satisfied.</p>
 </div>
 <div class="paragraph">
-<p>Step 4. With the required ingredients per unit data now at hand, <code>RecordSalesCommand</code> will compute the total
-ingredients used in making <code>35</code> units of <code>Fried Rice</code>. This is done by multiplying required ingredients per unit by the
-<code>35</code>. The <code>IngredientUsed</code> attribute in <code>SalesRecord</code> will then be updated.</p>
+<p><strong>Step 4</strong>. With the required ingredients per unit data now at hand, <code>RecordSalesCommand</code> will compute the total
+ingredients used in making <code>35</code> units of <code>Fried Rice</code>. The <code>IngredientUsed</code> attribute in <code>SalesRecord</code> will then be updated.</p>
 </div>
 <div class="paragraph">
-<p>Step 5. <code>RecordSalesCommand</code> will then pass the computed <code>IngredientUsed</code> to <code>Ingredient</code> component to request for
+<p><strong>Step 5</strong>. <code>RecordSalesCommand</code> will then pass the computed <code>IngredientUsed</code> to <code>Ingredient</code> component to request for
  an update of ingredients. This is done through the <code>void consumeIngredients(Map&lt;IngredientName, Integer&gt;)</code> method
- given in <code>Ingredient</code> component. This checks for <a href="#condition">[condition]</a> 3 and 4.</p>
+ given in <code>Ingredient</code> component. This checks for <a href="#criteria">condition 3 &amp; 4</a>.</p>
 </div>
 <div class="paragraph">
-<p>Step 6. The <code>SalesRecord</code> is then finally added into <code>UniqueRecordList</code> via the <code>void addRecord(SalesRecord)</code>
+<p><strong>Step 6</strong>. The <code>SalesRecord</code> is then finally added into <code>UniqueRecordList</code> via the <code>void addRecord(SalesRecord)</code>
 method given in <code>Sales</code> component of <code>Model</code>.</p>
 </div>
 <div class="admonitionblock note">
@@ -1321,45 +1320,49 @@ method given in <code>Sales</code> component of <code>Model</code>.</p>
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-An exception will be thrown in step 2, 3 or 5 should the conditions be violated. When this happens,
-<code>RecordSalesCommand</code> will proceed with step 6 instantly and omit the remaining steps.
+An exception will be thrown in step 2, 3 or 5 should the conditions be violated. In such scenario,
+<code>RecordSalesCommand</code> will jump to step 6 instantly and omit the remaining steps
 </td>
 </tr>
 </table>
 </div>
 <div class="paragraph">
-<p>The following activity diagram summarizes what happens when a user executes <code>record-sales</code> command:</p>
+<p>The following activity diagram (Figure 4.4.1.1) summarizes what happens when a user executes <code>record-sales</code> command:</p>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="images/RecordSalesActivityDiagram.png" alt="RecordSalesActivityDiagram" width="1000">
 </div>
 </div>
+<div class="paragraph">
+<p><em>Figure 4.4.1.1: Activity Diagram for <code>record-sales</code> command</em></p>
+</div>
 </div>
 <div class="sect3">
 <h4 id="design-considerations-4"><a class="link" href="#design-considerations-4">4.4.2. Design Considerations</a></h4>
-<div class="sect4">
-<h5 id="aspect-should-the-auto-ingredient-update-mechanism-be-incorporated-when-deleting-sales"><a class="link" href="#aspect-should-the-auto-ingredient-update-mechanism-be-incorporated-when-deleting-sales">Aspect: Should the auto-ingredient update mechanism be incorporated when deleting sales?</a></h5>
+<div class="paragraph">
+<p><strong>Aspect: Should the auto-ingredient update mechanism be incorporated when deleting sales record?</strong></p>
+</div>
 <div class="ulist">
 <ul>
 <li>
 <p><strong>Alternative 1 (current choice):</strong> <code>DeleteSalesCommand</code> does not update the ingredient list. That is, it does not
-"return" the ingredients which may or may not have been consumed during <code>record-sales</code>.</p>
+"return" the ingredients which may have been deducted during <code>record-sales</code>.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Pros: Remove the possibility of unwanted updates to the ingredient list. This advantage is apparent when deleting
+<p>Pros: Remove the possibility of unwanted updates to the ingredient list. This is apparent when deleting
 an obsolete record. We do not want the ingredients to "magically appear" in the ingredient list.</p>
 </li>
 <li>
-<p>Cons: If user accidentally recorded sales by mistake, deleting sales will not help him/her recover the consumed
-ingredients. Instead, user will have to rely on the <code>Undo</code> command.</p>
+<p>Cons: If user accidentally recorded sales by mistake and triggered the update mechanism, deleting sales will not
+help him/her recover the deducted ingredients. Instead, user will have to rely on the <code>Undo</code> command.</p>
 </li>
 </ul>
 </div>
 </li>
 <li>
-<p><strong>Alternative 2:</strong> <code>DeleteSalesCommand</code> "returns" the consumed ingredients to the ingredient list.</p>
+<p><strong>Alternative 2:</strong> <code>DeleteSalesCommand</code> "returns" any deducted ingredients to the ingredient list.</p>
 <div class="ulist">
 <ul>
 <li>
@@ -1373,57 +1376,66 @@ ingredients. Instead, user will have to rely on the <code>Undo</code> command.</
 </li>
 </ul>
 </div>
+<div class="paragraph">
+<p><strong>Aspect: Should the auto-ingredient update mechanism be incorporated when editing sales record?</strong></p>
 </div>
-<div class="sect4">
-<h5 id="aspect-should-the-auto-ingredient-update-mechanism-be-incorporated-when-editing-sales"><a class="link" href="#aspect-should-the-auto-ingredient-update-mechanism-be-incorporated-when-editing-sales">Aspect: Should the auto-ingredient update mechanism be incorporated when editing sales?</a></h5>
 <div class="ulist">
 <ul>
 <li>
 <p><strong>Alternative 1 (current choice):</strong> <code>EditSalesCommand</code> does not update the ingredient list. That is, it does not
-"correct" the ingredients which may or may not have been consumed during <code>record-sales</code>. Furthermore, the
-<code>IngredientUsed</code> attribute of the <code>SalesRecord</code> becomes invalid and hence removed permanently. There will be no
-re-computation of <code>IngredientUsed</code>.</p>
+"return" the ingredients which may have been deducted during <code>record-sales</code> and does not attempt to re-compute or
+re-deduct the ingredient used. Since the <code>IngredientUsed</code> attribute of the <code>SalesRecord</code> is now outdated, it will be
+removed permanently.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Pros: Easy to implement. Avoids the implementation complexity as stated in "Alternative 2 - Cons"</p>
+<p>Pros: Easy to implement. Avoids the implementation complexity as stated in "Alternative 2 - Cons".</p>
 </li>
 <li>
-<p>Cons: If user accidentally made an error while recording sales, editing sales will not help him/her alter the
-ingredients consumed. What is consumed previously will stay as it is. Also, the <code>IngredientUsed</code> attribute will no
+<p>Cons: If user accidentally made an error when recording sales in the past, editing sales will not help him/her alter
+ the ingredients deducted. What was deducted previously will stay as it is. Also, the <code>IngredientUsed</code> attribute will no
 longer be available.</p>
 </li>
 </ul>
 </div>
 </li>
 <li>
-<p><strong>Alternative 2:</strong> <code>EditSalesCommand</code> "corrects" the consumed ingredients by re-computing the <code>IngredientUsed</code>
-attribute, "returning" the ingredients that were previously consumed and then passing the new <code>IngredientUsed</code> to the
-ingredient list to update it.</p>
+<p><strong>Alternative 2:</strong> <code>EditSalesCommand</code> "returns" the ingredients which may have been deducted, re-computes the
+<code>IngredientUsed</code> attribute and re-deduct the ingredients from the ingredient list. The <code>IngredientUsed</code> attribute of
+the <code>SalesRecord</code> will be updated.</p>
 <div class="ulist">
 <ul>
 <li>
 <p>Pros: Resolves the issue stated in "Alternative 1 - Cons".</p>
 </li>
 <li>
-<p>Cons: Must take time into consideration when re-computing the <code>IngredientUsed</code> since "required ingredients per
-unit" may get edited over time. Do we use the "required ingredients per unit" data present during record-sales, or do
- we use the data present during edit-sales?<br>
- If we use the former, then we would require a repository to store the history of the entire <code>Menu</code> whenever we
- record-sales. "Entire menu" so that data would be available should the <code>ItemName</code> gets edited in the future. This would
- take up a massive amount of memory space in the long run. Certainly not worth it just for an <code>edit-sales</code>.<br>
-If we use the latter, then it would not make much sense. Say a glass of orange juice takes 1 orange to make at the
-time of record-sales, and 3 oranges to make at the time of edit-sales. If the user edits the <code>QuantitySold</code> attribute
- from 1 to 10, he/she would certainly not want (3*10-1 = 29) oranges to be consumed from the ingredient list since it
- only took (1*10 = 10) oranges! Now what happens if the user wants to edit the <code>ItemName</code> "Orange Juice" to "Fruit
- Punch"? The ingredients required to make "Fruit Punch" might be available now, but we are not so sure if they were
- even available during <code>record-sales</code>!</p>
+<p>Cons: Must take time into consideration when re-computing the <code>IngredientUsed</code> since <code>required ingredients per
+unit</code> of an item may change over time.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Option 1</strong>: Use <code>required ingredients per unit</code> data available <strong>during record-sales in the past</strong>.<br>
+<strong>Analysis</strong>: We would need a repository to save different versions of <code>Menu</code> in the past.
+The entire <code>Menu</code> must be saved whenever a sales record is added. This is so that if user were to edit the <code>ItemName</code>
+attribute of that particular sales record in the future, we would be able to retrieve the item&#8217;s <code>required
+ingredients per unit</code> data (which might not even have been specified) at the time of <code>record-sales</code>.<br>
+<strong>Verdict</strong>: <strong>This option would take up a massive amount of memory space in the long run.</strong></p>
+</li>
+<li>
+<p><strong>Option 2</strong>: Use <code>required ingredients per unit</code> data available <strong>during edit-sales at the present</strong>.<br>
+<strong>Analysis</strong>: Let us assume that a glass of orange juice takes 1 orange to make at the time of record-sales (past),
+and 3 oranges to make at the time of edit-sales (present). If the user edits the <code>QuantitySold</code> attribute from 1
+(past) to 10 (present), it would be illogical for (3*10-1*1 = 29) oranges to be deducted from the ingredient list since
+ it only took (1*10 = 10) oranges.<br>
+<strong>Verdict</strong>: <strong>This option is irrational</strong>.</p>
 </li>
 </ul>
 </div>
 </li>
 </ul>
 </div>
+</li>
+</ul>
 </div>
 </div>
 </div>
@@ -1435,12 +1447,12 @@ time of record-sales, and 3 oranges to make at the time of edit-sales. If the us
 <p>The display sales report mechanism is facilitated by the Model, UI and Event components of the App. A <code>SalesReport</code>
 class encapsulates the attributes of a sales report to be displayed.
 The sales report is internally generated by <code>generateSalesReport(Date)</code> in <code>UniqueRecordList</code>. It then
-propagates up the Model call hierarchy to <code>getSalesReport(Date)</code> in <code>ModelManager</code>, which is exposed in the <code>Model</code>
+propagates up the <code>Model</code> call hierarchy to <code>getSalesReport(Date)</code> in <code>ModelManager</code>, which is exposed in the <code>Model</code>
 interface.</p>
 </div>
 <div class="paragraph">
-<p>The following sequence diagram illustrates how the display sales report operation works when the user enters
-<code>display-sales 25-12-2017</code>:</p>
+<p>The following sequence diagram (Figure 4.5.1.1) illustrates how the display sales report operation works when the
+user enters <code>display-sales 25-12-2017</code>:</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -1448,12 +1460,18 @@ interface.</p>
 </div>
 </div>
 <div class="paragraph">
-<p>The sequence diagram for the "Parse Command" reference frame above is shown below:</p>
+<p><em>Figure 4.5.1.1: Sequence Diagram for <code>display-sales</code> command</em></p>
+</div>
+<div class="paragraph">
+<p>The sequence diagram for the "Parse Command" reference frame above is shown below in Figure 4.5.1.2:</p>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="images/DisplaySalesSequenceDiagramRef.png" alt="DisplaySalesSequenceDiagramRef" width="580">
 </div>
+</div>
+<div class="paragraph">
+<p><em>Figure 4.5.1.2: Sequence Diagram for "Parse Command" reference frame</em></p>
 </div>
 <div class="paragraph">
 <p>Given below is an example usage scenario and how the display sales report operation behaves at each step.</p>
@@ -1470,7 +1488,7 @@ interface.</p>
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-<code>display-sales</code> command will not call <code>Model#getSalesReport(Date)</code> if the specified date is invalid.
+<code>display-sales</code> command will not call <code>Model#getSalesReport(Date)</code> if the specified date is invalid
 </td>
 </tr>
 </table>
@@ -1483,7 +1501,7 @@ interface.</p>
 </td>
 <td class="content">
 If no sales record associated with the given <code>Date</code> is found, an empty SalesReport will be
-returned. In such cases, the command will terminate with a message notifying the user about the absence of such record.
+returned. In such cases, the command will terminate with a message notifying the user about the absence of such record
 </td>
 </tr>
 </table>
@@ -1509,8 +1527,8 @@ in UI&#8217;s <code>MainWindow</code> being called. This method instantiates a <
 <ul>
 <li>
 <p><strong>Alternative 1 (current choice):</strong> <code>generateSalesReport(Date)</code> in <code>UniqueRecordList</code> filters the entire record
-list. Records that match the given <code>Date</code> are added into an <code>ObservableList&lt;SalesRecord&gt;</code>. The <code>SalesReport</code> is
-generated based on the list.</p>
+list. Records that match the given <code>Date</code> are added into a <code>List&lt;SalesRecord&gt;</code>. The <code>SalesReport</code> is
+generated based on this list.</p>
 <div class="ulist">
 <ul>
 <li>
@@ -1524,7 +1542,7 @@ generated based on the list.</p>
 </li>
 <li>
 <p><strong>Alternative 2:</strong> Maintain another list that sorts itself by date every time it is modified. Conduct a binary
-search to fill in the <code>ObservableList&lt;SalesRecord&gt;</code> every time a sales report is requested.</p>
+search to fill in the <code>List&lt;SalesRecord&gt;</code> every time a sales report is requested.</p>
 <div class="ulist">
 <ul>
 <li>
@@ -1849,7 +1867,7 @@ After sorting the menu, it will save the current state for undo/redo.</p>
 </div>
 </div>
 <div class="paragraph">
-<p><em>Figure 4.7.2.1: SortMenu Activity diagram</em></p>
+<p><em>Figure 4.8.2.1: SortMenu Activity diagram</em></p>
 </div>
 <div class="paragraph">
 <p>The following sequence diagram shows how the <code>sort-menu</code> command works:</p>
@@ -1860,7 +1878,7 @@ After sorting the menu, it will save the current state for undo/redo.</p>
 </div>
 </div>
 <div class="paragraph">
-<p><em>Figure 4.7.2.2: SortMenu Sequence diagram</em></p>
+<p><em>Figure 4.8.2.2: SortMenu Sequence diagram</em></p>
 </div>
 </div>
 <div class="sect3">
@@ -1903,7 +1921,7 @@ then save the current state for undo/redo.</p>
 </div>
 </div>
 <div class="paragraph">
-<p><em>Figure 4.7.3.1: DiscountItem Activity diagram</em></p>
+<p><em>Figure 4.8.3.1: DiscountItem Activity diagram</em></p>
 </div>
 </div>
 <div class="sect3">
@@ -2038,7 +2056,7 @@ If not, it will continue use the <code>Natty</code> Library to parse the date va
 </div>
 </div>
 <div class="paragraph">
-<p><em>Figure 4.8.2.1: Activity diagram to illustrate the <code>add-reservation</code> command</em></p>
+<p><em>Figure 4.9.2.1: Activity diagram to illustrate the <code>add-reservation</code> command</em></p>
 </div>
 </div>
 <div class="sect3">
@@ -2081,7 +2099,7 @@ the UI.</p>
 </div>
 </div>
 <div class="paragraph">
-<p><em>Figure 4.8.5.1: Sequence diagram to illustrate the <code>list-reservations</code> command</em></p>
+<p><em>Figure 4.9.5.1: Sequence diagram to illustrate the <code>list-reservations</code> command</em></p>
 </div>
 </div>
 <div class="sect3">
@@ -3977,11 +3995,11 @@ Use case resumes at step 3.</p>
 </div>
 </li>
 <li>
-<p>2a. Some of the <a href="#condition">[condition]</a> were not satisfied.</p>
+<p>2a. One or more of the <a href="#criteria">criteria</a> to update ingredient list were not satisfied.</p>
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>2a1. App takes note of which condition was not satisfied, and appends a notification message after the success
+<p>2a1. App takes note of which criteria were not satisfied, and appends a notification message after the success
 message.</p>
 <div class="paragraph">
 <p>Use case resumes at step 3.</p>
@@ -4047,16 +4065,16 @@ message.</p>
 </div>
 </li>
 <li>
-<p>1b. Record does not exist in the record list.</p>
+<p>1b. Index specified is invalid.</p>
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>1b1. App returns a message telling user that no such record exists in the record list.</p>
+<p>1b1. App returns a message telling user that the index specified is invalid.</p>
 </li>
 <li>
 <p>1b2. User requests to edit sales record again.</p>
 <div class="paragraph">
-<p>Steps 1b1-1b2 are repeated until a valid record is entered.</p>
+<p>Steps 1b1-1b2 are repeated until a valid index is entered.</p>
 </div>
 <div class="paragraph">
 <p>Use case resumes at step 2.</p>
@@ -4181,16 +4199,16 @@ message.</p>
 </div>
 </li>
 <li>
-<p>1b. Record does not exist in the record list.</p>
+<p>1b. Index specified is invalid.</p>
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>1b1. App returns a message telling user that no such record exists in the record list.</p>
+<p>1b1. App returns a message telling user that the index specified is invalid.</p>
 </li>
 <li>
 <p>1b2. User requests to delete sales record again.</p>
 <div class="paragraph">
-<p>Steps 1b1-1b2 are repeated until a valid record is entered.</p>
+<p>Steps 1b1-1b2 are repeated until a valid index is entered.</p>
 </div>
 <div class="paragraph">
 <p>Use case resumes at step 2.</p>
@@ -4293,7 +4311,7 @@ message.</p>
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-The use cases for 1) ranking dates according to total revenue and 2) displaying sales chart are the same.
+The use cases for 1) ranking dates according to total revenue &amp; 2) displaying sales chart are the same
 </td>
 </tr>
 </table>
@@ -4790,7 +4808,7 @@ than the ingredient list size)
 </div>
 </li>
 <li>
-<p>Giving discount to all item</p>
+<p>Giving discount to all item in the displayed item list</p>
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
@@ -4798,7 +4816,7 @@ than the ingredient list size)
 </li>
 <li>
 <p>Test case: <code>discount-item ALL dp/20</code><br>
-<strong>Expected</strong>: Gives all items in the menu a discount. Number of items given a discount shown in status message.</p>
+<strong>Expected</strong>: Gives all items in the displayed item list a discount. Number of items given a discount shown in status message.</p>
 </li>
 <li>
 <p>Incorrect commands to try: <code>discount-item -2 dp/20</code>, <code>discount-item string dp/20</code></p>
@@ -4987,4 +5005,4 @@ logged in.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-12 14:02:19 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-12 15:00:19 UTC</div></div></div></body></html>

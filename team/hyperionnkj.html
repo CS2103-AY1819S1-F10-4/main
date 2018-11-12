@@ -1,50 +1,82 @@
 <!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]--><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="Asciidoctor 1.5.6.1"><title>Neo Kai Jun - Project Portfolio</title><link rel="stylesheet" href="../stylesheets/gh-pages.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="../stylesheets/coderay-asciidoctor.css"></head><body class="article"><div id="site-header"><nav class="navbar navbar-light bg-light"><div class="container"><a class="navbar-brand" href="../index.html">MeNUS</a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="../UserGuide.html">User Guide</a></li><li class="nav-item"><a class="nav-link" href="../DeveloperGuide.html">Developer Guide</a></li><li class="nav-item"><a class="nav-link active" href="../AboutUs.html">About Us</a></li><li class="nav-item"><a class="nav-link" href="../ContactUs.html">Contact Us</a></li><li class="navitem"><a class="nav-link" href="https://github.com/CS2103-AY1819S1-F10-4/main"><span class="fa fa-github fa-lg" aria-hidden="true"></span>&nbsp;View on GitHub</a></li></ul></div></nav></div><div id="header"><h1>Neo Kai Jun - Project Portfolio</h1></div><div id="content"><div class="sect1">
-<h2 id="project-menus"><a class="link" href="#project-menus">PROJECT: MeNUS</a></h2>
-<div class="sectionbody">
-<hr>
-</div>
-</div>
-<div class="sect1">
 <h2 id="overview"><a class="link" href="#overview">Overview</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p><strong>MeNUS</strong> is an integrated restaurant management desktop application designed for restaurant managers. It incorporates
-the menus, ingredients, sales and reservations management system so restaurant managers can efficiently and
-effectively keep track of their menu, ingredient inventory, financial records and bookings all in one place. It
- provides a Command Line Interface (CLI) for restaurant managers to interact with, and is complemented with a
- Graphical User Interface (GUI) created with JavaFX. MeNUS is written with approximately 30 kLOC.</p>
+<p>This portfolio documents my contributions towards the project I have undertaken in the course <strong>CS2103T - Software
+Engineering</strong>. It aims to demonstrate the theoretical and practical knowledge I have gained in the field of Software
+Engineering over the semester.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="project-menus"><a class="link" href="#project-menus">PROJECT: MeNUS</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><strong>MeNUS</strong> is an integrated restaurant management desktop application designed for restaurant owners. It comprises five
+sub-management systems - 1) Menu, 2) Inventory, 3) Sales, 4) Reservation and 5) Authentication, each of which plays an
+indispensable role in ensuring the success of a restaurant business. They were meticulously developed to streamline
+the process of tracking dishes, ingredients, bookings and sales records while upholding a substantial level of security.</p>
+</div>
+<div class="paragraph">
+<p><strong>MeNUS</strong> provides a Command Line Interface (CLI) for restaurant owners to interact with and is complemented with a
+Graphical User Interface (GUI) that is constructed with <a href="https://docs.oracle.com/javafx/2/overview/jfxpub-overview.htm">JavaFX</a>.
+MeNUS is written in <a href="https://www.oracle.com/technetwork/java/javase/downloads/java-archive-javase9-3934878.html">Java 9</a>
+with approximately 25 kLOC.</p>
 </div>
 </div>
 </div>
 <div class="sect1">
 <h2 id="summary-of-contributions"><a class="link" href="#summary-of-contributions">Summary of contributions</a></h2>
 <div class="sectionbody">
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Given below are contributions I made for the project. They showcase my capability to<br>
+ 1) identify and specify functional and non-functional requirements for the product;<br>
+ 2) conduct product and implementation design to meet end-users' requirements;<br>
+ 3) write high quality code that is error-free, comprehensible, and reusable;<br>
+ 4) write effective and efficient test codes to ensure high quality assurance;<br>
+ 5) use various modelling and version control tools;<br>
+ 6) collaborate with other developers.</p></td>
+</tr>
+</tbody>
+</table>
 <div class="ulist">
 <ul>
 <li>
 <p><strong>Code contributed</strong>: <a href="https://nus-cs2103-ay1819s1.github.io/cs2103-dashboard/#=undefined&amp;search=hyperionnkj">RepoSense</a></p>
 </li>
 <li>
-<p><strong>Major enhancement</strong>: added Sales Management features to help restaurant owners keep track of financial records.</p>
+<p><strong>Major enhancement</strong>: Developed and integrated a <strong>Sales Management System (SMS)</strong> into MeNUS to help restaurant owners
+keep track of financial records, analyse their financial performance and devise marketing strategies.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>What it does: allows the user to record, edit and delete financial records. Besides, they can view the sales
-report of a specified date, and even the revenue ranking of the items and dates. An auto-ingredient update mechanism
-was also incorporated in command to record sales, so restaurant managers would no longer have to manually update them
- every day.</p>
+<p><strong>What it does</strong>: SMS allows owners to add, modify and remove sales records. An <strong>Auto-ingredient update</strong> mechanism
+is incorporated to enable automatic consumption of ingredients whenever a record is added. Also provides owners
+with analytical features to generate sales report, plot sales chart and rank dates/items according to
+profitability.</p>
 </li>
 <li>
-<p>Justification: These features help ease the difficulty in keeping track of financial records every day. It also
-helps restaurant managers make strategic financial and marketing decisions to expand their business in the long run.</p>
+<p><strong>Justification</strong>: These features provide efficiency and effectiveness in keeping track of huge amount of financial
+records every day which can be extremely tedious if done via the conventional means of pen and paper. The
+<code>Auto-ingredient update mechanism</code> also saves restaurant managers the trouble of frequent inventory tracking which
+often takes up a significant amount of time and effort. Analytical features assists restaurant owners in making
+strategic marketing decisions, projecting business&#8217;s revenue as well as monitoring its long-term growth. These ensure
+ the financial success of the restaurant in the long run.</p>
 </li>
 <li>
-<p>Highlights: This enhancement adds on to the limited number of commands available in MeNUS. It requires an in-depth
-analysis of design alternatives as well as understanding how the entire code base interacts with one another. The
-implementation too was challenging as the auto-ingredient update mechanism requires knowledge of how menus and
-ingredients management works.</p>
+<p><strong>Highlights</strong>: This enhancement adds on to the limited number of key management aspects MeNUS can provide. It
+requires an in-depth analysis of design alternatives as well as a thorough understanding of the entire code
+architecture. The implementation was challenging as the <code>Auto-ingredient update mechanism</code> required the integration of
+the Menus, Ingredients and Sales management system. An extensive knowledge of how each management works was therefore
+essential. Analytical features also required substantial knowledge of front-end programming languages such as
+<a href="https://www.w3schools.com/css/css_intro.asp">CSS</a> and <a href="https://www.w3schools.com/xml/xml_whatis.asp">XML</a>.</p>
 </li>
 </ul>
 </div>
@@ -58,21 +90,28 @@ ingredients management works.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Manage the integration aspect of the MeNUS. Ensure interaction between various components of the app goes smoothly
-as intended.</p>
+<p>Managed the integration and collaboration aspect of MeNUS.
+<a href="https://github.com/CS2103-AY1819S1-F10-4/main/issues/147">#147</a></p>
+</li>
+<li>
+<p>Ensured <a href="https://en.wikipedia.org/wiki/Coupling_(computer_programming)">loose coupling</a> and flawless coordination
+between various management systems of MeNUS.</p>
+</li>
+<li>
+<p>Maintained issue tracker and merging of pull requests (PRs).</p>
+</li>
+<li>
+<p>Oversaw the Storage component of MeNUS and preserved its functionality throughout.</p>
 </li>
 </ul>
 </div>
 </li>
 <li>
-<p>Community:</p>
+<p>Enhancements to existing features:</p>
 <div class="ulist">
 <ul>
 <li>
-<p>PRs reviewed (with non-trivial review comments)</p>
-</li>
-<li>
-<p>Reported bugs and suggestions for other teams in the class</p>
+<p>Updated MeNUS&#8217;s Cascading Style Sheets (CSS) theme.</p>
 </li>
 </ul>
 </div>
@@ -82,8 +121,7 @@ as intended.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Written all the test cases related to Sales management which include unit testing, system testing and integration
-testing. This helps improve the overall coverage of the app beyond 90%.</p>
+<p>Wrote unit and integration tests which helped improve the overall code coverage beyond 94%.</p>
 </li>
 </ul>
 </div>
@@ -93,19 +131,71 @@ testing. This helps improve the overall coverage of the app beyond 90%.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Written the Sales command descriptions in User guide</p>
+<p>User Guide:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Added user-centric Sales command descriptions.
+<a href="https://github.com/CS2103-AY1819S1-F10-4/main/pull/36">#36</a>,
+<a href="https://github.com/CS2103-AY1819S1-F10-4/main/pull/119">#119</a>,
+<a href="https://github.com/CS2103-AY1819S1-F10-4/main/pull/192">#192</a>,
+<a href="https://github.com/CS2103-AY1819S1-F10-4/main/pull/294">#294</a></p>
+</li>
+</ul>
+</div>
 </li>
 <li>
-<p>Written and updated use cases, user stories in Developer guide.</p>
+<p>Developer Guide:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Wrote implementation details for <code>display-sales</code> and <code>Auto-ingredient update</code> features.
+<a href="https://github.com/CS2103-AY1819S1-F10-4/main/pull/119">#119</a>,
+<a href="https://github.com/CS2103-AY1819S1-F10-4/main/pull/192">#192</a>,
+<a href="https://github.com/CS2103-AY1819S1-F10-4/main/pull/294">#294</a></p>
 </li>
 <li>
-<p>Written the implementation details of display-sales and auto-ingredient update features.</p>
+<p>Drew Unified Modeling Language (UML) diagrams under various sections.
+<a href="https://github.com/CS2103-AY1819S1-F10-4/main/pull/141">#141</a>,
+<a href="https://github.com/CS2103-AY1819S1-F10-4/main/pull/202">#202</a>,
+<a href="https://github.com/CS2103-AY1819S1-F10-4/main/pull/266">#266</a></p>
 </li>
 <li>
-<p>Drawn UML model to ease understanding and complement written explanation</p>
+<p>Specified requirements under user stories and use cases
+<a href="https://github.com/CS2103-AY1819S1-F10-4/main/pull/36">#36</a>,
+<a href="https://github.com/CS2103-AY1819S1-F10-4/main/pull/119">#119</a>,</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
 </li>
 <li>
-<p>Made general enhancements to the User Guide and Developer Guide</p>
+<p>Community:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://bit.ly/2QAkHS9">Reviewed</a>
+more than 75 PRs.</p>
+</li>
+<li>
+<p>Ensured code quality through non-trivial comments and suggestions in many PRs.
+<a href="https://github.com/CS2103-AY1819S1-F10-4/main/pull/267">#267</a>
+<a href="https://github.com/CS2103-AY1819S1-F10-4/main/pull/256">#256</a>
+<a href="https://github.com/CS2103-AY1819S1-F10-4/main/pull/250">#250</a>
+<a href="https://github.com/CS2103-AY1819S1-F10-4/main/pull/189">#189</a>
+<a href="https://github.com/CS2103-AY1819S1-F10-4/main/pull/170">#170</a>
+<a href="https://github.com/CS2103-AY1819S1-F10-4/main/pull/262">#262</a>
+<a href="https://github.com/CS2103-AY1819S1-F10-4/main/pull/122">#122</a></p>
+</li>
+<li>
+<p>Reported bugs and suggestions for other teams in the course.
+<a href="https://github.com/CS2103-AY1819S1-W17-1/main/issues/239">#239</a>
+<a href="https://github.com/CS2103-AY1819S1-W17-1/main/issues/240">#240</a>
+<a href="https://github.com/CS2103-AY1819S1-W17-1/main/issues/241">#241</a>
+<a href="https://github.com/CS2103-AY1819S1-W17-1/main/issues/242">#242</a>
+<a href="https://github.com/CS2103-AY1819S1-W17-1/main/issues/243">#243</a></p>
 </li>
 </ul>
 </div>
@@ -126,10 +216,348 @@ testing. This helps improve the overall coverage of the app beyond 90%.</p>
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Given below are sections I contributed to the User Guide. They showcase my ability to write documentation targeting end-users.</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The following sections are my contributions to the User Guide. They reflect my ability to write clear and concise
+documentation targeting non-technical readers. Please refer to <a href="https://cs2103-ay1819s1-f10-4-menus.netlify" class="bare">https://cs2103-ay1819s1-f10-4-menus.netlify</a>
+.com/userguide[User Guide] for more of my contributions.</p></td>
 </tr>
 </tbody>
 </table>
+<div class="sect2">
+<h3 id="sales-management"><a class="link" href="#sales-management">Sales Management</a></h3>
+<div class="paragraph">
+<p>The following are sales-related commands to help you with financial tracking and analysis. The terms <strong>"sales record"</strong>
+and <strong>"record list"</strong> will be used frequently under this section so it is advisable to first understand their
+definition in the <a href="#sales-record">glossary</a>.</p>
+</div>
+<div class="sect3">
+<h4 id="record-sales"><a class="link" href="#record-sales">Recording sales volume of an item: <code>record-sales</code> or <code>rs</code></a></h4>
+<div class="paragraph">
+<p>Records the sales volume of an item within a specific day into the record list.<br>
+Format: <code>record-sales d/DATE n/ITEM_NAME q/QUANTITY_SOLD p/ITEM_PRICE</code> or <code>rs d/DATE n/ITEM_NAME q/QUANTITY_SOLD
+p/ITEM_PRICE</code><br></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p><code>DATE</code> must be written in the DD-MM-YYYY format.</p>
+</li>
+<li>
+<p><code>DATE</code> must exist in the calendar.</p>
+</li>
+<li>
+<p>Both <code>DATE</code> and <code>ITEM_NAME</code> cannot be same as another record in the record list.</p>
+</li>
+<li>
+<p><code>ITEM_NAME</code> is case insensitive. "Cheesy Pasta" and "cheesy pasta" are regarded as the same item.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>record-sales d/25-09-2018 n/Fried Rice q/35 p/5.50</code></p>
+</li>
+<li>
+<p><code>rs d/25-09-2018 n/Fried Rice q/35 p/5.50</code></p>
+</li>
+</ul>
+</div>
+<div id="auto-ingredient-update" class="paragraph">
+<p><strong>Auto-ingredient update mechanism</strong></p>
+</div>
+<div class="paragraph">
+<p><code>record-sales</code> also determines all the ingredients you used and automatically deducts them from the ingredient
+list, subjected to the following conditions:<br>
+1) The item exists in the menu.<br>
+See <a href="#add-item">Section 5.4.1, “Adding an item to the menu"</a> for more information.<br>
+2) The required ingredients to make one unit of <code>ITEM_NAME</code> is specified.<br>
+See <a href="#add-required-ingredient">Section 5.4.14, “Add required ingredients"</a> for more information.<br>
+3) All required ingredients exist in the ingredient list.<br>
+See <a href="#add-ingredient">Section 5.3.1, “Adding an ingredient"</a> for more information.<br>
+4) There are sufficient ingredients to make <code>QUANTITY_SOLD</code> units of <code>ITEM_NAME</code>.<br>
+See <a href="#stockup">Section 5.3.6, “Stocking up an ingredient"</a> for more information.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Sales volume will still be recorded even if some of the above conditions are not met. However, ingredient list
+will not be updated</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p><a id="ingredients-used"></a><strong>Ingredient used</strong>: MeNUS will remember the name and quantity of ingredients you used as long as
+the item and its required ingredients have been specified in the menu component</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>If you recorded a sales volume by mistake, you can use the <code>Undo</code> command to recover the deducted ingredients,
+provided that the ingredients have been deducted automatically</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect3">
+<h4 id="display-sales"><a class="link" href="#display-sales">Display sales report: <code>display-sales</code> or <code>dis</code></a></h4>
+<div class="paragraph">
+<p>Generate and display the sales report for a specific day.<br>
+Format: <code>display-sales DATE</code> or <code>dis DATE</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p><code>DATE</code> must be written in the DD-MM-YYYY format.</p>
+</li>
+<li>
+<p><code>DATE</code> must exist in the calendar.</p>
+</li>
+<li>
+<p>There must be at least one sales record associated with the specified <code>DATE</code>.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>display-sales 30-09-2018</code></p>
+</li>
+<li>
+<p><code>dis 30-09-2018</code><br>
+Displays the sales report dated 30-09-2018.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The following (Figure 5.6.2.1) is an example of what you will see if the sales report is generated and displayed
+correctly:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/display-sales-pic.png" alt="display sales pic" width="465">
+</div>
+</div>
+<div class="paragraph">
+<p><em>Figure 5.6.2.1: Sales Report</em></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="deleting-a-sales-record-code-delete-sales-code-or-code-des-code"><a class="link" href="#deleting-a-sales-record-code-delete-sales-code-or-code-des-code">Deleting a sales record: <code>delete-sales</code> or <code>des</code></a></h4>
+<div class="paragraph">
+<p>Deletes the sales record identified by the index.<br>
+Format: <code>delete-sales INDEX</code> or <code>des INDEX</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Deletes the record at the specified <code>INDEX</code>.</p>
+</li>
+<li>
+<p><code>INDEX</code> refers to the index number shown in the record list.</p>
+</li>
+<li>
+<p><code>INDEX</code> <strong>must be a positive integer</strong> 1, 2, 3, &#8230;&#8203;</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Deleting a sales record will not undo the effect of <a href="#auto-ingredient-update">"Auto-ingredient update"</a> which may or
+ may not have happened during recording</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>delete-sales 2</code></p>
+</li>
+<li>
+<p><code>des 2</code><br>
+Deletes the 2nd record from the record list.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="editing-a-sales-record-code-edit-sales-code-or-code-es-code"><a class="link" href="#editing-a-sales-record-code-edit-sales-code-or-code-es-code">Editing a sales record: <code>edit-sales</code> or <code>es</code></a></h4>
+<div class="paragraph">
+<p>Edits the sales record identified by the index.<br>
+Format: <code>edit-sales INDEX [d/DATE] [n/ITEM_NAME] [q/QUANTITY_SOLD] [p/ITEM_PRICE]</code> or <code>es INDEX [d/DATE]
+[n/ITEM_NAME] [q/QUANTITY_SOLD] [p/ITEM_PRICE]</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Edits the record at the specified <code>INDEX</code>.</p>
+</li>
+<li>
+<p><code>INDEX</code> refers to the index number shown in the record list.</p>
+</li>
+<li>
+<p><code>INDEX</code> <strong>must be a positive integer</strong> 1, 2, 3, &#8230;&#8203;</p>
+</li>
+<li>
+<p>At least one of the optional fields must be provided.</p>
+</li>
+<li>
+<p>Existing values will be updated to the input values.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Editing a sales record will permanently delete its <a href="#ingredients-used">"Ingredient used"</a> data</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Editing a sales record will <strong>not</strong> update the ingredient list. See <a href="#auto-ingredient-update">Auto-ingredient
+update</a> for more information</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>edit-sales 3 n/Fried Omelet</code></p>
+</li>
+<li>
+<p><code>es 3 n/Fried Omelet</code><br>
+Edits the item name of the 3rd record to be "Fried Omelet".</p>
+</li>
+<li>
+<p><code>edit-sales 7 q/37 p/6.50</code></p>
+</li>
+<li>
+<p><code>es 7 q/37 p/6.50</code><br>
+Edits the quantity sold and price of the 7th record to be 37 and 6.50 respectively.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="rank-date"><a class="link" href="#rank-date">Ranking dates according to total revenue: <code>rank-date</code> or <code>rad</code></a></h4>
+<div class="paragraph">
+<p>Ranks and displays all existing dates in the record list based on the total revenue.<br>
+Format: <code>rank-date</code> or <code>rad</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Record list must not be empty.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>You can generate the sales report of a specific date to get a more detailed analysis. See <a href="#display-sales">Section 5.6.2, “Display sales report"</a> for more information</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>The following (Figure 5.6.6.1) is an example of what you will see if the ranking is generated and displayed correctly:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/rank-date-pic.png" alt="rank date pic" width="325">
+</div>
+</div>
+<div class="paragraph">
+<p><em>Figure 5.6.6.1: Ranking of dates by revenue</em></p>
+</div>
+</div>
+</div>
 </div>
 </div>
 <div class="sect1">
@@ -141,9 +569,344 @@ testing. This helps improve the overall coverage of the app beyond 90%.</p>
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Given below are sections I contributed to the Developer Guide. They showcase my ability to write technical documentation and the technical depth of my contributions to the project.</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The following sections are my contributions to the Developer Guide. They reflect my ability to convey technical
+information in a comprehensible manner. It also showcases the technical depth of my contributions.
+Please refer to <a href="https://cs2103-ay1819s1-f10-4-menus.netlify.com/developerguidefor" class="bare">https://cs2103-ay1819s1-f10-4-menus.netlify.com/developerguidefor</a> more of my contributions</p></td>
 </tr>
 </tbody>
 </table>
+<div class="sect2">
+<h3 id="auto-ingredient-update"><a class="link" href="#auto-ingredient-update">Auto-ingredient update feature</a></h3>
+<div class="paragraph">
+<p>The auto-ingredient update mechanism is facilitated by <code>RecordSalesCommand</code> and triggers whenever the "record-sales"
+command is invoked. A <code>SalesRecord</code> will be instantiated based on the information given and attempts to compute
+the ingredients used before deducting them from the ingredient list automatically.</p>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-12 14:02:19 UTC</div></div></div></body></html>
+<div class="sect3">
+<h4 id="current-implementation"><a class="link" href="#current-implementation">Current Implementation</a></h4>
+<div class="paragraph">
+<p>A <code>SalesRecord</code> is associated with 6 attributes - <code>Date</code>, <code>ItemName</code>, <code>QuantitySold</code>, <code>Price</code>, <code>Revenue</code> and
+<code>IngredientUsed</code>.<br>
+<strong>The success of the auto-ingredient update mechanism is subjected to the following conditions:</strong><br></p>
+</div>
+<div id="criteria" class="paragraph">
+<p>1) <code>ItemName</code> exists in the <code>Menu</code>. <br>
+2) The required ingredients to make one unit of <code>ItemName</code> is specified in the <code>Menu</code>.<br>
+3) The required ingredients exist in the <code>Ingredient</code> list.<br>
+4) There are sufficient ingredients to make <code>QuantitySold</code> units of <code>ItemName</code> in the <code>Ingredient</code> list.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+If any of the above conditions are not satisfied, sales volume will be recorded without updating the ingredient list
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+If conditions 1 and 2 are satisfied, <code>RecordSalesCommand</code> will compute all the ingredients used and store the data in
+ <code>IngredientUsed</code> attribute of <code>SalesRecord</code>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>This mechanism is aided by methods from the <code>Menu</code> and <code>Ingredient</code> components, all of which are exposed in the
+<code>Model</code> interface. Given below is an example scenario and how the auto-ingredient update mechanism behaves at each step.</p>
+</div>
+<div class="paragraph">
+<p><strong>Step 1</strong>. The user executes <code>record-sales d/11-01-2018 n/Fried Rice q/35 p/5.50</code> command to record the sales volume of
+<code>Fried Rice</code> on <code>11-01-2018</code>. A <code>SalesRecord</code> would be instantiated based on the command arguments given.</p>
+</div>
+<div class="paragraph">
+<p><strong>Step 2</strong>. <code>RecordSalesCommand</code> will request for the item <code>Fried Rice</code> from <code>Menu</code>. This is done through the <code>Item
+findItem (Name)</code> method given in <code>Menu</code> component. This also checks if <a href="#criteria">condition 1</a> is satisfied.</p>
+</div>
+<div id="required-ingredient" class="paragraph">
+<p><strong>Step 3</strong>. <code>RecordSalesCommand</code> then proceeds to request for the required ingredients to make a unit of <code>Fried Rice</code>
+from <code>Menu</code>. This is done through the <code>Map&lt;IngredientName, Integer&gt; getRequiredIngredients(Item)</code> method given
+in <code>Menu</code>. This also checks if <a href="#criteria">condition 2</a> is satisfied.</p>
+</div>
+<div class="paragraph">
+<p><strong>Step 4</strong>. With the required ingredients per unit data now at hand, <code>RecordSalesCommand</code> will compute the total
+ingredients used in making <code>35</code> units of <code>Fried Rice</code>. The <code>IngredientUsed</code> attribute in <code>SalesRecord</code> will then be updated.</p>
+</div>
+<div class="paragraph">
+<p><strong>Step 5</strong>. <code>RecordSalesCommand</code> will then pass the computed <code>IngredientUsed</code> to <code>Ingredient</code> component to request for
+ an update of ingredients. This is done through the <code>void consumeIngredients(Map&lt;IngredientName, Integer&gt;)</code> method
+ given in <code>Ingredient</code> component. This checks for <a href="#criteria">condition 3 &amp; 4</a>.</p>
+</div>
+<div class="paragraph">
+<p><strong>Step 6</strong>. The <code>SalesRecord</code> is then finally added into <code>UniqueRecordList</code> via the <code>void addRecord(SalesRecord)</code>
+method given in <code>Sales</code> component of <code>Model</code>.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+An exception will be thrown in step 2, 3 or 5 should the conditions be violated. In such scenario,
+<code>RecordSalesCommand</code> will jump to step 6 instantly and omit the remaining steps
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>The following activity diagram (Figure 4.4.1.1) summarizes what happens when a user executes <code>record-sales</code> command:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/RecordSalesActivityDiagram.png" alt="RecordSalesActivityDiagram" width="1000">
+</div>
+</div>
+<div class="paragraph">
+<p><em>Figure 4.4.1.1: Activity Diagram for <code>record-sales</code> command</em>
+=== Display sales report feature
+==== Current Implementation</p>
+</div>
+<div class="paragraph">
+<p>The display sales report mechanism is facilitated by the Model, UI and Event components of the App. A <code>SalesReport</code>
+class encapsulates the attributes of a sales report to be displayed.
+The sales report is internally generated by <code>generateSalesReport(Date)</code> in <code>UniqueRecordList</code>. It then
+propagates up the <code>Model</code> call hierarchy to <code>getSalesReport(Date)</code> in <code>ModelManager</code>, which is exposed in the <code>Model</code>
+interface.</p>
+</div>
+<div class="paragraph">
+<p>The following sequence diagram (Figure 4.5.1.1) illustrates how the display sales report operation works when the
+user enters <code>display-sales 25-12-2017</code>:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/DisplaySalesSequenceDiagram.png" alt="DisplaySalesSequenceDiagram" width="1300">
+</div>
+</div>
+<div class="paragraph">
+<p><em>Figure 4.5.1.1: Sequence Diagram for <code>display-sales</code> command</em></p>
+</div>
+<div class="paragraph">
+<p>The sequence diagram for the "Parse Command" reference frame above is shown below in Figure 4.5.1.2:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/DisplaySalesSequenceDiagramRef.png" alt="DisplaySalesSequenceDiagramRef" width="580">
+</div>
+</div>
+<div class="paragraph">
+<p><em>Figure 4.5.1.2: Sequence Diagram for "Parse Command" reference frame</em></p>
+</div>
+<div class="paragraph">
+<p>Given below is an example usage scenario and how the display sales report operation behaves at each step.</p>
+</div>
+<div class="paragraph">
+<p>Step 1. The user executes <code>display-sales 25-12-2017</code> command to request for the sales report dated 25-12-2017. The
+<code>display-sales</code> command calls <code>Model#getSalesReport(Date)</code>, passing in the date "25-12-2017", and gets the generated
+<code>SalesReport</code> in return.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<code>display-sales</code> command will not call <code>Model#getSalesReport(Date)</code> if the specified date is invalid
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+If no sales record associated with the given <code>Date</code> is found, an empty SalesReport will be
+returned. In such cases, the command will terminate with a message notifying the user about the absence of such record
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Step 2. The <code>display-sales</code> command then raises the <code>DisplaySalesReportEvent</code> event, which also encapsulates the
+generated <code>SalesReport</code> in step 1.</p>
+</div>
+<div class="paragraph">
+<p>Step 3. The <code>EventsCenter</code> reacts to the above event, which results in <code>handleDisplaySalesReportEvent(Event)</code>
+in UI&#8217;s <code>MainWindow</code> being called. This method instantiates a <code>SalesReportWindow</code> object by passing in the
+<code>SalesReport</code> to its constructor. This <code>SalesReportWindow</code> acts as the controller for the sales report window.</p>
+</div>
+<div class="paragraph">
+<p>Step 4. The <code>SalesReportWindow</code> is then initialized and displayed on user&#8217;s screen.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations"><a class="link" href="#design-considerations">Design Considerations</a></h4>
+<div class="sect4">
+<h5 id="aspect-how-code-salesreport-code-is-generated-internally"><a class="link" href="#aspect-how-code-salesreport-code-is-generated-internally">Aspect: How <code>SalesReport</code> is generated internally</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice):</strong> <code>generateSalesReport(Date)</code> in <code>UniqueRecordList</code> filters the entire record
+list. Records that match the given <code>Date</code> are added into a <code>List&lt;SalesRecord&gt;</code>. The <code>SalesReport</code> is
+generated based on this list.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Easy to implement.</p>
+</li>
+<li>
+<p>Cons: Execution is of linear time complexity and would be considerably slow should the list size be very large.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> Maintain another list that sorts itself by date every time it is modified. Conduct a binary
+search to fill in the <code>List&lt;SalesRecord&gt;</code> every time a sales report is requested.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: <code>SalesReport</code> can be generated with a O(logN) time complexity.</p>
+</li>
+<li>
+<p>Cons: Sorting after every input would require O(NlogN) time which is slow. Additionally, the sorted list also
+takes up an O(N) memory space.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<h3 id="use-case-uc501-record-sales-volume-of-an-item" class="discrete">Use case: UC501 - Record sales volume of an item</h3>
+<div class="paragraph">
+<p><strong>Guarantees</strong>:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>A new sales record of an item will be appended to the record list.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User requests to record sales volume of an item for a specified day.</p>
+</li>
+<li>
+<p>App computes the ingredients used and updates the ingredient list automatically.</p>
+</li>
+<li>
+<p>App appends the record at the end of record list.</p>
+</li>
+<li>
+<p>App returns a success message confirming that the recording is successful.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1a. Invalid command format entered by the user.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1a1. App returns a message telling user that the command format is invalid.</p>
+</li>
+<li>
+<p>1a2. User requests to record sales volume again.</p>
+<div class="paragraph">
+<p>Steps 1a1-1a2 are repeated until a valid command format is entered.</p>
+</div>
+<div class="paragraph">
+<p>Use case resumes at step 2.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>1b. The given date or name or quantity sold or price is invalid.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1b1. App returns a message telling user that the date or name or quantity sold or price is invalid.</p>
+</li>
+<li>
+<p>1b2. User requests to record sales volume again.</p>
+<div class="paragraph">
+<p>Steps 1b1-1b2 are repeated until all fields entered by the user are valid.</p>
+</div>
+<div class="paragraph">
+<p>Use case resumes at step 2.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1c. Sales record of the same date and item name already exists in the record list.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1c1. App returns a message telling user that the item&#8217;s record already exists.</p>
+</li>
+<li>
+<p>1c2. User requests to record sales volume again.</p>
+<div class="paragraph">
+<p>Steps 1c1-1c2 are repeated until a record with unique date and item name is entered.</p>
+</div>
+<div class="paragraph">
+<p>Use case resumes at step 2.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>2a. One or more of the <a href="#criteria">criteria</a> to update ingredient list were not satisfied.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>2a1. App takes note of which criteria were not satisfied, and appends a notification message after the success
+message.</p>
+<div class="paragraph">
+<p>Use case resumes at step 3.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-12 15:00:19 UTC</div></div></div></body></html>

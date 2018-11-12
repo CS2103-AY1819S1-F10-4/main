@@ -336,7 +336,7 @@ Deletes the <code>Cheese Fries</code> item from the menu.</p>
 <h4 id="filter-menu-by-tag-code-filter-menu-code-or-code-fm-code"><a class="link" href="#filter-menu-by-tag-code-filter-menu-code-or-code-fm-code">Filter menu by tag: <code>filter-menu</code> or <code>fm</code></a></h4>
 <div class="paragraph">
 <p>Finds items whose tags match any of the given keywords.<br>
-Format: <code>filter-menu KEYWORD [MORE_KEYWORDS]</code></p>
+Format: <code>filter-menu KEYWORD [MORE_KEYWORDS]&#8230;&#8203;</code></p>
 </div>
 <div class="sidebarblock">
 <div class="content">
@@ -413,7 +413,7 @@ Format: <code>discount-item INDEX|ALL [ei/INDEX] dp/PERCENTAGE</code></p>
 <p>You can remove discount by typing <code>0</code> for the percentage.</p>
 </li>
 <li>
-<p>You can give a discount to the whole menu by typing <code>ALL</code>(case-insensitive) instead of a specified <code>INDEX</code>.</p>
+<p>You can give a discount to all items in the displayed item list by typing <code>ALL</code>(case-insensitive) instead of a specified <code>INDEX</code>.</p>
 </li>
 <li>
 <p>You can give a discount to a range of items by adding the ending index <code>ei\INDEX</code>.</p>
@@ -468,6 +468,10 @@ ability to write technical documentation and the technical depth of my contribut
 </tr>
 </tbody>
 </table>
+<div class="sect2">
+<h3 id="extracts-of-implementation-section"><a class="link" href="#extracts-of-implementation-section">Extracts of Implementation Section</a></h3>
+
+</div>
 <div class="sect2">
 <h3 id="menu-management-feature"><a class="link" href="#menu-management-feature">Menu management feature</a></h3>
 <div class="paragraph">
@@ -578,7 +582,7 @@ After sorting the menu, it will save the current state for undo/redo.</p>
 </div>
 </div>
 <div class="paragraph">
-<p><em>Figure 4.7.2.1: SortMenu Activity diagram</em></p>
+<p><em>Figure 4.8.2.1: SortMenu Activity diagram</em></p>
 </div>
 <div class="paragraph">
 <p>The following sequence diagram shows how the <code>sort-menu</code> command works:</p>
@@ -589,7 +593,7 @@ After sorting the menu, it will save the current state for undo/redo.</p>
 </div>
 </div>
 <div class="paragraph">
-<p><em>Figure 4.7.2.2: SortMenu Sequence diagram</em></p>
+<p><em>Figure 4.8.2.2: SortMenu Sequence diagram</em></p>
 </div>
 </div>
 <div class="sect3">
@@ -632,7 +636,7 @@ then save the current state for undo/redo.</p>
 </div>
 </div>
 <div class="paragraph">
-<p><em>Figure 4.7.3.1: DiscountItem Activity diagram</em></p>
+<p><em>Figure 4.8.3.1: DiscountItem Activity diagram</em></p>
 </div>
 </div>
 <div class="sect3">
@@ -670,6 +674,11 @@ to check if the currency symbol and price entered are valid.</p>
 </li>
 </ul>
 </div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="extracts-of-use-case-section"><a class="link" href="#extracts-of-use-case-section">Extracts of Use Case Section</a></h3>
 <h3 id="use-case-uc301-add-item-to-menu" class="discrete">Use case: UC301 -  Add item to menu</h3>
 <div class="paragraph">
 <p><strong>MSS</strong></p>
@@ -794,7 +803,9 @@ to check if the currency symbol and price entered are valid.</p>
 </ul>
 </div>
 </div>
-</div>
+<div class="sect2">
+<h3 id="extracts-of-instructions-for-manual-testing-section"><a class="link" href="#extracts-of-instructions-for-manual-testing-section">Extracts of Instructions for Manual Testing Section</a></h3>
+
 </div>
 <div class="sect2">
 <h3 id="menu-management-2"><a class="link" href="#menu-management-2">Menu Management</a></h3>
@@ -872,4 +883,4 @@ to check if the currency symbol and price entered are valid.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-12 14:02:19 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-12 15:00:19 UTC</div></div></div></body></html>
