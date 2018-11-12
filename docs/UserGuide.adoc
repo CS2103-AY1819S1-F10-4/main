@@ -1259,7 +1259,7 @@ fish u/kilogram p/20 m/1`
 |*Clear menu* |`clear-menu` |`clear-menu`
 |*Filter menu* |`filter-menu KEYWORD [MORE_KEYWORDS]...` |`filter-menu cheese`
 |*Sort menu* |`sort-menu SORTING_METHOD` |`sort-menu NAME`
-|*Discount item* |`discount-item INDEX/ALL [ei/INDEX] dp/PERCENTAGE` |`discount-item 2 dp/20`
+|*Discount item* |`discount-item INDEX|ALL [ei/INDEX] dp/PERCENTAGE` |`discount-item 2 dp/20`
 |*Today's special* |`today-special` |`today-special`
 |*Add recipe to item* |`recipe-item r/RECIPE` |`recipe-item r/some recipe`
 |*Add required ingredients to item* |`add-required-ingredients n/INGREDIENT_NAME nu/NUMBER_OF_INGREDIENTS`
