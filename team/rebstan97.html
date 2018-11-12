@@ -372,7 +372,7 @@ Format: <code>stockup n/INGREDIENT_NAME&#8230;&#8203; nu/NUMBER_OF_UNITS&#8230;&
 <p><code>NUMBER_OF_UNITS</code> for an ingredient must follow the <code>INGREDIENT_NAME</code> for that particular ingredient</p>
 </li>
 <li>
-<p>If the same ingredient is specified more than once, the last <code>NUMBER_OF_UNITS</code> will supercede.</p>
+<p>If the same ingredient is specified more than once, the last <code>NUMBER_OF_UNITS</code> will supercede</p>
 </li>
 </ul>
 </div>
@@ -523,7 +523,7 @@ their own behaviour for these methods.</p>
 </div>
 </div>
 <div class="paragraph">
-<p><em>Figure 4.6.1.1: Component interactions for <code>delete-ingredient apple</code> command</em></p>
+<p><em>Figure 4.6.1.2: Component interactions for <code>delete-ingredient apple</code> command</em></p>
 </div>
 </li>
 </ul>
@@ -607,7 +607,7 @@ exception is thrown
 </div>
 </div>
 <div class="paragraph">
-<p><em>Figure 4.7.1: Flow of events after a user executes the <code>stockup</code> command</em></p>
+<p><em>Figure 4.7.1.1: Flow of events after a user executes the <code>stockup</code> command</em></p>
 </div>
 </div>
 <div class="sect3">
@@ -884,10 +884,8 @@ violation of the Law of Demeter.</p>
 <p>1a1. App returns a message telling user that the command format is invalid.</p>
 </li>
 <li>
-<p>1a2. User requests to stock up ingredient again.
-+
-Steps 1a1-1a2 are repeated until a valid command format is entered.
-+
+<p>1a2. User requests to stock up ingredient again.<br>
+Steps 1a1-1a2 are repeated until a valid command format is entered.<br>
 Use case resumes at step 2.</p>
 </li>
 </ul>
@@ -905,10 +903,8 @@ Use case resumes at step 2.</p>
 <p>2b1. App returns a message telling user that the ingredient does not exist.</p>
 </li>
 <li>
-<p>2b2. User requests to stock up ingredient again.
-+
-Steps 2b1-2b2 are repeated until a valid ingredient name is entered.
-+
+<p>2b2. User requests to stock up ingredient again.<br>
+Steps 2b1-2b2 are repeated until a valid ingredient name is entered.<br>
 Use case resumes at step 3.</p>
 </li>
 </ul>
@@ -920,4 +916,4 @@ Use case resumes at step 3.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-12 15:00:19 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-12 15:11:13 UTC</div></div></div></body></html>

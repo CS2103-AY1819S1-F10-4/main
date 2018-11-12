@@ -5,7 +5,7 @@
 <div class="sectionbody">
 <hr>
 <div class="paragraph">
-<p>This portfolio aims to provide a summary of my contribution as Team Leader for the project,
+<p>This portfolio aims to provide a summary of my contribution as Team Lead for the project,
 <a href="https://github.com/CS2103-AY1819S1-F10-4/main"><strong>MeNUS</strong></a>.</p>
 </div>
 </div>
@@ -15,14 +15,14 @@
 <div class="sectionbody">
 <div class="paragraph">
 <p><strong>MeNUS</strong> is a restaurant management desktop application targeting restaurant owners in the National University
-of Singapore (NUS). It is built to help them better manage core aspects of their restaurants &#8201;&#8212;&#8201; employees, menus,
-inventory, sales and reservations&#8201;&#8212;&#8201;all from a single location!</p>
+of Singapore (NUS). It is built to help them better manage core aspects of their restaurants &#8201;&#8212;&#8201; accounts (i.e. employees), menus,
+ingredients, sales and reservations management&#8201;&#8212;&#8201;all within a single application!</p>
 </div>
 <div class="paragraph">
 <p>Restaurant owners interact with <strong>MeNUS</strong> using a Command Line Interface
 (CLI). <strong>MeNUS</strong> also has a Graphical User Interface(GUI) created with <a href="https://docs.oracle.com/javafx/2/">JavaFX</a> and it
 is written using <a href="https://www.oracle.com/technetwork/java/javase/downloads/java-archive-javase9-3934878.html">Java 9</a> with
-approximately 25 KLoC.</p>
+approximately 30 KLoC.</p>
 </div>
 <div class="paragraph">
 <p>It is cross-platform supported and can be used on both Windows-based and Unix-based platforms.</p>
@@ -38,36 +38,25 @@ approximately 25 KLoC.</p>
 <p><strong>Code contributed</strong>: <a href="https://nus-cs2103-ay1819s1.github.io/cs2103-dashboard/#=undefined&amp;search=azhikai">RepoSense</a></p>
 </li>
 <li>
-<p><strong>Major enhancement</strong>: Added the <strong>user management</strong> feature</p>
+<p><strong>Major enhancement</strong>: Added the <strong>accounts management</strong> feature</p>
 <div class="ulist">
 <ul>
 <li>
-<p><strong>What it does</strong>: Allows the restaurant owner to create account for each of his employee to manage the system on his
+<p><strong>What it does</strong>: Allows the restaurant owner to create an account for each of his employee to manage the system on his
 behalf.</p>
 </li>
 <li>
-<p><strong>Justification</strong>: This feature introduces the security layer by ensuring that only authorised employees are able to
-execute certain sets of commands, depending on their level of privilege.</p>
+<p><strong>Justification</strong>: This feature implements a security layer by ensuring that only authorised employees are able to
+execute commands based on their level of privilege. In addition, it provides accountability as executed commands
+can be traced back to the respective user.</p>
 </li>
 <li>
-<p><strong>Highlights</strong>: This enhancement affects existing commands such that certain commands require the user to be
-authenticated, otherwise it will not be executed. It required an in-depth analysis and understanding of the <code>Logic</code>,
-<code>Model</code> and <code>Storage</code> components. The implementation too was challenging as it required modifications to existing
-commands.</p>
+<p><strong>Highlights</strong>: This enhancement affects existing commands as certain commands will only be executed if the user is
+authorised to do so. It required an in-depth analysis and understanding of the <code>Logic</code>,<code>Model</code> and <code>Storage</code>
+components. Also, the implementation was challenging as it required modifications to existing commands.</p>
 </li>
 <li>
-<p><strong>Credits</strong>: Account password is secured using <a href="https://github.com/patrickfav/bcrypt"><code>bcrypt</code></a>.</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p><strong>Minor enhancement</strong>: Added side navigation bar to allow access to the different components of the application with
-a click of a mouse or trackpad.</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Navigation can also be done via CLI if user does not possess a mouse or trackpad.</p>
+<p><strong>Credits</strong>: Passwords are secured using <a href="https://github.com/patrickfav/bcrypt"><code>bcrypt</code></a>.</p>
 </li>
 </ul>
 </div>
@@ -77,71 +66,72 @@ a click of a mouse or trackpad.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Project Management:</p>
+<p><strong>Minor enhancements</strong>:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Added side navigation bar to allow access to the different components of the application with a click of a mouse
+or trackpad, in addition to doing so via the CLI.</p>
+</li>
+<li>
+<p><a href="https://github.com/CS2103-AY1819S1-F10-4/main/pull/256">Morphed</a> the code base into a different product.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Project management</strong>:</p>
 <div class="ulist">
 <ul>
 <li>
 <p>Team Lead; responsible for overall project coordination.</p>
 </li>
 <li>
-<p>Set up GitHub repository, Travis, AppVeyor, Codacy, Coveralls and RepoSense.</p>
+<p>Set up and configured GitHub repository, Travis, AppVeyor, Codacy, Coveralls, Netlify, RepoSense and Discord
+<a href="https://i.imgur.com/iHyQAML.png">automatic notifications</a> using Webhook.</p>
 </li>
 <li>
-<p>Maintained issue tracker, milestone, pull request approval and merger.</p>
+<p>Maintained issue tracker, milestone, project board and merging of pull requests (PRs).</p>
 </li>
 <li>
-<p>Managed releases <code>v1.1</code>, <code>v1.2</code>, <code>v1.2.1</code>, <code>v1.3</code>, <code>v1.3.1</code>, <code>v1.4</code> (6 releases) on GitHub.</p>
-</li>
-<li>
-<p>Configured deployment of static pages to GitHub Pages and Netlify.</p>
-</li>
-<li>
-<p>Morphed the project through refactoring and removing obsolete code:
-<a href="https://github.com/CS2103-AY1819S1-F10-4/main/pull/256">#256</a>.</p>
-</li>
-<li>
-<p>Practiced good pull request (PR) hygiene by ensuring positive coverage.</p>
+<p>Managed <a href="https://github.com/CS2103-AY1819S1-F10-4/main/releases">releases</a> <code>v1.1</code>, <code>v1.2</code>, <code>v1.2.1</code>, <code>v1.3</code>,
+<code>v1.3.1</code>, <code>v1.4</code> (6 releases) on GitHub.</p>
 </li>
 </ul>
 </div>
 </li>
 <li>
-<p>Documentation:</p>
+<p><strong>Documentation</strong>:</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Morphed the existing contents (UML and Sequence diagrams) of the User Guide and Developer Guide with respect to
-the morphed source code.</p>
+<p>Restructured <a href="https://cs2103-ay1819s1-f10-4.github.io/main/">project website</a> to resemble an actual product.</p>
 </li>
 <li>
 <p>Added introductions to User Guide and Developer Guide to make them more reader-focused.</p>
 </li>
+<li>
+<p>Added <code>Using Git with Sourcetree</code> section to the Developer Guide.</p>
+</li>
+<li>
+<p>Added instructions for manual testing for Accounts Management.</p>
+</li>
+<li>
+<p>Morphed the existing contents of the User Guide and Developer Guide with respect to
+the morphed code base.</p>
+</li>
 </ul>
 </div>
 </li>
 <li>
-<p>Community:</p>
+<p><strong>Community</strong>:</p>
 <div class="ulist">
 <ul>
 <li>
-<p><a href="https://github.com/CS2103-AY1819S1-F10-4/main/pulls/AZhiKai">Merged</a> more than 40 PRs.</p>
+<p><a href="http://bit.ly/azhikai-contribution">Contributed</a> more than 50 PRs.</p>
 </li>
 <li>
-<p>Reviewed more than 70 PRs with non-trivial review comments:
-<a href="https://github.com/CS2103-AY1819S1-F10-4/main/pull/27">#27</a>,
-<a href="https://github.com/CS2103-AY1819S1-F10-4/main/pull/36">#36</a>,
-<a href="https://github.com/CS2103-AY1819S1-F10-4/main/pull/37">#37</a>,
-<a href="https://github.com/CS2103-AY1819S1-F10-4/main/pull/42">#42</a>,
-<a href="https://github.com/CS2103-AY1819S1-F10-4/main/pull/44">#44</a>,
-<a href="https://github.com/CS2103-AY1819S1-F10-4/main/pull/50">#50</a>,
-<a href="https://github.com/CS2103-AY1819S1-F10-4/main/pull/51">#51</a>,
-<a href="https://github.com/CS2103-AY1819S1-F10-4/main/pull/52">#52</a>,
-<a href="https://github.com/CS2103-AY1819S1-F10-4/main/pull/53">#53</a>,
-<a href="https://github.com/CS2103-AY1819S1-F10-4/main/pull/83">#83</a>,
-<a href="https://github.com/CS2103-AY1819S1-F10-4/main/pull/84">#84</a>,
-<a href="https://github.com/CS2103-AY1819S1-F10-4/main/pull/91">#91</a>,
-<a href="https://github.com/CS2103-AY1819S1-F10-4/main/pull/92">#92</a>,
-<a href="https://github.com/CS2103-AY1819S1-F10-4/main/pull/136">#136</a></p>
+<p><a href="http://bit.ly/azhikai-PR-review">Reviewed</a> more than 80 PRs, most with non-trivial review comments.</p>
 </li>
 <li>
 <p>Contributed to forum discussions using GitHub&#8217;s Issue Tracker:
@@ -164,13 +154,26 @@ the morphed source code.</p>
 </div>
 </li>
 <li>
-<p>Tools:</p>
+<p><strong>Tools</strong>:</p>
 <div class="ulist">
 <ul>
 <li>
 <p>Integrated a third party library (bcrypt) to the project:
 <a href="https://github.com/CS2103-AY1819S1-F10-4/main/pull/38">#38</a>,
 <a href="https://github.com/CS2103-AY1819S1-F10-4/main/pull/70">#70</a></p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Miscellaneous</strong>:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Practiced good PR hygiene by ensuring no loss of code coverage.</p>
+</li>
+<li>
+<p>Chaired weekly face-to-face meeting.</p>
 </li>
 </ul>
 </div>
@@ -202,21 +205,21 @@ targeting end-users with little or no technical knowledge.</em></p></td>
 <h2 id="welcome-to-menus"><a class="link" href="#welcome-to-menus">Welcome to MeNUS</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p><a href="{repoURL}">MeNUS</a> empowers you to improve the Management(M) and efficiency(e) of your restaurants in NUS.</p>
+<p><a href="{repoURL}">MeNUS</a> empowers you to improve the <strong>m</strong>anagement and its <strong>e</strong>fficiency of your restaurants in <strong>NUS</strong>.</p>
 </div>
 <div class="paragraph">
-<p>As long as you feel like your restaurants are using too many complex and expensive systems,
-<a href="{repoURL}">MeNUS</a> is here to help you and it is the only restaurant management system you will ever need!</p>
+<p>As long as you feel that you are using too many complex and expensive systems to manage your restaurants,
+<a href="{repoURL}">MeNUS</a> is here to help you and it is the only restaurant management system you will ever need.</p>
 </div>
 <div class="paragraph">
 <p>Introducing <a href="{repoURL}">MeNUS</a>, a revolutionary restaurant management desktop application that is <strong>optimized for
 users who prefer to work with a Command Line Interface (CLI) while still having the benefits of a Graphical User
-Interface (GUI)</strong>. If you can type fast, <a href="{repoURL}">MeNUS</a> allows you to manage core aspects of your restaurants&#8201;&#8212;&#8201;employees, menus, inventory, sales and reservations management&#8201;&#8212;&#8201;all from a single location!</p>
+Interface (GUI)</strong>. If you can type fast, <a href="{repoURL}">MeNUS</a> allows you to manage core aspects of your restaurants&#8201;&#8212;&#8201;accounts (i.e. employees), menus, ingredients, sales and reservations management&#8201;&#8212;&#8201;all within a single application!</p>
 </div>
 <div class="sect2">
-<h3 id="legends"><a class="link" href="#legends">Legends</a></h3>
+<h3 id="legend"><a class="link" href="#legend">Legend</a></h3>
 <div class="paragraph">
-<p>The following <strong>3</strong> legends will be used throughout the documentation which you may wish to pay attention to as it may
+<p>The following <strong>3</strong> callouts will be used throughout the documentation which you may wish to pay attention to as it may
 contain important details:</p>
 </div>
 <div class="admonitionblock note">
@@ -226,7 +229,7 @@ contain important details:</p>
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-Just for your info, do not be alarmed!
+Just for your info, do not be alarmed. Be sure to read these notes as it might contain some important information.
 </td>
 </tr>
 </table>
@@ -238,7 +241,8 @@ Just for your info, do not be alarmed!
 <i class="fa icon-tip" title="Tip"></i>
 </td>
 <td class="content">
-Perhaps something can be done using another approach, but it is up to you to decide.
+Perhaps something can be done using another approach, but it is up to you to decide. Tips are often not important and
+ can be safely ignored.
 </td>
 </tr>
 </table>
@@ -250,8 +254,8 @@ Perhaps something can be done using another approach, but it is up to you to dec
 <i class="fa icon-warning" title="Warning"></i>
 </td>
 <td class="content">
-Some things might go wrong if you are not careful, or did not follow the instructions correctly; strongly advised to
-read whatever is in this block.
+Some things might go wrong if you are not careful, or did not follow the instructions correctly. You are strongly
+advised to read whatever is in this block.
 </td>
 </tr>
 </table>
@@ -264,7 +268,7 @@ read whatever is in this block.
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="../images/UserInterfaceHighlight.png" alt="UserInterfaceHighlight" width="790">
+<img src="../images/UserInterfaceHighlight.png" alt="UserInterfaceHighlight" width="1000">
 </div>
 </div>
 <div class="paragraph">
@@ -289,11 +293,11 @@ Format: <code>login id/USERNAME pw/PASSWORD</code></p>
 </li>
 </ul>
 </div>
-<div class="admonitionblock tip">
+<div class="admonitionblock note">
 <table>
 <tr>
 <td class="icon">
-<i class="fa icon-tip" title="Tip"></i>
+<i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
 <div class="paragraph">
@@ -339,8 +343,7 @@ Format: <code>register id/USERNAME pw/PASSWORD n/FULL_NAME</code> or <code>reg i
 </td>
 <td class="content">
 <div class="paragraph">
-<p>This command will be improved in the future to include name and role. See <a href="#Register-Improvement">[Register-Improvement]</a>
-for more information</p>
+<p>This command will be improved in the future to support user role (i.e. privilege system). See <a href="#Register-Improvement&gt;">Section 5.7.1, “Improving registration [coming in v2.0]”</a> for more information</p>
 </div>
 </td>
 </tr>
@@ -394,8 +397,7 @@ Format: <code>deregister id/USERNAME</code> or <code>dereg id/USERNAME</code></p
 </td>
 <td class="content">
 <div class="paragraph">
-<p>This command will only be able to be executed by a highly privileged user in the future. See <a href="#User-Role">[User-Role]</a>
-for more information</p>
+<p>This command will only be executable by a highly privileged user in the future. See <a href="#User-Role&gt;">Section 5.7.2, “Creating user role [coming in v2.0]”</a> for more information</p>
 </div>
 </td>
 </tr>
@@ -421,20 +423,6 @@ for more information</p>
 <p>Selects the account identified by the index number.<br>
 Format: <code>select-account INDEX</code> or <code>sa INDEX</code></p>
 </div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-<div class="paragraph">
-<p>Selecting the account does not render any data on the detailed panel due to the simplicity of the data itself</p>
-</div>
-</td>
-</tr>
-</table>
-</div>
 <div class="sidebarblock">
 <div class="content">
 <div class="ulist">
@@ -448,6 +436,20 @@ Format: <code>select-account INDEX</code> or <code>sa INDEX</code></p>
 </ul>
 </div>
 </div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Selecting the account does not render any data on the detailed panel due to the simplicity of the data itself</p>
+</div>
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
 <p>Examples:</p>
@@ -519,7 +521,7 @@ Format: <code>list-accounts</code> or <code>la</code></p>
 </td>
 <td class="content">
 <div class="paragraph">
-<p>Password is masked by default and should never be shown on display</p>
+<p>Passwords are not and should not be displayed</p>
 </div>
 </td>
 </tr>
@@ -567,13 +569,13 @@ methodology.</p>
 </ul>
 </div>
 <div class="paragraph">
-<p><strong>MeNUS</strong> is an open-source project, should any developers be interested to contribute, see the
-<a href="{repoURL}/docs/AboutUs.adoc"><code>Contact Us</code></a> page for more information.</p>
+<p><strong>MeNUS</strong> is an open-source project. If you are interested in contributing, see the
+<a href="https://cs2103-ay1819s1-f10-4-menus.netlify.com/contactus"><code>Contact Us</code></a> page for more information.</p>
 </div>
 <div class="sect2">
-<h3 id="legends-2"><a class="link" href="#legends-2">Legends</a></h3>
+<h3 id="legend-2"><a class="link" href="#legend-2">Legend</a></h3>
 <div class="paragraph">
-<p>The following <strong>3</strong> legends will be used throughout the documentation which you may wish to pay attention to as it may
+<p>The following <strong>3</strong> callouts will be used throughout the documentation which you may wish to pay attention to as it may
 contain important details:</p>
 </div>
 <div class="admonitionblock note">
@@ -583,7 +585,7 @@ contain important details:</p>
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-Just for your info, do not be alarmed!
+Just for your info, do not be alarmed. Be sure to read these notes as it might contain some important information.
 </td>
 </tr>
 </table>
@@ -595,7 +597,8 @@ Just for your info, do not be alarmed!
 <i class="fa icon-tip" title="Tip"></i>
 </td>
 <td class="content">
-Perhaps something can be done using another approach, but it is up to you to decide.
+Perhaps something can be done using another approach, but it is up to you to decide. Tips are often not important and
+ can be safely ignored.
 </td>
 </tr>
 </table>
@@ -607,8 +610,8 @@ Perhaps something can be done using another approach, but it is up to you to dec
 <i class="fa icon-warning" title="Warning"></i>
 </td>
 <td class="content">
-Some things might go wrong if you are not careful, or did not follow the instructions correctly; strongly advised to
-read whatever is in this block.
+Some things might go wrong if you are not careful, or did not follow the instructions correctly. You are strongly
+advised to read whatever is in this block.
 </td>
 </tr>
 </table>
@@ -654,31 +657,18 @@ invoke the aforementioned operations:</p>
 <p><code>Command#DeregisterCommand()</code>&#8201;&#8212;&#8201;Invokes <code>Model#removeAccount(Account)</code>.</p>
 </li>
 <li>
-<p><code>Command#EditCommand()</code>&#8201;&#8212;&#8201;Invokes <code>Model#updateAccount(Account, Account)</code>.</p>
+<p><code>Command#ChangePasswordCommand()</code>&#8201;&#8212;&#8201;Invokes <code>Model#updateAccount(Account, Account)</code>.</p>
 </li>
 </ul>
 </div>
 <div class="paragraph">
-<p>Described below are example usage scenarios and how each of the command and its respective operations behaves at each
+<p>Given below are example usage  scenarios and how each of the command and its respective operations behave at each
 step which involves two components, <code>Logic</code> which is responsible for parsing the user input and <code>Model</code> which is
 responsible for manipulating the list, if necessary. Both components are extended by <code>LogicManager</code> and
 <code>ModelManager</code> respectively.</p>
 </div>
 <div class="paragraph">
 <p>The following sequence diagram shows how the <code>register</code> command works:</p>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-The <code>deregister</code> command works the same way by checking if the account exists before calling <code>Model#removeAccount
-(Account)</code>.
-</td>
-</tr>
-</table>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -695,37 +685,37 @@ The <code>deregister</code> command works the same way by checking if the accoun
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-We assume the user is already logged in
-</td>
-</tr>
-</table>
+<div class="ulist">
+<ul>
+<li>
+<p>We assume the user is already logged in to an account with appropriate privilege level (e.g. Administrator)</p>
+</li>
+<li>
+<p>If the username already exists, a warning message will be shown to the user to select another username</p>
+</li>
+<li>
+<p>The <code>deregister</code> command works the same way by checking if the account exists before calling <code>Model#removeAccount(Account)</code></p>
+</li>
+</ul>
 </div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-If the username already exists, a warning message will be shown to the user to select another username
 </td>
 </tr>
 </table>
 </div>
 <div class="paragraph">
-<p>Step 1. The user executes <code>register id/azhikai pw/1122qq</code> command to create a new user account.</p>
+<p>Step 1. The user executes <code>register id/azhikai pw/1122qq n/Ang Zhi Kai</code> command to create a new user account.</p>
 </div>
 <div class="paragraph">
 <p>Step 2. <code>LogicManager</code> invokes the <code>RestaurantBookParser#parseCommand()</code> method which takes in the user input
 as arguments.</p>
 </div>
 <div class="paragraph">
-<p>Step 3. When the command is parsed, the <code>Command#RegisterCommand</code> will be created which is returned to the
+<p>Step 3. When the command is parsed, the <code>Command#RegisterCommand()</code> will be created which is returned to the
 <code>LogicManager</code>.</p>
 </div>
 <div class="paragraph">
-<p>Step 4. <code>LogicManager</code> invokes the <code>execute()</code> method of the <code>Command#RegisterCommand</code>, <code>rc</code> which is instantiated in
-Step 3. The <code>Model</code> component will be involved as the <code>Command#RegisterCommand</code> invokes a request to add the account
+<p>Step 4. <code>LogicManager</code> invokes the <code>execute()</code> method of the <code>Command#RegisterCommand()</code>, <code>rc</code> which is instantiated in
+Step 3. The <code>Model</code> component will be involved as the <code>Command#RegisterCommand()</code> invokes a request to add the account
 into the storage by calling <code>Model#addAccount(Account)</code>.</p>
 </div>
 <div class="paragraph">
@@ -764,20 +754,39 @@ the credential
 as arguments.</p>
 </div>
 <div class="paragraph">
-<p>Step 3. When the command is parsed, the <code>Command#LoginCommand</code> will be created which is returned to the
+<p>Step 3. When the command is parsed, the <code>Command#LoginCommand()</code> will be created which is returned to the
 <code>LogicManager</code>.</p>
 </div>
 <div class="paragraph">
-<p>Step 4. <code>LogicManager</code> invokes the <code>execute()</code> method of the <code>Command#LoginCommand</code> which is instantiated in Step 3.
-The <code>Model</code> component will be involved as the <code>Command#LoginCommand</code> invokes a request to retrieve an account based
-on the username. If it exists, the account will be retrieved and the password hash will be compared. If it matches,
-then the credential is valid and the user is authenticated.</p>
+<p>Step 4. <code>LogicManager</code> invokes the <code>execute()</code> method of the <code>Command#LoginCommand()</code>, <code>lc</code> which is instantiated in
+Step 3. The <code>Model</code> component will be involved as the <code>Command#LoginCommand()</code> invokes a request to retrieve an account
+based on the username. If it exists, the account will be retrieved and the password hash will be compared. If it
+matches, then the credential is valid and the user is authenticated.</p>
+</div>
+<div class="paragraph">
+<p>The following activity diagrams summarize how password is processed during the login and registration process:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/PasswordLoginActivityDiagram.png" alt="PasswordLoginActivityDiagram" width="650">
+</div>
+</div>
+<div class="paragraph">
+<p><em>Figure 4.2.1.3: Activity diagram to illustrate how password is processed for the <code>login</code> command</em></p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/PasswordHashActivityDiagram.png" alt="PasswordHashActivityDiagram" width="650">
+</div>
+</div>
+<div class="paragraph">
+<p><em>Figure 4.2.1.4: Activity diagram to illustrate how password is processed for the <code>register</code> command</em></p>
 </div>
 </div>
 <div class="sect3">
 <h4 id="design-considerations"><a class="link" href="#design-considerations">Design Considerations</a></h4>
 <div class="sect4">
-<h5 id="aspect-how-account-password-is-salted-and-hashed"><a class="link" href="#aspect-how-account-password-is-salted-and-hashed">Aspect: How account password is salted and hashed</a></h5>
+<h5 id="aspect-how-password-is-secured"><a class="link" href="#aspect-how-password-is-secured">Aspect: How password is secured</a></h5>
 <div class="ulist">
 <ul>
 <li>
@@ -785,13 +794,14 @@ then the credential is valid and the user is authenticated.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Rationale: If we allow the <code>bcrypt</code> library to generate the salt, test cases will be limited as the salt is
-generated based on system time. This means that despite testing the same account with the same raw password, its
+<p>Rationale: If we allow the <code>bcrypt</code> library to generate the salt, testing ability will be limited as the salt is
+generated based on system time by default. This means that despite testing the same account with the same raw password,
+ its
 equality will never match. Hence, a workaround is to generate the salt based on its username which is unique to each
 account.</p>
 </li>
 <li>
-<p>Pros: Easy to implement; simplified test cases</p>
+<p>Pros: Easy to implement and improves testing ability.</p>
 </li>
 <li>
 <p>Cons: If an attacker knows how the salt is generated, it could pose a security risk.</p>
@@ -800,7 +810,7 @@ account.</p>
 </div>
 </li>
 <li>
-<p><strong>Alternative 2:</strong> Use salt generated by the <code>bcrypt</code> library with high cost factor</p>
+<p><strong>Alternative 2:</strong> Use salt generated by the <code>bcrypt</code> library with high cost factor.</p>
 <div class="ulist">
 <ul>
 <li>
@@ -808,7 +818,7 @@ account.</p>
 system can tolerate, given the other tasks the system must otherwise fulfill.</p>
 </li>
 <li>
-<p>Cons: More processing resources used and will affect testing ability.</p>
+<p>Cons: More processing resources used and existing test cases must be updated.</p>
 </li>
 </ul>
 </div>
@@ -829,16 +839,18 @@ system can tolerate, given the other tasks the system must otherwise fulfill.</p
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-If a privileged command is executed when a session is not set, an error will be shown. The only commands that can
-be executed without a session being set are <code>help</code>, <code>login</code> and <code>exit</code>. Any other commands are considered privileged
+<div class="paragraph">
+<p>If a privileged command is executed when a session is not set, an error will be shown. For more information on which
+commands are guest-executable, see the <a href="UserGuide.html#Commands">UserGuide.adoc</a> for more
+information</p>
+</div>
 </td>
 </tr>
 </table>
 </div>
 <div class="paragraph">
-<p>The user session is facilitated by <code>UserSession</code> which stores the authentication state of the application.
-This is triggered by raising a <code>Login</code> and <code>Logout</code> event upon executing either the <code>Command#LoginCommand()</code> or
-<code>Command#LogoutCommand()</code>.<br></p>
+<p>The application&#8217;s user session state is facilitated by <code>UserSession</code>. This is triggered by raising a <code>Login</code> or
+<code>Logout</code> event upon executing the <code>Command#LoginCommand()</code> or <code>Command#LogoutCommand()</code> respectively.<br></p>
 </div>
 <div class="paragraph">
 <p>Additionally, it implements the following static operations:</p>
@@ -846,10 +858,13 @@ This is triggered by raising a <code>Login</code> and <code>Logout</code> event 
 <div class="ulist">
 <ul>
 <li>
-<p><code>UserSession#login()</code>&#8201;&#8212;&#8201;Set a login session.</p>
+<p><code>UserSession#create(Account)</code>&#8201;&#8212;&#8201;Set a user session.</p>
 </li>
 <li>
-<p><code>UserSession#logout()</code>&#8201;&#8212;&#8201;Removes the existing login session.</p>
+<p><code>UserSession#destroy()</code>&#8201;&#8212;&#8201;Removes the existing user session.</p>
+</li>
+<li>
+<p><code>UserSession#update(Account)</code>&#8201;&#8212;&#8201;Updates the existing user session.</p>
 </li>
 <li>
 <p><code>UserSession#isAuthenticated()</code>&#8201;&#8212;&#8201;Checks if there is an existing login session.</p>
@@ -857,10 +872,7 @@ This is triggered by raising a <code>Login</code> and <code>Logout</code> event 
 </ul>
 </div>
 <div class="paragraph">
-<p>Given below is an example usage scenario and how the user session mechanism behaves at each step.</p>
-</div>
-<div class="paragraph">
-<p>The following activity diagram summarizes what happens when a user logs in or out:</p>
+<p>The following activity diagram summarizes how the user session is modified when a user logs in or out:</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -919,7 +931,7 @@ This is triggered by raising a <code>Login</code> and <code>Logout</code> event 
 <div class="ulist">
 <ul>
 <li>
-<p>Pros: Easy to implement.</p>
+<p>Pros: Easy to implement, given the constraints.</p>
 </li>
 <li>
 <p>Cons: Can only support one user at any time. If another user wants to login, the current logged in user must log out.
@@ -949,4 +961,4 @@ of the current solution which might affect the test ability.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-12 15:00:19 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-12 15:11:13 UTC</div></div></div></body></html>

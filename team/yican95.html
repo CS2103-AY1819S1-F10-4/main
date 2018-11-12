@@ -163,19 +163,20 @@ Format: <code>add-item n/ITEM_NAME p/ITEM_PRICE [t/TAG]&#8230;&#8203;</code></p>
 <div class="ulist">
 <ul>
 <li>
-<p>ITEM_NAME and ITEM_PRICE must be provided.</p>
+<p><code>ITEM_NAME</code> and <code>ITEM_PRICE</code> must be provided</p>
 </li>
 <li>
-<p>An item can have any number of tags (including 0).</p>
+<p>An item can have any number of tags (including 0)</p>
 </li>
 <li>
-<p>ITEM_NAME should only contain alphanumeric characters and spaces, and it should not be blank.</p>
+<p><code>ITEM_NAME</code> should only contain alphanumeric characters and spaces, and it should not be blank</p>
 </li>
 <li>
-<p>ITEM_PRICE should only contain numbers(no negative), at most 2 decimal place and smaller than or equals to 2,147,483,647.</p>
+<p><code>ITEM_PRICE</code> should only contain numbers(no negative), at most 2 decimal place and smaller than or equals to
+2,147,483,647</p>
 </li>
 <li>
-<p>You cannot add items with the same name.</p>
+<p>You cannot add items with the same name</p>
 </li>
 </ul>
 </div>
@@ -206,25 +207,25 @@ Format: <code>edit-item INDEX [n/ITEM_NAME] [p/ITEM_PRICE] [t/TAG]&#8230;&#8203;
 <div class="ulist">
 <ul>
 <li>
-<p>Edits the item at the specified <code>INDEX</code>. The index refers to the index number shown in the displayed item list.</p>
+<p>Edits the item at the specified <code>INDEX</code>. The index refers to the index number shown in the displayed item list</p>
 </li>
 <li>
 <p>The index <strong>must be a positive integer</strong> 1, 2, 3, &#8230;&#8203;</p>
 </li>
 <li>
-<p>At least one of the optional fields must be provided.</p>
+<p>At least one of the optional fields must be provided</p>
 </li>
 <li>
-<p>Existing values will be updated to the input values.</p>
+<p>Existing values will be updated to the input values</p>
 </li>
 <li>
-<p>When editing tags, the existing tags of the item will be removed i.e adding of tags is not cumulative.</p>
+<p>When editing tags, the existing tags of the item will be removed i.e adding of tags is not cumulative</p>
 </li>
 <li>
-<p>You can remove all the item&#8217;s tags by typing <code>t/</code> without specifying any tags after it.</p>
+<p>You can remove all the item&#8217;s tags by typing <code>t/</code> without specifying any tags after it</p>
 </li>
 <li>
-<p>Editing item price will remove discount given by <code>discount-item</code> command.</p>
+<p>Editing item price will remove discount given by <code>discount-item</code> command</p>
 </li>
 </ul>
 </div>
@@ -257,19 +258,19 @@ Format: <code>delete-item-index INDEX [ei/INDEX]</code></p>
 <div class="ulist">
 <ul>
 <li>
-<p>Deletes the item(s) specified by <code>INDEX</code>.</p>
+<p>Deletes the item(s) specified by <code>INDEX</code></p>
 </li>
 <li>
-<p>The index refers to the index number shown in the displayed item list.</p>
+<p>The index refers to the index number shown in the displayed item list</p>
 </li>
 <li>
 <p>The index <strong>must be a positive integer</strong> 1, 2, 3, &#8230;&#8203;</p>
 </li>
 <li>
-<p>You can delete a range of items by adding the ending index <code>ei\INDEX</code>.</p>
+<p>You can delete a range of items by adding the ending index <code>ei\INDEX</code></p>
 </li>
 <li>
-<p>The ending index can not be smaller than starting index.</p>
+<p>The ending index can not be smaller than starting index</p>
 </li>
 </ul>
 </div>
@@ -304,13 +305,13 @@ Format: <code>delete-item-name ITEM_NAME</code></p>
 <div class="ulist">
 <ul>
 <li>
-<p>Deletes the item by the specified <code>ITEM_NAME</code>.</p>
+<p>Deletes the item by the specified <code>ITEM_NAME</code></p>
 </li>
 <li>
-<p>The ITEM_NAME <strong>must be in the menu</strong>.</p>
+<p>The <code>ITEM_NAME</code> <strong>must be in the menu</strong></p>
 </li>
 <li>
-<p>ITEM_NAME is case-insensitive. e.g <code>burger</code> will match <code>Burger</code></p>
+<p><code>ITEM_NAME</code> is case-insensitive. e.g <code>burger</code> will match <code>Burger</code></p>
 </li>
 </ul>
 </div>
@@ -346,14 +347,14 @@ Format: <code>filter-menu KEYWORD [MORE_KEYWORDS]&#8230;&#8203;</code></p>
 <p>The search is case insensitive. e.g <code>burger</code> will match <code>Burger</code></p>
 </li>
 <li>
-<p>Only filter by tag.</p>
+<p>Only filter by tag</p>
 </li>
 <li>
 <p>Only full words will be matched e.g. <code>Bur</code> will not match <code>Burger</code></p>
 </li>
 <li>
 <p>Items with tags matching at least one keyword will be returned (i.e. <code>OR</code> search). e.g. <code>drinks burger</code> will return
-items that are tagged with drinks or burger.</p>
+items that are tagged with drinks or burger</p>
 </li>
 </ul>
 </div>
@@ -398,31 +399,20 @@ Format: <code>discount-item INDEX|ALL [ei/INDEX] dp/PERCENTAGE</code></p>
 <div class="ulist">
 <ul>
 <li>
-<p>Gives the item at the specified <code>INDEX</code> a discount based on the percentage.</p>
+<p>You can remove discount by typing <code>0</code> for the percentage</p>
 </li>
 <li>
-<p>If the item is already on discount, it will update the new discounted price.</p>
+<p>You can give a discount to all items in the displayed item list by typing <code>ALL</code>(case-insensitive) instead of a
+specified <code>INDEX</code></p>
 </li>
 <li>
-<p>The index refers to the index number shown in the displayed item list.</p>
+<p>You can give a discount to a range of items by adding the ending index <code>ei\INDEX</code></p>
 </li>
 <li>
-<p>The index <strong>must be a positive integer</strong> <code>1, 2, 3, &#8230;&#8203;</code></p>
+<p>The ending index can not be smaller than starting index</p>
 </li>
 <li>
-<p>You can remove discount by typing <code>0</code> for the percentage.</p>
-</li>
-<li>
-<p>You can give a discount to all items in the displayed item list by typing <code>ALL</code>(case-insensitive) instead of a specified <code>INDEX</code>.</p>
-</li>
-<li>
-<p>You can give a discount to a range of items by adding the ending index <code>ei\INDEX</code>.</p>
-</li>
-<li>
-<p>The ending index can not be smaller than starting index.</p>
-</li>
-<li>
-<p>The percentage should only contain numbers(no negative), and it should be at most 2 digits(no decimal place).</p>
+<p>The percentage should only contain numbers(no negative), and it should be at most 2 digits(no decimal place)</p>
 </li>
 </ul>
 </div>
@@ -883,4 +873,4 @@ to check if the currency symbol and price entered are valid.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-12 15:00:19 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-12 15:11:13 UTC</div></div></div></body></html>

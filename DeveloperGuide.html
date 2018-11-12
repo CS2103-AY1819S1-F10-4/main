@@ -11,7 +11,7 @@
 <ul class="sectlevel1">
 <li><a href="#welcome-to-menus">1. Welcome to MeNUS</a>
 <ul class="sectlevel2">
-<li><a href="#legends">1.1. Legends</a></li>
+<li><a href="#legend">1.1. Legend</a></li>
 </ul>
 </li>
 <li><a href="#setting-up">2. Setting up</a>
@@ -80,12 +80,15 @@
 <li><a href="#use-cases">Appendix C: Use Cases</a></li>
 <li><a href="#non-functional-requirements">Appendix D: Non Functional Requirements</a></li>
 <li><a href="#glossary">Appendix E: Glossary</a></li>
-<li><a href="#instructions-for-manual-testing">Appendix F: Instructions for Manual Testing</a>
+<li><a href="#acronyms">Appendix F: Acronyms</a></li>
+<li><a href="#instructions-for-manual-testing">Appendix G: Instructions for Manual Testing</a>
 <ul class="sectlevel2">
-<li><a href="#launch-and-shutdown">F.1. Launch and Shutdown</a></li>
-<li><a href="#ingredient-management">F.2. Ingredient Management</a></li>
-<li><a href="#menu-management">F.3. Menu Management</a></li>
-<li><a href="#reservation-management">F.4. Reservation Management</a></li>
+<li><a href="#launch-and-shutdown">G.1. Launch and Shutdown</a></li>
+<li><a href="#accounts-management">G.2. Accounts Management</a></li>
+<li><a href="#ingredient-management">G.3. Ingredient Management</a></li>
+<li><a href="#menu-management">G.4. Menu Management</a></li>
+<li><a href="#reservations-management">G.5. Reservations Management</a></li>
+<li><a href="#saving-data">G.6. Saving data</a></li>
 </ul>
 </li>
 </ul>
@@ -113,13 +116,13 @@ methodology.</p>
 </ul>
 </div>
 <div class="paragraph">
-<p><strong>MeNUS</strong> is an open-source project, should any developers be interested to contribute, see the
-<a href="https://github.com/CS2103-AY1819S1-F10-4/main/tree/master/docs/AboutUs.adoc"><code>Contact Us</code></a> page for more information.</p>
+<p><strong>MeNUS</strong> is an open-source project. If you are interested in contributing, see the
+<a href="https://cs2103-ay1819s1-f10-4-menus.netlify.com/contactus"><code>Contact Us</code></a> page for more information.</p>
 </div>
 <div class="sect2">
-<h3 id="legends"><a class="link" href="#legends">1.1. Legends</a></h3>
+<h3 id="legend"><a class="link" href="#legend">1.1. Legend</a></h3>
 <div class="paragraph">
-<p>The following <strong>3</strong> legends will be used throughout the documentation which you may wish to pay attention to as it may
+<p>The following <strong>3</strong> callouts will be used throughout the documentation which you may wish to pay attention to as it may
 contain important details:</p>
 </div>
 <div class="admonitionblock note">
@@ -129,7 +132,7 @@ contain important details:</p>
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-Just for your info, do not be alarmed!
+Just for your info, do not be alarmed. Be sure to read these notes as it might contain some important information.
 </td>
 </tr>
 </table>
@@ -141,7 +144,8 @@ Just for your info, do not be alarmed!
 <i class="fa icon-tip" title="Tip"></i>
 </td>
 <td class="content">
-Perhaps something can be done using another approach, but it is up to you to decide.
+Perhaps something can be done using another approach, but it is up to you to decide. Tips are often not important and
+ can be safely ignored.
 </td>
 </tr>
 </table>
@@ -153,8 +157,8 @@ Perhaps something can be done using another approach, but it is up to you to dec
 <i class="fa icon-warning" title="Warning"></i>
 </td>
 <td class="content">
-Some things might go wrong if you are not careful, or did not follow the instructions correctly; strongly advised to
-read whatever is in this block.
+Some things might go wrong if you are not careful, or did not follow the instructions correctly. You are strongly
+advised to read whatever is in this block.
 </td>
 </tr>
 </table>
@@ -351,15 +355,8 @@ Having both Travis and AppVeyor ensures your App works on both Unix-based platfo
 </table>
 </div>
 </div>
-</div>
-<div class="sect2">
-<h3 id="using-git-with-sourcetree"><a class="link" href="#using-git-with-sourcetree">2.5. Using Git with Sourcetree</a></h3>
-<div class="paragraph">
-<p>We use Git with Sourcetree for distributed source control. See <a href="UsingGit.html">UsingGit.adoc</a> if you find any difficulty
-when using Git with Sourcetree.</p>
-</div>
 <div class="sect3">
-<h4 id="getting-started-with-coding"><a class="link" href="#getting-started-with-coding">2.5.1. Getting started with coding</a></h4>
+<h4 id="getting-started-with-coding"><a class="link" href="#getting-started-with-coding">2.4.3. Getting started with coding</a></h4>
 <div class="paragraph">
 <p>When you are ready to start coding,</p>
 </div>
@@ -368,11 +365,15 @@ when using Git with Sourcetree.</p>
 <li>
 <p>Get some sense of the overall design by reading <a href="#Design-Architecture">Section 3.1, &#8220;Architecture&#8221;</a>.</p>
 </li>
-<li>
-<p>Take a look at <a href="#GetStartedProgramming">[GetStartedProgramming]</a>.</p>
-</li>
 </ol>
 </div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="using-git-with-sourcetree"><a class="link" href="#using-git-with-sourcetree">2.5. Using Git with Sourcetree</a></h3>
+<div class="paragraph">
+<p>We use Git with Sourcetree for distributed source control. See <a href="UsingGit.html">UsingGit.adoc</a> if you find any difficulty
+when using Git with Sourcetree.</p>
 </div>
 </div>
 </div>
@@ -944,31 +945,18 @@ invoke the aforementioned operations:</p>
 <p><code>Command#DeregisterCommand()</code>&#8201;&#8212;&#8201;Invokes <code>Model#removeAccount(Account)</code>.</p>
 </li>
 <li>
-<p><code>Command#EditCommand()</code>&#8201;&#8212;&#8201;Invokes <code>Model#updateAccount(Account, Account)</code>.</p>
+<p><code>Command#ChangePasswordCommand()</code>&#8201;&#8212;&#8201;Invokes <code>Model#updateAccount(Account, Account)</code>.</p>
 </li>
 </ul>
 </div>
 <div class="paragraph">
-<p>Described below are example usage scenarios and how each of the command and its respective operations behaves at each
+<p>Given below are example usage  scenarios and how each of the command and its respective operations behave at each
 step which involves two components, <code>Logic</code> which is responsible for parsing the user input and <code>Model</code> which is
 responsible for manipulating the list, if necessary. Both components are extended by <code>LogicManager</code> and
 <code>ModelManager</code> respectively.</p>
 </div>
 <div class="paragraph">
 <p>The following sequence diagram shows how the <code>register</code> command works:</p>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-The <code>deregister</code> command works the same way by checking if the account exists before calling <code>Model#removeAccount
-(Account)</code>.
-</td>
-</tr>
-</table>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -985,37 +973,37 @@ The <code>deregister</code> command works the same way by checking if the accoun
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-We assume the user is already logged in
-</td>
-</tr>
-</table>
+<div class="ulist">
+<ul>
+<li>
+<p>We assume the user is already logged in to an account with appropriate privilege level (e.g. Administrator)</p>
+</li>
+<li>
+<p>If the username already exists, a warning message will be shown to the user to select another username</p>
+</li>
+<li>
+<p>The <code>deregister</code> command works the same way by checking if the account exists before calling <code>Model#removeAccount(Account)</code></p>
+</li>
+</ul>
 </div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-If the username already exists, a warning message will be shown to the user to select another username
 </td>
 </tr>
 </table>
 </div>
 <div class="paragraph">
-<p>Step 1. The user executes <code>register id/azhikai pw/1122qq</code> command to create a new user account.</p>
+<p>Step 1. The user executes <code>register id/azhikai pw/1122qq n/Ang Zhi Kai</code> command to create a new user account.</p>
 </div>
 <div class="paragraph">
 <p>Step 2. <code>LogicManager</code> invokes the <code>RestaurantBookParser#parseCommand()</code> method which takes in the user input
 as arguments.</p>
 </div>
 <div class="paragraph">
-<p>Step 3. When the command is parsed, the <code>Command#RegisterCommand</code> will be created which is returned to the
+<p>Step 3. When the command is parsed, the <code>Command#RegisterCommand()</code> will be created which is returned to the
 <code>LogicManager</code>.</p>
 </div>
 <div class="paragraph">
-<p>Step 4. <code>LogicManager</code> invokes the <code>execute()</code> method of the <code>Command#RegisterCommand</code>, <code>rc</code> which is instantiated in
-Step 3. The <code>Model</code> component will be involved as the <code>Command#RegisterCommand</code> invokes a request to add the account
+<p>Step 4. <code>LogicManager</code> invokes the <code>execute()</code> method of the <code>Command#RegisterCommand()</code>, <code>rc</code> which is instantiated in
+Step 3. The <code>Model</code> component will be involved as the <code>Command#RegisterCommand()</code> invokes a request to add the account
 into the storage by calling <code>Model#addAccount(Account)</code>.</p>
 </div>
 <div class="paragraph">
@@ -1054,20 +1042,39 @@ the credential
 as arguments.</p>
 </div>
 <div class="paragraph">
-<p>Step 3. When the command is parsed, the <code>Command#LoginCommand</code> will be created which is returned to the
+<p>Step 3. When the command is parsed, the <code>Command#LoginCommand()</code> will be created which is returned to the
 <code>LogicManager</code>.</p>
 </div>
 <div class="paragraph">
-<p>Step 4. <code>LogicManager</code> invokes the <code>execute()</code> method of the <code>Command#LoginCommand</code> which is instantiated in Step 3.
-The <code>Model</code> component will be involved as the <code>Command#LoginCommand</code> invokes a request to retrieve an account based
-on the username. If it exists, the account will be retrieved and the password hash will be compared. If it matches,
-then the credential is valid and the user is authenticated.</p>
+<p>Step 4. <code>LogicManager</code> invokes the <code>execute()</code> method of the <code>Command#LoginCommand()</code>, <code>lc</code> which is instantiated in
+Step 3. The <code>Model</code> component will be involved as the <code>Command#LoginCommand()</code> invokes a request to retrieve an account
+based on the username. If it exists, the account will be retrieved and the password hash will be compared. If it
+matches, then the credential is valid and the user is authenticated.</p>
+</div>
+<div class="paragraph">
+<p>The following activity diagrams summarize how password is processed during the login and registration process:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/PasswordLoginActivityDiagram.png" alt="PasswordLoginActivityDiagram" width="650">
+</div>
+</div>
+<div class="paragraph">
+<p><em>Figure 4.2.1.3: Activity diagram to illustrate how password is processed for the <code>login</code> command</em></p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/PasswordHashActivityDiagram.png" alt="PasswordHashActivityDiagram" width="650">
+</div>
+</div>
+<div class="paragraph">
+<p><em>Figure 4.2.1.4: Activity diagram to illustrate how password is processed for the <code>register</code> command</em></p>
 </div>
 </div>
 <div class="sect3">
 <h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">4.2.2. Design Considerations</a></h4>
 <div class="sect4">
-<h5 id="aspect-how-account-password-is-salted-and-hashed"><a class="link" href="#aspect-how-account-password-is-salted-and-hashed">Aspect: How account password is salted and hashed</a></h5>
+<h5 id="aspect-how-password-is-secured"><a class="link" href="#aspect-how-password-is-secured">Aspect: How password is secured</a></h5>
 <div class="ulist">
 <ul>
 <li>
@@ -1075,13 +1082,14 @@ then the credential is valid and the user is authenticated.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Rationale: If we allow the <code>bcrypt</code> library to generate the salt, test cases will be limited as the salt is
-generated based on system time. This means that despite testing the same account with the same raw password, its
+<p>Rationale: If we allow the <code>bcrypt</code> library to generate the salt, testing ability will be limited as the salt is
+generated based on system time by default. This means that despite testing the same account with the same raw password,
+ its
 equality will never match. Hence, a workaround is to generate the salt based on its username which is unique to each
 account.</p>
 </li>
 <li>
-<p>Pros: Easy to implement; simplified test cases</p>
+<p>Pros: Easy to implement and improves testing ability.</p>
 </li>
 <li>
 <p>Cons: If an attacker knows how the salt is generated, it could pose a security risk.</p>
@@ -1090,7 +1098,7 @@ account.</p>
 </div>
 </li>
 <li>
-<p><strong>Alternative 2:</strong> Use salt generated by the <code>bcrypt</code> library with high cost factor</p>
+<p><strong>Alternative 2:</strong> Use salt generated by the <code>bcrypt</code> library with high cost factor.</p>
 <div class="ulist">
 <ul>
 <li>
@@ -1098,7 +1106,7 @@ account.</p>
 system can tolerate, given the other tasks the system must otherwise fulfill.</p>
 </li>
 <li>
-<p>Cons: More processing resources used and will affect testing ability.</p>
+<p>Cons: More processing resources used and existing test cases must be updated.</p>
 </li>
 </ul>
 </div>
@@ -1119,16 +1127,18 @@ system can tolerate, given the other tasks the system must otherwise fulfill.</p
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-If a privileged command is executed when a session is not set, an error will be shown. The only commands that can
-be executed without a session being set are <code>help</code>, <code>login</code> and <code>exit</code>. Any other commands are considered privileged
+<div class="paragraph">
+<p>If a privileged command is executed when a session is not set, an error will be shown. For more information on which
+commands are guest-executable, see the <a href="UserGuide.html#Commands">UserGuide.adoc</a> for more
+information</p>
+</div>
 </td>
 </tr>
 </table>
 </div>
 <div class="paragraph">
-<p>The user session is facilitated by <code>UserSession</code> which stores the authentication state of the application.
-This is triggered by raising a <code>Login</code> and <code>Logout</code> event upon executing either the <code>Command#LoginCommand()</code> or
-<code>Command#LogoutCommand()</code>.<br></p>
+<p>The application&#8217;s user session state is facilitated by <code>UserSession</code>. This is triggered by raising a <code>Login</code> or
+<code>Logout</code> event upon executing the <code>Command#LoginCommand()</code> or <code>Command#LogoutCommand()</code> respectively.<br></p>
 </div>
 <div class="paragraph">
 <p>Additionally, it implements the following static operations:</p>
@@ -1136,10 +1146,13 @@ This is triggered by raising a <code>Login</code> and <code>Logout</code> event 
 <div class="ulist">
 <ul>
 <li>
-<p><code>UserSession#login()</code>&#8201;&#8212;&#8201;Set a login session.</p>
+<p><code>UserSession#create(Account)</code>&#8201;&#8212;&#8201;Set a user session.</p>
 </li>
 <li>
-<p><code>UserSession#logout()</code>&#8201;&#8212;&#8201;Removes the existing login session.</p>
+<p><code>UserSession#destroy()</code>&#8201;&#8212;&#8201;Removes the existing user session.</p>
+</li>
+<li>
+<p><code>UserSession#update(Account)</code>&#8201;&#8212;&#8201;Updates the existing user session.</p>
 </li>
 <li>
 <p><code>UserSession#isAuthenticated()</code>&#8201;&#8212;&#8201;Checks if there is an existing login session.</p>
@@ -1147,10 +1160,7 @@ This is triggered by raising a <code>Login</code> and <code>Logout</code> event 
 </ul>
 </div>
 <div class="paragraph">
-<p>Given below is an example usage scenario and how the user session mechanism behaves at each step.</p>
-</div>
-<div class="paragraph">
-<p>The following activity diagram summarizes what happens when a user logs in or out:</p>
+<p>The following activity diagram summarizes how the user session is modified when a user logs in or out:</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -1209,7 +1219,7 @@ This is triggered by raising a <code>Login</code> and <code>Logout</code> event 
 <div class="ulist">
 <ul>
 <li>
-<p>Pros: Easy to implement.</p>
+<p>Pros: Easy to implement, given the constraints.</p>
 </li>
 <li>
 <p>Cons: Can only support one user at any time. If another user wants to login, the current logged in user must log out.
@@ -1623,7 +1633,7 @@ their own behaviour for these methods.</p>
 </div>
 </div>
 <div class="paragraph">
-<p><em>Figure 4.6.1.1: Component interactions for <code>delete-ingredient apple</code> command</em></p>
+<p><em>Figure 4.6.1.2: Component interactions for <code>delete-ingredient apple</code> command</em></p>
 </div>
 </li>
 </ul>
@@ -1707,7 +1717,7 @@ exception is thrown
 </div>
 </div>
 <div class="paragraph">
-<p><em>Figure 4.7.1: Flow of events after a user executes the <code>stockup</code> command</em></p>
+<p><em>Figure 4.7.1.1: Flow of events after a user executes the <code>stockup</code> command</em></p>
 </div>
 </div>
 <div class="sect3">
@@ -2834,18 +2844,6 @@ specified
 otherwise)</p>
 </div>
 <h3 id="use-case-uc101-create-account" class="discrete">Use case: UC101 - Create account</h3>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-The use case for creating account role is the same.
-</td>
-</tr>
-</table>
-</div>
 <div class="paragraph">
 <p><strong>Pre-conditions</strong>:</p>
 </div>
@@ -2966,7 +2964,7 @@ The use case for creating account role is the same.
 <p>App authenticates the user.</p>
 </li>
 <li>
-<p>App returns a success message confirming that the user account has been created.</p>
+<p>App returns a success message confirming that the user has been logged in.</p>
 <div class="paragraph">
 <p>Use case ends.</p>
 </div>
@@ -2988,7 +2986,7 @@ The use case for creating account role is the same.
 <li>
 <p>2a2. User enters new data.</p>
 <div class="paragraph">
-<p>Steps 2a1-2a2 are repeated until the data entered are correct.</p>
+<p>Steps 2a1-2a2 are repeated until the data entered is correct.</p>
 </div>
 <div class="paragraph">
 <p>Use case resumes at step 3.</p>
@@ -2999,7 +2997,47 @@ The use case for creating account role is the same.
 </li>
 </ul>
 </div>
-<h3 id="use-case-uc103-edit-account" class="discrete">Use case: UC103 - Edit account</h3>
+<h3 id="use-case-uc103-logout" class="discrete">Use case: UC103 - Logout</h3>
+<div class="paragraph">
+<p><strong>Pre-conditions</strong>:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>User must be logged in.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>Guarantees</strong>:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>User will be logged out of the App.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User requests to logout.</p>
+</li>
+<li>
+<p>App logs out the user.</p>
+</li>
+<li>
+<p>App returns a success message confirming that the user has been logged out.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<h3 id="use-case-uc104-change-password" class="discrete">Use case: UC104 - Change password</h3>
 <div class="paragraph">
 <p><strong>Pre-conditions</strong>:</p>
 </div>
@@ -3007,9 +3045,6 @@ The use case for creating account role is the same.
 <ul>
 <li>
 <p>User has to be logged in.</p>
-</li>
-<li>
-<p>User must be an administrator.</p>
 </li>
 </ul>
 </div>
@@ -3022,10 +3057,7 @@ The use case for creating account role is the same.
 <p>Account data will remain intact if nothing changes OR</p>
 </li>
 <li>
-<p>Account data will be updated OR</p>
-</li>
-<li>
-<p>Account will be deleted.</p>
+<p>Account data will be updated.</p>
 </li>
 </ul>
 </div>
@@ -3035,7 +3067,7 @@ The use case for creating account role is the same.
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>User requests to edit an account.</p>
+<p>User requests to change password.</p>
 </li>
 <li>
 <p>App edit the user account.</p>
@@ -3054,7 +3086,7 @@ The use case for creating account role is the same.
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>2a. Username does not exists.</p>
+<p>2a. New password is invalid.</p>
 <div class="ulist none">
 <ul class="none">
 <li>
@@ -3063,7 +3095,7 @@ The use case for creating account role is the same.
 <li>
 <p>2a2. User enters new data.</p>
 <div class="paragraph">
-<p>Steps 2a1-2a2 are repeated until the data entered are correct.</p>
+<p>Steps 2a1-2a2 are repeated until the data entered is correct.</p>
 </div>
 <div class="paragraph">
 <p>Use case resumes at step 3.</p>
@@ -3072,50 +3104,7 @@ The use case for creating account role is the same.
 </ul>
 </div>
 </li>
-<li>
-<p>3a. No data changed.</p>
-<div class="paragraph">
-<p>Use case resumes at step 3.</p>
-</div>
-</li>
 </ul>
-</div>
-<h3 id="use-case-uc104-authentication-logging" class="discrete">Use case: UC104 - Authentication logging</h3>
-<div class="paragraph">
-<p><strong>Pre-conditions</strong>:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>User must not be logged in.</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p><strong>Guarantees</strong>:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>A new record will be added into the log of the authentication attempt.</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p><strong>MSS</strong></p>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>User requests to <span class="underline">login (UC102)</span>.</p>
-</li>
-<li>
-<p>App logs attempt.</p>
-<div class="paragraph">
-<p>Use case ends.</p>
-</div>
-</li>
-</ol>
 </div>
 <h3 id="use-case-uc201-add-ingredient" class="discrete">Use case: UC201 - Add ingredient</h3>
 <div class="paragraph">
@@ -3416,10 +3405,8 @@ The use case for creating account role is the same.
 <p>1a1. App returns a message telling user that the command format is invalid.</p>
 </li>
 <li>
-<p>1a2. User requests to stock up ingredient again.
-+
-Steps 1a1-1a2 are repeated until a valid command format is entered.
-+
+<p>1a2. User requests to stock up ingredient again.<br>
+Steps 1a1-1a2 are repeated until a valid command format is entered.<br>
 Use case resumes at step 2.</p>
 </li>
 </ul>
@@ -3437,10 +3424,8 @@ Use case resumes at step 2.</p>
 <p>2b1. App returns a message telling user that the ingredient does not exist.</p>
 </li>
 <li>
-<p>2b2. User requests to stock up ingredient again.
-+
-Steps 2b1-2b2 are repeated until a valid ingredient name is entered.
-+
+<p>2b2. User requests to stock up ingredient again.<br>
+Steps 2b1-2b2 are repeated until a valid ingredient name is entered.<br>
 Use case resumes at step 3.</p>
 </li>
 </ul>
@@ -4372,10 +4357,7 @@ The use cases for 1) ranking dates according to total revenue &amp; 2) displayin
 <p>A user with above average typing speed for regular English text (i.e. not code, not system admin commands) should be able to accomplish most of the tasks faster using commands than using the mouse.</p>
 </li>
 <li>
-<p>Menu size should not be limited.</p>
-</li>
-<li>
-<p>System must be secured such that only authorised staffs can access it and execute commands.</p>
+<p>System must be secured such that only authorised employees can access it and execute commands.</p>
 </li>
 <li>
 <p>System should not require constant maintenance and work off-the-shelf without any installation.</p>
@@ -4394,7 +4376,7 @@ The use cases for 1) ranking dates according to total revenue &amp; 2) displayin
 of the <a href="https://github.com/CS2103-AY1819S1-F10-4/main/tree/master/docs/UserGuide.adoc"><code>UserGuide.adoc</code></a>.</p>
 </li>
 <li>
-<p>System should not require any internet access except for updating.</p>
+<p>System should not require any internet access.</p>
 </li>
 <li>
 <p>Only the English language will be used.</p>
@@ -4412,16 +4394,34 @@ of the <a href="https://github.com/CS2103-AY1819S1-F10-4/main/tree/master/docs/U
 <dd>
 <p>Windows, Linux, Unix, OS-X</p>
 </dd>
+</dl>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="acronyms"><a class="link" href="#acronyms">Appendix F: Acronyms</a></h2>
+<div class="sectionbody">
+<div class="dlist">
+<dl>
 <dt class="hdlist1"><a id="gui"></a> GUI</dt>
 <dd>
-<p>Graphical User Interface</p>
+<p><strong>Graphical User Interface</strong> allows the use of icons or other visual indicators to interact with electronic devices,
+rather than using only text via the command line.</p>
+</dd>
+<dt class="hdlist1"><a id="uml"></a> UML</dt>
+<dd>
+<p>Unified Modeling Language is used to specify, visualize, construct and document the artifacts of software systems.</p>
+</dd>
+<dt class="hdlist1"><a id="mss"></a> MSS</dt>
+<dd>
+<p>Main Success Scenario describes the most straightforward interaction for a given use case, which assumes that nothing goes wrong.</p>
 </dd>
 </dl>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="instructions-for-manual-testing"><a class="link" href="#instructions-for-manual-testing">Appendix F: Instructions for Manual Testing</a></h2>
+<h2 id="instructions-for-manual-testing"><a class="link" href="#instructions-for-manual-testing">Appendix G: Instructions for Manual Testing</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Given below are instructions to test the app manually.</p>
@@ -4439,7 +4439,7 @@ These instructions only provide a starting point for testers to work on; testers
 </table>
 </div>
 <div class="sect2">
-<h3 id="launch-and-shutdown"><a class="link" href="#launch-and-shutdown">F.1. Launch and Shutdown</a></h3>
+<h3 id="launch-and-shutdown"><a class="link" href="#launch-and-shutdown">G.1. Launch and Shutdown</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -4474,7 +4474,198 @@ These instructions only provide a starting point for testers to work on; testers
 </div>
 </div>
 <div class="sect2">
-<h3 id="ingredient-management"><a class="link" href="#ingredient-management">F.2. Ingredient Management</a></h3>
+<h3 id="accounts-management"><a class="link" href="#accounts-management">G.2. Accounts Management</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Login</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisite: The account must exists in the accounts record. The <code>root</code> account exists by default.</p>
+</li>
+<li>
+<p>Test case: <code>login id/root pw/1122qq</code><br>
+<strong>Expected</strong>: User will be logged in to the <code>root</code> account, and the username will be set accordingly at the
+top-right corner of the GUI.</p>
+</li>
+<li>
+<p>Test case: <code>login pw/1122qq id/root</code><br>
+<strong>Expected</strong>: Same as previous as the parameters can be supplied in any order.</p>
+</li>
+<li>
+<p>Test case: <code>login id/helloworld pw/lalala</code><br>
+<strong>Expected</strong>: Account does not exists and user will be shown an error message.</p>
+</li>
+<li>
+<p>Test case: <code>login id/root pw/</code><br>
+<strong>Expected</strong>: User will be prompted to provide a valid password.</p>
+</li>
+<li>
+<p>Test case: <code>login id/ pw/1122qq</code><br>
+<strong>Expected</strong>: User will be prompted to provide a valid username.</p>
+</li>
+<li>
+<p>Test case: <code>login</code><br>
+<strong>Expected</strong>: User will be prompted to conform to the command parameters by providing all necessary fields with
+valid values.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Logout</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisite: User must be logged in first.</p>
+</li>
+<li>
+<p>Test case: <code>logout</code><br>
+<strong>Expected</strong>: User will be logged out, and the username will be reset back to <code>Guest</code> at the top-right corner of the
+ GUI.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Changing password</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisite: User must be logged in. The old and new password can be the same.</p>
+</li>
+<li>
+<p>Test case: <code>change-password npw/newpassword</code><br>
+<strong>Expected</strong>: User&#8217;s password will be updated. The new password must be used for future login.</p>
+</li>
+<li>
+<p>Test case: <code>change-password npw/newpassword npw/evennewerpassword</code><br>
+<strong>Expected</strong>: <code>evennewerpassword</code> will be recorded as the new password.</p>
+</li>
+<li>
+<p>Test case: <code>change-password npw/</code><br>
+<strong>Expected</strong>: User will be prompted to provide a valid password.</p>
+</li>
+<li>
+<p>Test case: <code>change-password</code><br>
+<strong>Expected</strong>: User will be prompted to conform to the command parameters by providing all necessary fields with
+valid values.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Registering a new account</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisite: User must be logged in, and the account must exists in the accounts record. <em>Currently, any user will
+be able to register a new account as the user role feature will only be implemented in <code>v2.0</code>. See
+<a href="UserGuide.html#User-Role">UserGuide.adoc</a> for more information</em></p>
+</li>
+<li>
+<p>Test case: <code>register id/johndoe pw/1122qq n/John Doe</code><br>
+<strong>Expected</strong>: A new account with the id <code>johndoe</code> will be created. Details of <code>johndoe</code> will be shown. The timestamp
+ of the status bar will be updated as well.</p>
+</li>
+<li>
+<p>Test case: <code>register id/john doe pw/1122qq n/</code><br>
+<strong>Expected</strong>: User will be prompted to provide a valid name.</p>
+</li>
+<li>
+<p>Test case: <code>register id</code><br>
+<strong>Expected</strong>: User will be prompted to conform to the command parameters by providing all necessary fields with
+valid values.</p>
+</li>
+<li>
+<p>Other incorrect attempts: <code>register id/ pw/1122qq n/John Doe</code>, <code>register id/johndoe pw/1122 qq n/John Doe</code><br>
+<strong>Expected</strong>: User will be prompted with a relevant error message to provide a valid value for the field that has an
+error.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Deregistering an account</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisite: User must be logged in, and the account must exists in the accounts record.</p>
+</li>
+<li>
+<p>Test case: <code>deregister id/johndoe</code><br>
+<strong>Expected</strong>: Account with the id <code>johndoe</code> will be deregistered (i.e. deleted).</p>
+</li>
+<li>
+<p>Test case: <code>deregister id/&lt;current logged in user&#8217;s id&gt;</code><br>
+<strong>Expected</strong>: User will be prompted an error message that they are not allowed to deregister their own account.</p>
+</li>
+<li>
+<p>Test case: <code>deregister</code><br>
+<strong>Expected</strong>: User will be prompted to conform to the command parameters by providing all necessary fields with
+valid values.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Finding account(s)</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisite: User must be logged in.</p>
+</li>
+<li>
+<p>Test case: <code>find-account &lt;ro&gt;</code><br>
+<strong>Expected</strong>: List all accounts that contain the string <code>ro</code> in its username.</p>
+</li>
+<li>
+<p>Test case: <code>find-account</code><br>
+<strong>Expected</strong>: User will be prompted to conform to the command parameters by providing all necessary fields with
+valid values.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Selecting an account</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisite: User must be logged in.</p>
+</li>
+<li>
+<p>Test case: <code>select-account 1</code><br>
+<strong>Expected</strong>: The account at index 1 of the list will be selected.</p>
+</li>
+<li>
+<p>Other incorrect attempts: <code>select-account</code> or <code>select-account -1</code> or <code>select-account alphabet</code><br>
+<strong>Expected</strong>: User will be prompted to conform to the command parameters by providing all necessary fields with
+valid values.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Listing accounts</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisite: User must be logged in.</p>
+</li>
+<li>
+<p>Test case: <code>list-accounts</code><br>
+<strong>Expected</strong>: The list of accounts will be shown at the panel on the left of the GUI.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="ingredient-management"><a class="link" href="#ingredient-management">G.3. Ingredient Management</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -4647,7 +4838,7 @@ than the ingredient list size)
 </div>
 </div>
 <div class="sect2">
-<h3 id="menu-management"><a class="link" href="#menu-management">F.3. Menu Management</a></h3>
+<h3 id="menu-management"><a class="link" href="#menu-management">G.4. Menu Management</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -4735,7 +4926,7 @@ than the ingredient list size)
 <ol class="loweralpha" type="a">
 <li>
 <p>Test case: <code>clear-menu</code><br>
-<strong>Expected</strong>: Deletes all items in the menu.</p>
+<strong>Expected</strong>: Delete all items in the menu.</p>
 </li>
 </ol>
 </div>
@@ -4808,7 +4999,7 @@ than the ingredient list size)
 </div>
 </li>
 <li>
-<p>Giving discount to all item in the displayed item list</p>
+<p>Giving discount to all items in the displayed item list</p>
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
@@ -4816,7 +5007,7 @@ than the ingredient list size)
 </li>
 <li>
 <p>Test case: <code>discount-item ALL dp/20</code><br>
-<strong>Expected</strong>: Gives all items in the displayed item list a discount. Number of items given a discount shown in status message.</p>
+<strong>Expected</strong>: Give all items in the displayed item list a discount. Number of items given a discount shown in status message.</p>
 </li>
 <li>
 <p>Incorrect commands to try: <code>discount-item -2 dp/20</code>, <code>discount-item string dp/20</code></p>
@@ -4861,7 +5052,7 @@ status message.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="reservation-management"><a class="link" href="#reservation-management">F.4. Reservation Management</a></h3>
+<h3 id="reservations-management"><a class="link" href="#reservations-management">G.5. Reservations Management</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -4928,12 +5119,12 @@ reservation will be shown.</p>
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
-<p>Prerequisites: The reservation to be edited must be an existing entry in the reservations list and the user must be
-logged in.</p>
+<p>Prerequisites: The reservation to be edited must be an existing entry in the reservations list and the user must
+be logged in.</p>
 </li>
 <li>
 <p>Test case: <code>edit-reservation 1 d/06-10-2020</code><br>
-   <strong>Expected</strong>: Edited reservation will replace the existing reservation in the reservations list. Details of the
+<strong>Expected</strong>: Edited reservation will replace the existing reservation in the reservations list. Details of the
 edited reservation will be shown.</p>
 </li>
 <li>
@@ -4952,8 +5143,8 @@ edited reservation will be shown.</p>
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
-<p>Prerequisites: The reservation to be deleted must be an existing entry in the reservations list and the user must be
-logged in.</p>
+<p>Prerequisites: The reservation to be deleted must be an existing entry in the reservations list and the user must
+be logged in.</p>
 </li>
 <li>
 <p>Test case: <code>delete-reservation 1</code><br>
@@ -5004,5 +5195,24 @@ logged in.</p>
 </ol>
 </div>
 </div>
+<div class="sect2">
+<h3 id="saving-data"><a class="link" href="#saving-data">G.6. Saving data</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Dealing with missing/corrupted data files</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>To simulate missing/corrupted data file, simply go to the <code>data</code> folder, open up <code>restaurantbook.xml</code> and remove
+any XML tags, or simply delete the <code>restaurantbook.xml</code> file. The next time the application is launched, a clean
+<code>restaurantbook.xml</code> will be re-generated.</p>
+</li>
+</ol>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-12 15:00:19 UTC</div></div></div></body></html>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-12 15:11:13 UTC</div></div></div></body></html>
