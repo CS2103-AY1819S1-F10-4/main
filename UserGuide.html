@@ -60,11 +60,12 @@
 <li><a href="#ingredients-management">5.3. Ingredients Management</a>
 <ul class="sectlevel3">
 <li><a href="#add-ingredient">5.3.1. Adding an ingredient: <code>add-ingredient</code> or <code>add-ing</code></a></li>
-<li><a href="#listing-all-ingredients-code-list-ingredients-code-or-code-list-ing-code">5.3.2. Listing all ingredients : <code>list-ingredients</code> or <code>list-ing</code></a></li>
-<li><a href="#listing-ingredients-with-low-stock-count-code-low-stock-code">5.3.3. Listing ingredients with low stock count: <code>low-stock</code></a></li>
-<li><a href="#removing-an-ingredient-code-delete-ingredient-code-or-code-delete-ing-code">5.3.4. Removing an ingredient: <code>delete-ingredient</code> or <code>delete-ing</code></a></li>
-<li><a href="#editing-an-ingredient-code-edit-ingredient-code-or-code-edit-ing-code">5.3.5. Editing an ingredient: <code>edit-ingredient</code> or <code>edit-ing</code></a></li>
+<li><a href="#list-ingredients">5.3.2. Listing all ingredients : <code>list-ingredients</code> or <code>list-ing</code></a></li>
+<li><a href="#low-stock">5.3.3. Listing ingredients with low stock count: <code>low-stock</code></a></li>
+<li><a href="#delete-ingredient">5.3.4. Removing an ingredient: <code>delete-ingredient</code> or <code>delete-ing</code></a></li>
+<li><a href="#edit-ingredient">5.3.5. Editing an ingredient: <code>edit-ingredient</code> or <code>edit-ing</code></a></li>
 <li><a href="#stockup">5.3.6. Stocking up an ingredient: <code>stockup</code></a></li>
+<li><a href="#select-ingredient">5.3.7. Selecting an ingredient: <code>select-ingredient</code> or <code>select-ing</code></a></li>
 </ul>
 </li>
 <li><a href="#menu-management">5.4. Menu Management</a>
@@ -113,14 +114,13 @@
 <li><a href="#User-Role">5.7.2. Creating user role <code>[coming in v2.0]</code></a></li>
 <li><a href="#editing-user-role-code-coming-in-v2-0-code">5.7.3. Editing user role <code>[coming in v2.0]</code></a></li>
 <li><a href="#deleting-user-role-code-coming-in-v2-0-code">5.7.4. Deleting user role <code>[coming in v2.0]</code></a></li>
-<li><a href="#checking-item-sales-history-code-coming-in-v2-0-code">5.7.5. Checking item sales history <code>[coming in v2.0]</code></a></li>
-<li><a href="#exporting-sales-report-code-coming-in-v2-0-code">5.7.6. Exporting sales report <code>[coming in v2.0]</code></a></li>
-<li><a href="#exporting-sales-chart-code-coming-in-v2-0-code">5.7.7. Exporting sales chart <code>[coming in v2.0]</code></a></li>
-<li><a href="#removing-out-of-stock-dishes-from-daily-menu-code-coming-in-v2-0-code">5.7.8. Removing out-of-stock dishes from daily menu <code>[coming in v2.0]</code></a></li>
-<li><a href="#showing-history-of-past-stock-ups-and-consumption-code-coming-in-v2-0-code">5.7.9. Showing history of past stock ups and consumption <code>[coming in v2.0]</code></a></li>
-<li><a href="#exporting-menu-code-coming-in-v2-0-code">5.7.10. Exporting menu <code>[coming in v2.0]</code></a></li>
-<li><a href="#importing-menu-code-coming-in-v2-0-code">5.7.11. Importing menu <code>[coming in v2.0]</code></a></li>
-<li><a href="#support-for-multiple-menus-code-coming-in-v2-0-code">5.7.12. Support for multiple menus <code>[coming in v2.0]</code></a></li>
+<li><a href="#exporting-sales-report-code-coming-in-v2-0-code">5.7.5. Exporting sales report <code>[coming in v2.0]</code></a></li>
+<li><a href="#exporting-sales-chart-code-coming-in-v2-0-code">5.7.6. Exporting sales chart <code>[coming in v2.0]</code></a></li>
+<li><a href="#checking-item-sales-history-code-coming-in-v2-0-code">5.7.7. Checking item sales history <code>[coming in v2.0]</code></a></li>
+<li><a href="#showing-history-of-past-stock-ups-and-consumption-code-coming-in-v2-0-code">5.7.8. Showing history of past stock ups and consumption <code>[coming in v2.0]</code></a></li>
+<li><a href="#exporting-menu-code-coming-in-v2-0-code">5.7.9. Exporting menu <code>[coming in v2.0]</code></a></li>
+<li><a href="#importing-menu-code-coming-in-v2-0-code">5.7.10. Importing menu <code>[coming in v2.0]</code></a></li>
+<li><a href="#support-for-multiple-menus-code-coming-in-v2-0-code">5.7.11. Support for multiple menus <code>[coming in v2.0]</code></a></li>
 </ul>
 </li>
 </ul>
@@ -857,6 +857,9 @@ Format: <code>list-accounts</code> or <code>la</code></p>
 </div>
 <div class="sect2">
 <h3 id="ingredients-management"><a class="link" href="#ingredients-management">5.3. Ingredients Management</a></h3>
+<div class="paragraph">
+<p>This section explains how you may use the commands relating to the Ingredient Management feature.</p>
+</div>
 <div class="sect3">
 <h4 id="add-ingredient"><a class="link" href="#add-ingredient">5.3.1. Adding an ingredient: <code>add-ingredient</code> or <code>add-ing</code></a></h4>
 <div class="paragraph">
@@ -873,7 +876,10 @@ Format: <code>add-ingredient n/INGREDIENT_NAME u/UNIT_TYPE p/PRICE_PER_UNIT m/MI
 <div class="ulist">
 <ul>
 <li>
-<p>MINIMUM refers to the minimum number of units below which an ingredient will be considered low in stock count</p>
+<p>MINIMUM refers to the number of units below which an ingredient will be considered low in stock count</p>
+</li>
+<li>
+<p>When a new ingredient is first added, its number of units is set to zero</p>
 </li>
 </ul>
 </div>
@@ -887,30 +893,45 @@ Format: <code>add-ingredient n/INGREDIENT_NAME u/UNIT_TYPE p/PRICE_PER_UNIT m/MI
 <div class="ulist">
 <ul>
 <li>
-<p><code>add-ingredient n/cod fish u/kilogram p/20 m/1</code></p>
+<p><code>add-ingredient n/cod fish u/kilogram p/20 m/1</code><br>
+Adds the ingredient <code>cod fish</code> with a price of <code>$20/kilogram</code> and minimum threshold of <code>1 unit</code>.</p>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect3">
-<h4 id="listing-all-ingredients-code-list-ingredients-code-or-code-list-ing-code"><a class="link" href="#listing-all-ingredients-code-list-ingredients-code-or-code-list-ing-code">5.3.2. Listing all ingredients : <code>list-ingredients</code> or <code>list-ing</code></a></h4>
+<h4 id="list-ingredients"><a class="link" href="#list-ingredients">5.3.2. Listing all ingredients : <code>list-ingredients</code> or <code>list-ing</code></a></h4>
 <div class="paragraph">
 <p>Shows a list of all ingredients in the ingredient list.<br>
 Format: <code>list-ingredients</code></p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="listing-ingredients-with-low-stock-count-code-low-stock-code"><a class="link" href="#listing-ingredients-with-low-stock-count-code-low-stock-code">5.3.3. Listing ingredients with low stock count: <code>low-stock</code></a></h4>
+<h4 id="low-stock"><a class="link" href="#low-stock">5.3.3. Listing ingredients with low stock count: <code>low-stock</code></a></h4>
 <div class="paragraph">
 <p>Shows a list of ingredients that are low in stock count.<br>
 Format: <code>low-stock</code></p>
 </div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>An ingredient is low in stock count when the number of units available is less than its minimum threshold</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
 </div>
 <div class="sect3">
-<h4 id="removing-an-ingredient-code-delete-ingredient-code-or-code-delete-ing-code"><a class="link" href="#removing-an-ingredient-code-delete-ingredient-code-or-code-delete-ing-code">5.3.4. Removing an ingredient: <code>delete-ingredient</code> or <code>delete-ing</code></a></h4>
+<h4 id="delete-ingredient"><a class="link" href="#delete-ingredient">5.3.4. Removing an ingredient: <code>delete-ingredient</code> or <code>delete-ing</code></a></h4>
 <div class="paragraph">
 <p>Deletes the specified ingredient from the ingredient list.<br>
-Format: <code>delete-ingredient INDEX</code> or <code>delete-ingredient NAME</code></p>
+Format: <code>delete-ingredient INDEX</code> or <code>delete-ingredient INGREDIENT_NAME</code></p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -922,16 +943,16 @@ Format: <code>delete-ingredient INDEX</code> or <code>delete-ingredient NAME</co
 <div class="ulist">
 <ul>
 <li>
-<p>Deletes the ingredient at the specified <code>INDEX</code>.</p>
+<p>Deletes the ingredient at the specified <code>INDEX</code></p>
 </li>
 <li>
-<p><code>INDEX</code> refers to the index number shown in the displayed ingredient list.</p>
+<p><code>INDEX</code> refers to the index number shown in the displayed ingredient list</p>
 </li>
 <li>
 <p><code>INDEX</code> <strong>must be a positive integer</strong> 1, 2, 3, &#8230;&#8203;</p>
 </li>
 <li>
-<p>Alternatively, deletes the ingredient with the specified <code>NAME</code>.</p>
+<p>Alternatively, deletes the ingredient with the specified <code>INGREDIENT_NAME</code></p>
 </li>
 </ul>
 </div>
@@ -959,11 +980,11 @@ Deletes the ingredient <code>cod fish</code> from the ingredient list.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="editing-an-ingredient-code-edit-ingredient-code-or-code-edit-ing-code"><a class="link" href="#editing-an-ingredient-code-edit-ingredient-code-or-code-edit-ing-code">5.3.5. Editing an ingredient: <code>edit-ingredient</code> or <code>edit-ing</code></a></h4>
+<h4 id="edit-ingredient"><a class="link" href="#edit-ingredient">5.3.5. Editing an ingredient: <code>edit-ingredient</code> or <code>edit-ing</code></a></h4>
 <div class="paragraph">
 <p>Edits an ingredient in the ingredient list.<br>
-Format: <code>edit-ingredient INDEX [n/INGREDIENT_NAME] [u/UNIT_TYPE] [p/PRICE_PER_UNIT]
-[m/MINIMUM]</code> or <code>edit-ingredient on/ORIGINAL_INGREDIENT_NAME [n/NEW_INGREDIENT_NAME] [t/UNIT_TYPE] [p/PRICE_PER_UNIT] [m/MINIMUM]</code></p>
+Format: <code>edit-ingredient INDEX [n/INGREDIENT_NAME] [u/UNIT_TYPE] [p/PRICE_PER_UNIT] [m/MINIMUM]</code> or <code>edit-ingredient
+on/ORIGINAL_INGREDIENT_NAME [n/NEW_INGREDIENT_NAME] [u/UNIT_TYPE] [p/PRICE_PER_UNIT] [m/MINIMUM]</code></p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -978,10 +999,13 @@ Format: <code>edit-ingredient INDEX [n/INGREDIENT_NAME] [u/UNIT_TYPE] [p/PRICE_P
 <p>Edits the ingredient at the specified <code>INDEX</code>. The index refers to the index number shown in the displayed ingredient list. The index <strong>must be a positive integer</strong> 1, 2, 3, &#8230;&#8203;</p>
 </li>
 <li>
-<p>Existing values will be updated to the input values.</p>
+<p>Existing values will be updated to the input values</p>
 </li>
 <li>
-<p>Alternatively, edits the ingredient with the specified <code>ORIGNAL_INGREDIENT_NAME</code>.</p>
+<p>Alternatively, edits the ingredient with the specified <code>ORIGINAL_INGREDIENT_NAME</code></p>
+</li>
+<li>
+<p>If both <code>INDEX</code> and <code>ORIGINAL_INGREDIENT_NAME</code> are specified and valid, the edit will be done according to <code>INDEX</code></p>
 </li>
 </ul>
 </div>
@@ -996,10 +1020,53 @@ Format: <code>edit-ingredient INDEX [n/INGREDIENT_NAME] [u/UNIT_TYPE] [p/PRICE_P
 <i class="fa icon-warning" title="Warning"></i>
 </td>
 <td class="content">
+<div class="paragraph">
+<p>At least one of the optional fields must be provided!</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
 <div class="ulist">
 <ul>
 <li>
-<p>At least one of the optional fields must be provided.</p>
+<p><code>edit-ingredient 3 n/thin fries</code><br>
+Edits the name of the 3rd ingredient to <code>thin fries</code>.</p>
+</li>
+<li>
+<p><code>edit-ingredient 4 u/1.5ml bottle p/1.20</code> <br>
+Edits the unit type and price per unit of the 4th ingredient to <code>1.5ml bottle</code> and <code>1.20</code> respectively.</p>
+</li>
+<li>
+<p><code>edit-ingredient on/ketchup n/tomato ketchup</code> <br>
+Edits the name of <code>ketchup</code> to <code>tomato ketchup</code>.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="stockup"><a class="link" href="#stockup">5.3.6. Stocking up an ingredient: <code>stockup</code></a></h4>
+<div class="paragraph">
+<p>Increases the number of units of an ingredient or multiple ingredients.<br>
+Format: <code>stockup n/INGREDIENT_NAME&#8230;&#8203; nu/NUMBER_OF_UNITS&#8230;&#8203;</code></p>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p><code>NUMBER_OF_UNITS</code> for an ingredient must follow the <code>INGREDIENT_NAME</code> for that particular ingredient</p>
+</li>
+<li>
+<p>If the same ingredient is specified more than once, the last <code>NUMBER_OF_UNITS</code> will supercede.</p>
 </li>
 </ul>
 </div>
@@ -1013,36 +1080,45 @@ Format: <code>edit-ingredient INDEX [n/INGREDIENT_NAME] [u/UNIT_TYPE] [p/PRICE_P
 <div class="ulist">
 <ul>
 <li>
-<p><code>edit-ingredient 3 n/thin fries</code><br>
-Edits the name of the 3rd ingredient to be <code>thin fries</code>.</p>
+<p><code>stockup n/cod fish nu/5</code><br>
+Stocks up <code>5 units</code> of <code>cod fish</code>.</p>
 </li>
 <li>
-<p><code>edit-ingredient 4 u/1.5ml bottle p/1.20</code> <br>
-Edits the unit type and price per unit of the 4th ingredient to be <code>1.5ml bottle</code> and <code>1.20</code> respectively.</p>
-</li>
-<li>
-<p><code>edit-ingredient ketchup n/tomato ketchup</code> <br>
-Edits the name of <code>ketchup</code> to be <code>tomato ketchup</code>.</p>
+<p><code>stockup n/chicken thigh nu/10 n/fries nu/20 n/tomato ketchup nu/50</code><br>
+Stocks up <code>10 units</code> of <code>chicken thigh</code>, <code>20 units</code> of <code>fries</code> and <code>50 units</code> of <code>tomato ketchup</code>.</p>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect3">
-<h4 id="stockup"><a class="link" href="#stockup">5.3.6. Stocking up an ingredient: <code>stockup</code></a></h4>
+<h4 id="select-ingredient"><a class="link" href="#select-ingredient">5.3.7. Selecting an ingredient: <code>select-ingredient</code> or <code>select-ing</code></a></h4>
 <div class="paragraph">
-<p>Increases the number of units of an ingredient or multiple ingredients.<br>
-Format: <code>stockup n/INGREDIENT_NAME&#8230;&#8203; nu/NUMBER_OF_UNITS&#8230;&#8203;</code></p>
+<p>Selects the ingredient identified by the index number used in the displayed ingredient list.<br>
+Format: <code>select-ingredient INDEX</code> or <code>select-ing INDEX</code></p>
 </div>
-<div class="sidebarblock">
-<div class="content">
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
 <div class="ulist">
 <ul>
 <li>
-<p>NUMBER_OF_UNITS for an ingredient must follow the INGREDIENT_NAME for that particular ingredient.</p>
+<p>Selects the ingredient and displays the details of the ingredient at the specified <code>INDEX</code></p>
+</li>
+<li>
+<p>The index refers to the index number shown in the displayed ingredient list</p>
+</li>
+<li>
+<p>The index <strong>must be a positive integer</strong> <code>1, 2, 3, &#8230;&#8203;</code></p>
 </li>
 </ul>
 </div>
-</div>
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
 <p>Examples:</p>
@@ -1050,10 +1126,14 @@ Format: <code>stockup n/INGREDIENT_NAME&#8230;&#8203; nu/NUMBER_OF_UNITS&#8230;&
 <div class="ulist">
 <ul>
 <li>
-<p><code>stockup n/cod fish nu/5</code></p>
+<p><code>list-ingredients</code><br>
+<code>select-ingredient 2</code><br>
+Selects the 2nd ingredient in the displayed ingredient list.</p>
 </li>
 <li>
-<p><code>stockup n/chicken thigh nu/10 n/fries nu/20 n/tomato ketchup nu/50</code></p>
+<p><code>low-stock</code><br>
+<code>select-ingredient 1</code><br>
+Selects the 1st ingredient in the results of the <code>low-stock</code> command.</p>
 </li>
 </ul>
 </div>
@@ -2360,13 +2440,25 @@ Format: <code>delete-role r/RANK</code> or <code>dr r/RANK</code></p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="checking-item-sales-history-code-coming-in-v2-0-code"><a class="link" href="#checking-item-sales-history-code-coming-in-v2-0-code">5.7.5. Checking item sales history <code>[coming in v2.0]</code></a></h4>
+<h4 id="exporting-sales-report-code-coming-in-v2-0-code"><a class="link" href="#exporting-sales-report-code-coming-in-v2-0-code">5.7.5. Exporting sales report <code>[coming in v2.0]</code></a></h4>
+<div class="paragraph">
+<p>Exports the sales report of a specific date into a pdf file. The generated .pdf sales report will be much more
+detailed than that displayed in app.<br>
+Format: <code>export-sales DATE</code> or <code>es DATE</code></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="exporting-sales-chart-code-coming-in-v2-0-code"><a class="link" href="#exporting-sales-chart-code-coming-in-v2-0-code">5.7.6. Exporting sales chart <code>[coming in v2.0]</code></a></h4>
+<div class="paragraph">
+<p>Exports the sales chart into a pdf file.<br>
+Format: <code>export-chart</code> or <code>ec</code></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="checking-item-sales-history-code-coming-in-v2-0-code"><a class="link" href="#checking-item-sales-history-code-coming-in-v2-0-code">5.7.7. Checking item sales history <code>[coming in v2.0]</code></a></h4>
 <div class="paragraph">
 <p>Generates the item sales report that consists of all records associated with that item.<br>
 Format: <code>check-history n/ITEM_NAME</code> or <code>ch n/ITEM_NAME</code></p>
-</div>
-<div class="paragraph">
-<p>Examples:</p>
 </div>
 <div class="ulist">
 <ul>
@@ -2380,29 +2472,7 @@ Format: <code>check-history n/ITEM_NAME</code> or <code>ch n/ITEM_NAME</code></p
 </div>
 </div>
 <div class="sect3">
-<h4 id="exporting-sales-report-code-coming-in-v2-0-code"><a class="link" href="#exporting-sales-report-code-coming-in-v2-0-code">5.7.6. Exporting sales report <code>[coming in v2.0]</code></a></h4>
-<div class="paragraph">
-<p>Exports the sales report of a specific date into a pdf file. The generated .pdf sales report will be much more
-detailed than that displayed in app.<br>
-Format: <code>export-sales DATE</code> or <code>es DATE</code></p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="exporting-sales-chart-code-coming-in-v2-0-code"><a class="link" href="#exporting-sales-chart-code-coming-in-v2-0-code">5.7.7. Exporting sales chart <code>[coming in v2.0]</code></a></h4>
-<div class="paragraph">
-<p>Exports the sales chart into a pdf file.<br>
-Format: <code>export-chart</code> or <code>ec</code></p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="removing-out-of-stock-dishes-from-daily-menu-code-coming-in-v2-0-code"><a class="link" href="#removing-out-of-stock-dishes-from-daily-menu-code-coming-in-v2-0-code">5.7.8. Removing out-of-stock dishes from daily menu <code>[coming in v2.0]</code></a></h4>
-<div class="paragraph">
-<p>Removes out-of-stock dishes that require ingredients with low stock count from the daily menu.<br>
-Format: <code>remove-oos-dish</code> or <code>rod</code></p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="showing-history-of-past-stock-ups-and-consumption-code-coming-in-v2-0-code"><a class="link" href="#showing-history-of-past-stock-ups-and-consumption-code-coming-in-v2-0-code">5.7.9. Showing history of past stock ups and consumption <code>[coming in v2.0]</code></a></h4>
+<h4 id="showing-history-of-past-stock-ups-and-consumption-code-coming-in-v2-0-code"><a class="link" href="#showing-history-of-past-stock-ups-and-consumption-code-coming-in-v2-0-code">5.7.8. Showing history of past stock ups and consumption <code>[coming in v2.0]</code></a></h4>
 <div class="paragraph">
 <p>Shows the history of past ingredient stock ups or consumption.<br>
 Format: <code>view-history [STOCKUP] [CONSUMPTION]</code>  or <code>vh [STOCKUP] [CONSUMPTION]</code></p>
@@ -2425,7 +2495,7 @@ Format: <code>view-history [STOCKUP] [CONSUMPTION]</code>  or <code>vh [STOCKUP]
 </div>
 </div>
 <div class="sect3">
-<h4 id="exporting-menu-code-coming-in-v2-0-code"><a class="link" href="#exporting-menu-code-coming-in-v2-0-code">5.7.10. Exporting menu <code>[coming in v2.0]</code></a></h4>
+<h4 id="exporting-menu-code-coming-in-v2-0-code"><a class="link" href="#exporting-menu-code-coming-in-v2-0-code">5.7.9. Exporting menu <code>[coming in v2.0]</code></a></h4>
 <div class="paragraph">
 <p>Exports the menu to a particular file path.<br>
 Format: <code>export-menu fp/FILEPATH fn/FILENAME</code></p>
@@ -2443,7 +2513,7 @@ Export the menu to test folder with the file name <code>menu.txt</code></p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="importing-menu-code-coming-in-v2-0-code"><a class="link" href="#importing-menu-code-coming-in-v2-0-code">5.7.11. Importing menu <code>[coming in v2.0]</code></a></h4>
+<h4 id="importing-menu-code-coming-in-v2-0-code"><a class="link" href="#importing-menu-code-coming-in-v2-0-code">5.7.10. Importing menu <code>[coming in v2.0]</code></a></h4>
 <div class="paragraph">
 <p>Imports an existing menu from specified file path to replace current menu.<br>
 Format: <code>import-menu fp/FILEPATH fn/FILENAME</code></p>
@@ -2461,7 +2531,7 @@ Import the menu.txt from test folder to replace current menu.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="support-for-multiple-menus-code-coming-in-v2-0-code"><a class="link" href="#support-for-multiple-menus-code-coming-in-v2-0-code">5.7.12. Support for multiple menus <code>[coming in v2.0]</code></a></h4>
+<h4 id="support-for-multiple-menus-code-coming-in-v2-0-code"><a class="link" href="#support-for-multiple-menus-code-coming-in-v2-0-code">5.7.11. Support for multiple menus <code>[coming in v2.0]</code></a></h4>
 <div class="paragraph">
 <p>User will be able to manage multiple menus without the need of exporting and importing for different version of the
 current menu.</p>
@@ -2563,29 +2633,31 @@ contains the data of your previous <strong>MeNUS</strong> folder.</p>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Add ingredient</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>add-ingredient n/INGREDIENT_NAME t/UNIT_TYPE p/PRICE_PER_UNIT m/MINIMUM</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>add-ingredient n/cod fish t/kilogram p/20 m/1</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>add-ingredient n/INGREDIENT_NAME u/UNIT_TYPE p/PRICE_PER_UNIT m/MINIMUM</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>add-ingredient n/cod
+fish u/kilogram p/20 m/1</code></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>List ingredient</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>List ingredients</strong></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>list-ingredients</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>list-ingredients</code></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>List ingredient with low stock count</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>List ingredients with low stock count</strong></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>low-stock</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>low-stock</code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Edit ingredient</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>edit-ingredient [INDEX] [on/ORIGINAL_INGREDIENT_NAME] [n/NEW_INGREDIENT_NAME] [u/UNIT_TYPE] [p/PRICE_PER_UNIT] [m/MINIMUM]</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>edit-ingredient 3 n/thin fries</code> or
-<code>edit-ingredient on/ketchup n/tomato ketchup</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>edit-ingredient INDEX [n/INGREDIENT_NAME] [u/UNIT_TYPE] [p/PRICE_PER_UNIT] [m/MINIMUM]</code> or
+<code>edit-ingredient on/ORIGINAL_INGREDIENT_NAME [n/NEW_INGREDIENT_NAME] [u/UNIT_TYPE] [p/PRICE_PER_UNIT] [m/MINIMUM]</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>edit-ingredient 3 n/thin fries</code> or <code>edit-ingredient on/ketchup n/tomato ketchup</code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Delete ingredient</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>delete-ingredient INDEX</code> or <code>delete-ingredient NAME</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>delete-ingredient 1</code> or <code>delete-ingredient cod fish</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>delete-ingredient INDEX</code> or <code>delete-ingredient INGREDIENT_NAME</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>delete-ingredient 1</code> or
+<code>delete-ingredient cod fish</code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Stock up</strong></p></td>
@@ -2593,9 +2665,19 @@ contains the data of your previous <strong>MeNUS</strong> folder.</p>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>stockup n/cod fish u/5</code></p></td>
 </tr>
 <tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Select ingredient</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>select-ingredient INDEX</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>select-ingredient 3</code></p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Add item</strong></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>add-item n/ITEM_NAME p/ITEM_PRICE [t/TAG]&#8230;&#8203;</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>add-item n/Burger Set p/3 t/set</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>List items</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>list-items</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>list-items</code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Edit item</strong></p></td>
@@ -2749,4 +2831,4 @@ rather than using only text via the command line.</p>
 </dl>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-12 12:58:07 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-12 14:02:19 UTC</div></div></div></body></html>

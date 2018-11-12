@@ -3,7 +3,9 @@
 <link rel="stylesheet" href="../stylesheets/coderay-asciidoctor.css"></head><body class="article"><div id="site-header"><nav class="navbar navbar-light bg-light"><div class="container"><a class="navbar-brand" href="../index.html">MeNUS</a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="../UserGuide.html">User Guide</a></li><li class="nav-item"><a class="nav-link" href="../DeveloperGuide.html">Developer Guide</a></li><li class="nav-item"><a class="nav-link active" href="../AboutUs.html">About Us</a></li><li class="nav-item"><a class="nav-link" href="../ContactUs.html">Contact Us</a></li><li class="navitem"><a class="nav-link" href="https://github.com/CS2103-AY1819S1-F10-4/main"><span class="fa fa-github fa-lg" aria-hidden="true"></span>&nbsp;View on GitHub</a></li></ul></div></nav></div><div id="header"><h1>Rebecca Tan - Project Portfolio</h1></div><div id="content"><div class="sect1">
 <h2 id="project-menus"><a class="link" href="#project-menus">PROJECT: MeNUS</a></h2>
 <div class="sectionbody">
-<hr>
+<div class="paragraph">
+<p>This project portfolio documents my contributions towards <strong>MeNUS</strong> for the module CS2103T Software Engineering.</p>
+</div>
 </div>
 </div>
 <div class="sect1">
@@ -18,51 +20,63 @@
 </div>
 </div>
 <div class="sect1">
-<h2 id="summary-of-contributions"><a class="link" href="#summary-of-contributions">Summary of contributions</a></h2>
+<h2 id="summary-of-contributions"><a class="link" href="#summary-of-contributions">Summary of Contributions</a></h2>
 <div class="sectionbody">
+<div class="paragraph">
+<p>Below are my contributions in terms of feature enhancements, project management and documentation:</p>
+</div>
 <div class="ulist">
 <ul>
+<li>
+<p><strong>Major enhancement</strong>: Added <strong>commands to keep track of the ingredient availability of a restuarant</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>What it does</strong>:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>The <code>add-ingredient</code>, <code>delete-ingredient</code>, <code>edit-ingredient</code> and <code>list-ingredients</code> commands allow
+the user to maintain a list of ingredients used by the restaurant.</p>
+</li>
+<li>
+<p>The <code>low-stock</code> and <code>stockup</code> commands enable the
+user to know which ingredients require stocking up and update the ingredient count as necessary.</p>
+</li>
+<li>
+<p>The <code>select-ingredient</code> command lets the user view the details of each ingredient.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Justification</strong>:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Provide convenience: Restaurants use a large variety of ingredients daily, making it difficult to quickly
+determine the availability of each ingredient. This feature reduces the need for restaurant managers
+ to manually do stock taking of its restaurant&#8217;s ingredients.</p>
+</li>
+<li>
+<p>Reduce food wastage: Restaurants often stock up in fixed quantities of ingredients, regardless of the actual
+availability in the pantry. This leads to food wastage, if excess ingredients are not used. This feature provides
+restaurant owners with more information about availability, so that they only stock up what is necessary.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Highlights</strong>: This enhancement involves adding several new commands to <strong>MeNUS</strong>. It requires understanding of the
+underlying architecture and the components <code>logic</code>, <code>storage</code> and <code>model</code>. To maintain good abstraction, it
+ is also necessary to implement appropriate model interfaces so as to integrate the ingredient feature with other
+ features eg menu and sales management.</p>
+</li>
+</ul>
+</div>
+</li>
 <li>
 <p><strong>Code contributed</strong>: <a href="https://nus-cs2103-ay1819s1.github.io/cs2103-dashboard/#=undefined&amp;search=rebstan97">RepoSense</a></p>
-</li>
-<li>
-<p><strong>Major enhancement</strong>: Added <strong>commands to manage a restaurant&#8217;s ingredients</strong></p>
-<div class="ulist">
-<ul>
-<li>
-<p><strong>What it does</strong>: Allows the user to maintain a list of ingredients, as well as monitor and update their stock
-counts.</p>
-</li>
-<li>
-<p><strong>Justification</strong>: This feature is essential as restaurants often have a large number of ingredients to keep track
-of, making it difficult to know immediately which ingredients require stocking up.</p>
-</li>
-<li>
-<p><strong>Highlights</strong>: This enhancement involves adding several new commands to <strong>MeNUS</strong>. It requires understanding of
-architecture components and integration with other features such as sales and menu management.</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p><strong>Minor enhancement</strong>:</p>
-<div class="ulist">
-<ul>
-<li>
-<p>To be updated.</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p><strong>Code contributed</strong>:</p>
-<div class="ulist">
-<ul>
-<li>
-<p>To be updated.</p>
-</li>
-</ul>
-</div>
 </li>
 <li>
 <p><strong>Other contributions</strong>:</p>
@@ -83,7 +97,7 @@ architecture components and integration with other features such as sales and me
 <div class="ulist">
 <ul>
 <li>
-<p>To be updated.</p>
+<p>Enhanced the existing tagging feature by adding different colours for different tags</p>
 </li>
 </ul>
 </div>
@@ -96,13 +110,16 @@ architecture components and integration with other features such as sales and me
 <p>Updated user stories and use cases in the Developer Guide (Pull request <a href="https://github.com/CS2103-AY1819S1-F10-4/main/pull/27">#27</a>, <a href="https://github.com/CS2103-AY1819S1-F10-4/main/pull/118/files">#118</a>)</p>
 </li>
 <li>
-<p>Added implementation of the command <code>delete-ingredient</code> (Pull request <a href="https://github.com/CS2103-AY1819S1-F10-4/main/pull/116">#116</a>)</p>
+<p>Added implementation of the commands <code>delete-ingredient</code> and <code>stockup</code> (Pull request <a href="https://github.com/CS2103-AY1819S1-F10-4/main/pull/116">#116</a>, <a href="https://github.com/CS2103-AY1819S1-F10-4/main/pull/290">#290</a>)</p>
 </li>
 <li>
-<p>Added description of feature commands to the User Guide(Pull request <a href="https://github.com/CS2103-AY1819S1-F10-4/main/pull/27">#27</a>, <a href="https://github.com/CS2103-AY1819S1-F10-4/main/pull/116">#116</a>)</p>
+<p>Added description of ingredient commands to the User Guide(Pull request <a href="https://github.com/CS2103-AY1819S1-F10-4/main/pull/27">#27</a>, <a href="https://github.com/CS2103-AY1819S1-F10-4/main/pull/116">#116</a>)</p>
 </li>
 <li>
 <p>Made general enhancements to the User Guide (Pull request <a href="https://github.com/CS2103-AY1819S1-F10-4/main/pull/120">#120</a>)</p>
+</li>
+<li>
+<p>Created initial UI mock-up (Pull request <a href="https://github.com/CS2103-AY1819S1-F10-4/main/pull/55">#55</a>)</p>
 </li>
 </ul>
 </div>
@@ -112,26 +129,14 @@ architecture components and integration with other features such as sales and me
 <div class="ulist">
 <ul>
 <li>
-<p>PRs reviewed (with non-trivial review comments): <a href="https://github.com">#12</a>, <a href="https://github.com">#32</a>, <a href="https://github.com">#19</a>, <a href="https://github.com">#42</a></p>
+<p>PRs reviewed (with non-trivial review comments): <a href="https://github.com/CS2103-AY1819S1-F10-4/main/pull/122">#122</a>,
+<a href="https://github.com/CS2103-AY1819S1-F10-4/main/pull/132">#132</a>, <a href="https://github.com/CS2103-AY1819S1-F10-4/main/pull/183">#183</a></p>
 </li>
 <li>
-<p>Contributed to forum discussions (examples:  <a href="https://github.com">1</a>, <a href="https://github.com">2</a>, <a href="https://github.com">3</a>, <a href="https://github.com">4</a>)</p>
+<p>Contributed to forum discussions (example:  <a href="https://github.com/nus-cs2103-AY1819S1/forum/issues/48">1</a>)</p>
 </li>
 <li>
-<p>Reported bugs and suggestions for other teams in the class (examples:  <a href="https://github.com">1</a>, <a href="https://github.com">2</a>, <a href="https://github.com">3</a>)</p>
-</li>
-<li>
-<p>Some parts of the history feature I added was adopted by several other class mates (<a href="https://github.com">1</a>, <a href="https://github.com">2</a>)</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p>Tools:</p>
-<div class="ulist">
-<ul>
-<li>
-<p>To be updated</p>
+<p>Reported bugs and suggestions for other teams in the class (examples:  <a href="https://github.com/CS2103-AY1819S1-T12-3/main/issues/172">1</a>, <a href="https://github.com/CS2103-AY1819S1-T12-3/main/issues/173">2</a>, <a href="https://github.com/CS2103-AY1819S1-T12-3/main/issues/179">3</a>, <a href="https://github.com/CS2103-AY1819S1-T12-3/main/issues/181">4</a>, <a href="https://github.com/CS2103-AY1819S1-T12-3/main/issues/184">5</a>)</p>
 </li>
 </ul>
 </div>
@@ -156,6 +161,290 @@ architecture components and integration with other features such as sales and me
 </tr>
 </tbody>
 </table>
+<div class="sect2">
+<h3 id="ingredients-management"><a class="link" href="#ingredients-management">Ingredients Management</a></h3>
+<div class="paragraph">
+<p>This section explains how you may use the commands relating to the Ingredient Management feature.</p>
+</div>
+<div class="sect3">
+<h4 id="add-ingredient"><a class="link" href="#add-ingredient">Adding an ingredient: <code>add-ingredient</code> or <code>add-ing</code></a></h4>
+<div class="paragraph">
+<p>Adds a new ingredient to the ingredient list.<br>
+Format: <code>add-ingredient n/INGREDIENT_NAME u/UNIT_TYPE p/PRICE_PER_UNIT m/MINIMUM</code></p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>MINIMUM refers to the number of units below which an ingredient will be considered low in stock count</p>
+</li>
+<li>
+<p>When a new ingredient is first added, its number of units is set to zero</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>add-ingredient n/cod fish u/kilogram p/20 m/1</code><br>
+Adds the ingredient <code>cod fish</code> with a price of <code>$20/kilogram</code> and minimum threshold of <code>1 unit</code>.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="list-ingredients"><a class="link" href="#list-ingredients">Listing all ingredients : <code>list-ingredients</code> or <code>list-ing</code></a></h4>
+<div class="paragraph">
+<p>Shows a list of all ingredients in the ingredient list.<br>
+Format: <code>list-ingredients</code></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="low-stock"><a class="link" href="#low-stock">Listing ingredients with low stock count: <code>low-stock</code></a></h4>
+<div class="paragraph">
+<p>Shows a list of ingredients that are low in stock count.<br>
+Format: <code>low-stock</code></p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>An ingredient is low in stock count when the number of units available is less than its minimum threshold</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect3">
+<h4 id="delete-ingredient"><a class="link" href="#delete-ingredient">Removing an ingredient: <code>delete-ingredient</code> or <code>delete-ing</code></a></h4>
+<div class="paragraph">
+<p>Deletes the specified ingredient from the ingredient list.<br>
+Format: <code>delete-ingredient INDEX</code> or <code>delete-ingredient INGREDIENT_NAME</code></p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Deletes the ingredient at the specified <code>INDEX</code></p>
+</li>
+<li>
+<p><code>INDEX</code> refers to the index number shown in the displayed ingredient list</p>
+</li>
+<li>
+<p><code>INDEX</code> <strong>must be a positive integer</strong> 1, 2, 3, &#8230;&#8203;</p>
+</li>
+<li>
+<p>Alternatively, deletes the ingredient with the specified <code>INGREDIENT_NAME</code></p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>list-ingredients</code><br>
+<code>delete-ingredient 1</code><br>
+<code>list-ingredients</code><br>
+Deletes the 1st ingredient in the ingredient list.</p>
+</li>
+<li>
+<p><code>delete-ingredient cod fish</code><br>
+<code>list-ingredients</code><br>
+Deletes the ingredient <code>cod fish</code> from the ingredient list.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="edit-ingredient"><a class="link" href="#edit-ingredient">Editing an ingredient: <code>edit-ingredient</code> or <code>edit-ing</code></a></h4>
+<div class="paragraph">
+<p>Edits an ingredient in the ingredient list.<br>
+Format: <code>edit-ingredient INDEX [n/INGREDIENT_NAME] [u/UNIT_TYPE] [p/PRICE_PER_UNIT] [m/MINIMUM]</code> or <code>edit-ingredient
+on/ORIGINAL_INGREDIENT_NAME [n/NEW_INGREDIENT_NAME] [u/UNIT_TYPE] [p/PRICE_PER_UNIT] [m/MINIMUM]</code></p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Edits the ingredient at the specified <code>INDEX</code>. The index refers to the index number shown in the displayed ingredient list. The index <strong>must be a positive integer</strong> 1, 2, 3, &#8230;&#8203;</p>
+</li>
+<li>
+<p>Existing values will be updated to the input values</p>
+</li>
+<li>
+<p>Alternatively, edits the ingredient with the specified <code>ORIGINAL_INGREDIENT_NAME</code></p>
+</li>
+<li>
+<p>If both <code>INDEX</code> and <code>ORIGINAL_INGREDIENT_NAME</code> are specified and valid, the edit will be done according to <code>INDEX</code></p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>At least one of the optional fields must be provided!</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>edit-ingredient 3 n/thin fries</code><br>
+Edits the name of the 3rd ingredient to <code>thin fries</code>.</p>
+</li>
+<li>
+<p><code>edit-ingredient 4 u/1.5ml bottle p/1.20</code> <br>
+Edits the unit type and price per unit of the 4th ingredient to <code>1.5ml bottle</code> and <code>1.20</code> respectively.</p>
+</li>
+<li>
+<p><code>edit-ingredient on/ketchup n/tomato ketchup</code> <br>
+Edits the name of <code>ketchup</code> to <code>tomato ketchup</code>.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="stockup"><a class="link" href="#stockup">Stocking up an ingredient: <code>stockup</code></a></h4>
+<div class="paragraph">
+<p>Increases the number of units of an ingredient or multiple ingredients.<br>
+Format: <code>stockup n/INGREDIENT_NAME&#8230;&#8203; nu/NUMBER_OF_UNITS&#8230;&#8203;</code></p>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p><code>NUMBER_OF_UNITS</code> for an ingredient must follow the <code>INGREDIENT_NAME</code> for that particular ingredient</p>
+</li>
+<li>
+<p>If the same ingredient is specified more than once, the last <code>NUMBER_OF_UNITS</code> will supercede.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>stockup n/cod fish nu/5</code><br>
+Stocks up <code>5 units</code> of <code>cod fish</code>.</p>
+</li>
+<li>
+<p><code>stockup n/chicken thigh nu/10 n/fries nu/20 n/tomato ketchup nu/50</code><br>
+Stocks up <code>10 units</code> of <code>chicken thigh</code>, <code>20 units</code> of <code>fries</code> and <code>50 units</code> of <code>tomato ketchup</code>.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="select-ingredient"><a class="link" href="#select-ingredient">Selecting an ingredient: <code>select-ingredient</code> or <code>select-ing</code></a></h4>
+<div class="paragraph">
+<p>Selects the ingredient identified by the index number used in the displayed ingredient list.<br>
+Format: <code>select-ingredient INDEX</code> or <code>select-ing INDEX</code></p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Selects the ingredient and displays the details of the ingredient at the specified <code>INDEX</code></p>
+</li>
+<li>
+<p>The index refers to the index number shown in the displayed ingredient list</p>
+</li>
+<li>
+<p>The index <strong>must be a positive integer</strong> <code>1, 2, 3, &#8230;&#8203;</code></p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>list-ingredients</code><br>
+<code>select-ingredient 2</code><br>
+Selects the 2nd ingredient in the displayed ingredient list.</p>
+</li>
+<li>
+<p><code>low-stock</code><br>
+<code>select-ingredient 1</code><br>
+Selects the 1st ingredient in the results of the <code>low-stock</code> command.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
 </div>
 </div>
 <div class="sect1">
@@ -171,5 +460,464 @@ architecture components and integration with other features such as sales and me
 </tr>
 </tbody>
 </table>
+<div class="sect2">
+<h3 id="delete-ingredient-feature"><a class="link" href="#delete-ingredient-feature">Delete ingredient feature</a></h3>
+<div class="paragraph">
+<p>This feature allows the user to delete an ingredient from the ingredient list, specified by its name or index.</p>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-12 12:58:07 UTC</div></div></div></body></html>
+<div class="sect3">
+<h4 id="current-implementation"><a class="link" href="#current-implementation">Current Implementation</a></h4>
+<div class="paragraph">
+<p>The delete ingredient mechanism is facilitated by <code>DeleteIngredientCommand</code>. It is implemented as an abstract class
+with the following abstract methods:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>DeleteIngredientCommand#execute()</code> – Removes a specified ingredient from the list</p>
+</li>
+<li>
+<p><code>DeleteIngredientCommand#equals()</code> – Checks if two <code>DeleteIngredientCommand</code> instances have the same attributes</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><code>DeleteIngredientByIndexCommand</code> and <code>DeleteIngredientByNameCommand</code> extends <code>DeleteIngredientCommand</code> and implement
+their own behaviour for these methods.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>DeleteIngredientCommandByIndexCommand#execute()</code> - Removes an ingredient specified by a valid index</p>
+</li>
+<li>
+<p><code>DeleteIngredientCommandByNameCommand#execute()</code> - Removes an ingredient specified by a valid name</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The following sequence diagrams illustrate how the delete operation works.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Diagram 1: When user enters <code>delete-ingredient 1</code></p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/DeleteIngredientByIndexSequenceDiagram.png" alt="DeleteIngredientByIndexSequenceDiagram" width="800">
+</div>
+</div>
+<div class="paragraph">
+<p><em>Figure 4.6.1.1: Component interactions for <code>delete-ingredient 1</code> command</em></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Diagram 2: When user enters <code>delete-ingredient apple</code></p>
+<div class="imageblock">
+<div class="content">
+<img src="../images/DeleteIngredientByNameSequenceDiagram.png" alt="DeleteIngredientByNameSequenceDiagram" width="800">
+</div>
+</div>
+<div class="paragraph">
+<p><em>Figure 4.6.1.1: Component interactions for <code>delete-ingredient apple</code> command</em></p>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations"><a class="link" href="#design-considerations">Design Considerations</a></h4>
+<div class="sect4">
+<h5 id="aspect-implementation-of-delete-ingredient-command"><a class="link" href="#aspect-implementation-of-delete-ingredient-command">Aspect: Implementation of delete ingredient command</a></h5>
+<div class="paragraph">
+<p>Two different implementations were considered.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice):</strong> Separate classes to handle deleting by index and deleting by name.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Allows different attributes and method implementation for each class.</p>
+</li>
+<li>
+<p>Cons: Tight coupling between <code>DeleteIngredientCommand</code> and the inheriting classes</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> Single class to handle deleting by both index and name.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Less coupling since the methods related to the delete ingredient command are confined to a single class.</p>
+</li>
+<li>
+<p>Cons: Two attributes are required, but only one has a value while the other has to be set to <code>null</code>. This makes the
+<code>equals()</code> method difficult to implement.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="stock-up-ingredient-feature"><a class="link" href="#stock-up-ingredient-feature">Stock up ingredient feature</a></h3>
+<div class="paragraph">
+<p>This feature allows the user to stock up one or more ingredients in the ingredient list.</p>
+</div>
+<div class="sect3">
+<h4 id="current-implementation-2"><a class="link" href="#current-implementation-2">Current Implementation</a></h4>
+<div class="paragraph">
+<p>The Stock Up mechanism involves mainly the <code>StockUpCommandParser</code>, <code>StockUpCommand</code> and the <code>Model</code>
+interface. The <code>StockUpCommandParser</code> parses the command input from the user, creating a <code>HashMap</code> mapping
+<code>IngredientName</code> keys to <code>NumUnits</code> values. This <code>HashMap</code> represents the ingredients to be stocked up, and their
+respective stock up amounts. With this <code>HashMap</code>, the <code>StockUpCommandParser</code> creates a <code>StockUpCommand</code> object. The
+<code>StockUpCommand</code> executes the stock up operation, which is exposed in the <code>Model</code> interface as
+<code>Model#stockUpIngredients()</code>.</p>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+The operation is atomic, thus if it fails for one ingredient, none of the ingredients will be stocked up and an
+exception is thrown
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>The following activity diagram shows what happens when the user executes the <code>stockup</code> command:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/StockUpActivityDiagram.png" alt="StockUpActivityDiagram" width="1000">
+</div>
+</div>
+<div class="paragraph">
+<p><em>Figure 4.7.1: Flow of events after a user executes the <code>stockup</code> command</em></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">Design Considerations</a></h4>
+<div class="sect4">
+<h5 id="aspect-implementation-of-stock-up-command"><a class="link" href="#aspect-implementation-of-stock-up-command">Aspect: Implementation of Stock Up command</a></h5>
+<div class="paragraph">
+<p>Two different implementations were considered.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice):</strong> Create a stock up operation exposed in the <code>Model</code>. A list of ingredients is
+passed as a <code>HashMap</code> argument to the model interface to perform the stock up on all ingredients.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Maintains good abstraction. The sales feature can call upon the stock up operation of the interface without
+needing to know its implementation or creating any Ingredient objects.</p>
+</li>
+<li>
+<p>Cons: Additional code has to be written and maintained, as opposed to using existing methods.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> Use the edit operation of the <code>Model</code> interface exposed as <code>Model#updateIngredient()</code>. For each
+ingredient to be stocked up, a new ingredient with the updated number of units is created and then passed as an
+argument to <code>updateIngredient()</code>.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Simple to implement, by using the existing <code>updateIngredient()</code> method.</p>
+</li>
+<li>
+<p>Cons: Difficult to integrate different features while maintaining abstraction. The
+<a href="#auto-ingredient-update">auto-update-ingredient</a> feature would require the sales component to create each
+updated ingredient, before calling the <code>updateIngredient()</code> method. This means poor abstraction and possibly a
+violation of the Law of Demeter.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<h3 id="use-case-uc202-delete-ingredient" class="discrete">Use case: UC202 - Delete ingredient</h3>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User requests to list ingredients.</p>
+</li>
+<li>
+<p>App shows a list of ingredients.</p>
+</li>
+<li>
+<p>User requests to delete a specific ingredient by its index in the ingredient list, or the ingredient name.</p>
+</li>
+<li>
+<p>App deletes the ingredient.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>2a. The list is empty.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ul>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>3a. The given index or name is invalid.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>3a1. App returns a message telling user the index or name entered is invalid.</p>
+</li>
+<li>
+<p>3a2. User requests to delete ingredient again.</p>
+<div class="paragraph">
+<p>Steps 3a1-3a2 are repeated until a valid index or name is entered.</p>
+</div>
+<div class="paragraph">
+<p>Use case resumes at step 4.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>3b. The ingredient name does not exist.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>3b1. App returns a message telling user that the ingredient cannot be found.</p>
+</li>
+<li>
+<p>3b2. User requests to delete ingredient again.</p>
+<div class="paragraph">
+<p>Steps 3b1-3b2 are repeated until an existing ingredient name is entered.</p>
+</div>
+<div class="paragraph">
+<p>Use case resumes at step 4.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>3c. The user enters an invalid format.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>3c1. App returns a message telling user that the command format is invalid.</p>
+</li>
+<li>
+<p>3c2. User requests to add ingredient again.</p>
+<div class="paragraph">
+<p>Steps 3c1-3c2 are repeated until a valid command format is entered.</p>
+</div>
+<div class="paragraph">
+<p>Use case resumes at step 4.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<h3 id="use-case-uc203-edit-ingredient" class="discrete">Use case: UC203 - Edit ingredient</h3>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User requests to edit a specific ingredient.</p>
+</li>
+<li>
+<p>App edits the specified ingredient with the updated values.</p>
+</li>
+<li>
+<p>App returns a success message confirming the specified ingredient has been edited.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1a. The given index or name is invalid.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1a1. App returns a message telling user the index or name entered is invalid.</p>
+</li>
+<li>
+<p>1a2. User requests to edit ingredient again.</p>
+<div class="paragraph">
+<p>Steps 1a1-1a2 are repeated until a valid index or name is entered.</p>
+</div>
+<div class="paragraph">
+<p>Use case resumes at step 2.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1b. None of the optional fields are specified.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1b1. App returns a message telling user at least one optional field has to be specified.</p>
+</li>
+<li>
+<p>1b2. User requests to edit ingredient again.</p>
+<div class="paragraph">
+<p>Steps 1b1-1b2 are repeated until at least one optional field is entered.</p>
+</div>
+<div class="paragraph">
+<p>Use case resumes at step 2.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>2a. The ingredient name does not exist.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>2a1. App returns a message telling user that the ingredient cannot be found.</p>
+</li>
+<li>
+<p>2a2. User requests to edit ingredient again.</p>
+<div class="paragraph">
+<p>Steps 2a1-2a2 are repeated until an existing ingredient name is entered.</p>
+</div>
+<div class="paragraph">
+<p>Use case resumes at step 3.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<h3 id="use-case-uc204-stock-up-ingredient" class="discrete">Use case: UC204 - Stock up ingredient</h3>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User requests to stock up a specific ingredient.</p>
+</li>
+<li>
+<p>App updates the count of the specified ingredient.</p>
+</li>
+<li>
+<p>App returns a success message confirming the specified ingredient has been stocked up.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1a. The user enters an invalid format.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1a1. App returns a message telling user that the command format is invalid.</p>
+</li>
+<li>
+<p>1a2. User requests to stock up ingredient again.
++
+Steps 1a1-1a2 are repeated until a valid command format is entered.
++
+Use case resumes at step 2.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>2b. The ingredient name does not exist.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>2b1. App returns a message telling user that the ingredient does not exist.</p>
+</li>
+<li>
+<p>2b2. User requests to stock up ingredient again.
++
+Steps 2b1-2b2 are repeated until a valid ingredient name is entered.
++
+Use case resumes at step 3.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-12 14:02:19 UTC</div></div></div></body></html>

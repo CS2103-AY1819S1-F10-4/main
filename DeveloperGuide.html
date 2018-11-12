@@ -38,13 +38,14 @@
 <li><a href="#undo-redo-feature">4.1. Undo/Redo feature</a></li>
 <li><a href="#user-account-feature">4.2. User account feature</a></li>
 <li><a href="#user-session-feature">4.3. User session feature</a></li>
-<li><a href="#auto-ingredient-update-feature">4.4. Auto-ingredient update feature</a></li>
+<li><a href="#auto-ingredient-update">4.4. Auto-ingredient update feature</a></li>
 <li><a href="#display-sales-report-feature">4.5. Display sales report feature</a></li>
-<li><a href="#delete-ingredient-feature">4.6. Delete Ingredient feature</a></li>
-<li><a href="#menu-management-feature">4.7. Menu management feature</a></li>
-<li><a href="#reservations-feature">4.8. Reservations feature</a></li>
-<li><a href="#logging">4.9. Logging</a></li>
-<li><a href="#Implementation-Configuration">4.10. Configuration</a></li>
+<li><a href="#delete-ingredient-feature">4.6. Delete ingredient feature</a></li>
+<li><a href="#stock-up-ingredient-feature">4.7. Stock up ingredient feature</a></li>
+<li><a href="#menu-management-feature">4.8. Menu management feature</a></li>
+<li><a href="#reservations-feature">4.9. Reservations feature</a></li>
+<li><a href="#logging">4.10. Logging</a></li>
+<li><a href="#Implementation-Configuration">4.11. Configuration</a></li>
 </ul>
 </li>
 <li><a href="#documentation">5. Documentation</a>
@@ -82,8 +83,9 @@
 <li><a href="#instructions-for-manual-testing">Appendix F: Instructions for Manual Testing</a>
 <ul class="sectlevel2">
 <li><a href="#launch-and-shutdown">F.1. Launch and Shutdown</a></li>
-<li><a href="#menu-management">F.2. Menu Management</a></li>
-<li><a href="#reservation-management">F.3. Reservation Management</a></li>
+<li><a href="#ingredient-management">F.2. Ingredient Management</a></li>
+<li><a href="#menu-management">F.3. Menu Management</a></li>
+<li><a href="#reservation-management">F.4. Reservation Management</a></li>
 </ul>
 </li>
 </ul>
@@ -1237,7 +1239,7 @@ of the current solution which might affect the test ability.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="auto-ingredient-update-feature"><a class="link" href="#auto-ingredient-update-feature">4.4. Auto-ingredient update feature</a></h3>
+<h3 id="auto-ingredient-update"><a class="link" href="#auto-ingredient-update">4.4. Auto-ingredient update feature</a></h3>
 <div class="paragraph">
 <p>The auto-ingredient update mechanism is facilitated by <code>RecordSalesCommand</code> and triggers whenever the "record-sales"
 command is invoked. A <code>SalesRecord</code> will be instantiated based on the information given and attempts to compute
@@ -1541,7 +1543,10 @@ takes up an O(N) memory space.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="delete-ingredient-feature"><a class="link" href="#delete-ingredient-feature">4.6. Delete Ingredient feature</a></h3>
+<h3 id="delete-ingredient-feature"><a class="link" href="#delete-ingredient-feature">4.6. Delete ingredient feature</a></h3>
+<div class="paragraph">
+<p>This feature allows the user to delete an ingredient from the ingredient list, specified by its name or index.</p>
+</div>
 <div class="sect3">
 <h4 id="current-implementation-6"><a class="link" href="#current-implementation-6">4.6.1. Current Implementation</a></h4>
 <div class="paragraph">
@@ -1562,6 +1567,16 @@ with the following abstract methods:</p>
 <p><code>DeleteIngredientByIndexCommand</code> and <code>DeleteIngredientByNameCommand</code> extends <code>DeleteIngredientCommand</code> and implement
 their own behaviour for these methods.</p>
 </div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>DeleteIngredientCommandByIndexCommand#execute()</code> - Removes an ingredient specified by a valid index</p>
+</li>
+<li>
+<p><code>DeleteIngredientCommandByNameCommand#execute()</code> - Removes an ingredient specified by a valid name</p>
+</li>
+</ul>
+</div>
 <div class="paragraph">
 <p>The following sequence diagrams illustrate how the delete operation works.</p>
 </div>
@@ -1574,26 +1589,35 @@ their own behaviour for these methods.</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/DeleteIngredientByIndexSequenceDiagram.png" alt="DeleteIngredientByIndexSequenceDiagram" width="1000">
+<img src="images/DeleteIngredientByIndexSequenceDiagram.png" alt="DeleteIngredientByIndexSequenceDiagram" width="800">
 </div>
+</div>
+<div class="paragraph">
+<p><em>Figure 4.6.1.1: Component interactions for <code>delete-ingredient 1</code> command</em></p>
 </div>
 <div class="ulist">
 <ul>
 <li>
 <p>Diagram 2: When user enters <code>delete-ingredient apple</code></p>
-</li>
-</ul>
-</div>
 <div class="imageblock">
 <div class="content">
-<img src="images/DeleteIngredientByNameSequenceDiagram.png" alt="DeleteIngredientByNameSequenceDiagram" width="1000">
+<img src="images/DeleteIngredientByNameSequenceDiagram.png" alt="DeleteIngredientByNameSequenceDiagram" width="800">
 </div>
+</div>
+<div class="paragraph">
+<p><em>Figure 4.6.1.1: Component interactions for <code>delete-ingredient apple</code> command</em></p>
+</div>
+</li>
+</ul>
 </div>
 </div>
 <div class="sect3">
 <h4 id="design-considerations-6"><a class="link" href="#design-considerations-6">4.6.2. Design Considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-implementation-of-delete-ingredient-command"><a class="link" href="#aspect-implementation-of-delete-ingredient-command">Aspect: Implementation of delete ingredient command</a></h5>
+<div class="paragraph">
+<p>Two different implementations were considered.</p>
+</div>
 <div class="ulist">
 <ul>
 <li>
@@ -1617,7 +1641,7 @@ their own behaviour for these methods.</p>
 <p>Pros: Less coupling since the methods related to the delete ingredient command are confined to a single class.</p>
 </li>
 <li>
-<p>Cons: Two attributes are required, but only one has a value while the other has to be set to null. This makes the
+<p>Cons: Two attributes are required, but only one has a value while the other has to be set to <code>null</code>. This makes the
 <code>equals()</code> method difficult to implement.</p>
 </li>
 </ul>
@@ -1629,13 +1653,100 @@ their own behaviour for these methods.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="menu-management-feature"><a class="link" href="#menu-management-feature">4.7. Menu management feature</a></h3>
+<h3 id="stock-up-ingredient-feature"><a class="link" href="#stock-up-ingredient-feature">4.7. Stock up ingredient feature</a></h3>
+<div class="paragraph">
+<p>This feature allows the user to stock up one or more ingredients in the ingredient list.</p>
+</div>
+<div class="sect3">
+<h4 id="current-implementation-7"><a class="link" href="#current-implementation-7">4.7.1. Current Implementation</a></h4>
+<div class="paragraph">
+<p>The Stock Up mechanism involves mainly the <code>StockUpCommandParser</code>, <code>StockUpCommand</code> and the <code>Model</code>
+interface. The <code>StockUpCommandParser</code> parses the command input from the user, creating a <code>HashMap</code> mapping
+<code>IngredientName</code> keys to <code>NumUnits</code> values. This <code>HashMap</code> represents the ingredients to be stocked up, and their
+respective stock up amounts. With this <code>HashMap</code>, the <code>StockUpCommandParser</code> creates a <code>StockUpCommand</code> object. The
+<code>StockUpCommand</code> executes the stock up operation, which is exposed in the <code>Model</code> interface as
+<code>Model#stockUpIngredients()</code>.</p>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+The operation is atomic, thus if it fails for one ingredient, none of the ingredients will be stocked up and an
+exception is thrown
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>The following activity diagram shows what happens when the user executes the <code>stockup</code> command:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/StockUpActivityDiagram.png" alt="StockUpActivityDiagram" width="1000">
+</div>
+</div>
+<div class="paragraph">
+<p><em>Figure 4.7.1: Flow of events after a user executes the <code>stockup</code> command</em></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations-7"><a class="link" href="#design-considerations-7">4.7.2. Design Considerations</a></h4>
+<div class="sect4">
+<h5 id="aspect-implementation-of-stock-up-command"><a class="link" href="#aspect-implementation-of-stock-up-command">Aspect: Implementation of Stock Up command</a></h5>
+<div class="paragraph">
+<p>Two different implementations were considered.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice):</strong> Create a stock up operation exposed in the <code>Model</code>. A list of ingredients is
+passed as a <code>HashMap</code> argument to the model interface to perform the stock up on all ingredients.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Maintains good abstraction. The sales feature can call upon the stock up operation of the interface without
+needing to know its implementation or creating any Ingredient objects.</p>
+</li>
+<li>
+<p>Cons: Additional code has to be written and maintained, as opposed to using existing methods.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> Use the edit operation of the <code>Model</code> interface exposed as <code>Model#updateIngredient()</code>. For each
+ingredient to be stocked up, a new ingredient with the updated number of units is created and then passed as an
+argument to <code>updateIngredient()</code>.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Simple to implement, by using the existing <code>updateIngredient()</code> method.</p>
+</li>
+<li>
+<p>Cons: Difficult to integrate different features while maintaining abstraction. The
+<a href="#auto-ingredient-update">auto-update-ingredient</a> feature would require the sales component to create each
+updated ingredient, before calling the <code>updateIngredient()</code> method. This means poor abstraction and possibly a
+violation of the Law of Demeter.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="menu-management-feature"><a class="link" href="#menu-management-feature">4.8. Menu management feature</a></h3>
 <div class="paragraph">
 <p>Menu management feature extends <code>MeNUS</code> with a menu and provides the users with the ability to add items to the
 menu, edit items and remove items from the menu.</p>
 </div>
 <div class="sect3">
-<h4 id="current-implementation-7"><a class="link" href="#current-implementation-7">4.7.1. Current Implementation</a></h4>
+<h4 id="current-implementation-8"><a class="link" href="#current-implementation-8">4.8.1. Current Implementation</a></h4>
 <div class="paragraph">
 <p>The menu is stored internally as <code>items</code>, which is a <code>UniqueItemList</code> object that contains a list of <code>Item</code> objects.
 The menu management feature implements the following operations:</p>
@@ -1691,7 +1802,7 @@ must exist in the menu.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="code-sort-menu-code-command"><a class="link" href="#code-sort-menu-code-command">4.7.2. <code>sort-menu</code> Command</a></h4>
+<h4 id="code-sort-menu-code-command"><a class="link" href="#code-sort-menu-code-command">4.8.2. <code>sort-menu</code> Command</a></h4>
 <div class="paragraph">
 <p>The <code>sort-menu</code> command is facilitated by <code>SortMenuCommand</code> and <code>SortMenuCommandParser</code>. The command takes in
 user input for the sorting method.</p>
@@ -1753,7 +1864,7 @@ After sorting the menu, it will save the current state for undo/redo.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="code-discount-item-code-command"><a class="link" href="#code-discount-item-code-command">4.7.3. <code>discount-item</code> Command</a></h4>
+<h4 id="code-discount-item-code-command"><a class="link" href="#code-discount-item-code-command">4.8.3. <code>discount-item</code> Command</a></h4>
 <div class="paragraph">
 <p>The <code>discount-item</code> command is facilitated by <code>DiscountItemCommand</code> and <code>DiscountItemCommandParser</code>. The command
 takes in user input for discount percentage and index or the keyword <code>all</code>.</p>
@@ -1796,7 +1907,7 @@ then save the current state for undo/redo.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-7"><a class="link" href="#design-considerations-7">4.7.4. Design Considerations</a></h4>
+<h4 id="design-considerations-8"><a class="link" href="#design-considerations-8">4.8.4. Design Considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-how-code-price-code-is-parsed"><a class="link" href="#aspect-how-code-price-code-is-parsed">Aspect: How <code>Price</code> is parsed</a></h5>
 <div class="ulist">
@@ -1834,12 +1945,12 @@ to check if the currency symbol and price entered are valid.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="reservations-feature"><a class="link" href="#reservations-feature">4.8. Reservations feature</a></h3>
+<h3 id="reservations-feature"><a class="link" href="#reservations-feature">4.9. Reservations feature</a></h3>
 <div class="paragraph">
 <p>The Reservations feature allows users to store customer reservations, view them, and to cancel them.</p>
 </div>
 <div class="sect3">
-<h4 id="current-implementation-8"><a class="link" href="#current-implementation-8">4.8.1. Current Implementation</a></h4>
+<h4 id="current-implementation-9"><a class="link" href="#current-implementation-9">4.9.1. Current Implementation</a></h4>
 <div class="paragraph">
 <p>The Reservations feature currently contains 6 commands to modify the <code>UniqueReservationsList</code> stored in <code>ModelManager</code>.</p>
 </div>
@@ -1870,7 +1981,7 @@ to check if the currency symbol and price entered are valid.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="code-add-reservation-code-command"><a class="link" href="#code-add-reservation-code-command">4.8.2. <code>add-reservation</code> Command</a></h4>
+<h4 id="code-add-reservation-code-command"><a class="link" href="#code-add-reservation-code-command">4.9.2. <code>add-reservation</code> Command</a></h4>
 <div class="paragraph">
 <p>The command takes in 3 parameters, <code>Name</code>, <code>Pax</code>,<code>Date</code> and <code>Time</code> to create a <code>Reservation</code> object.</p>
 </div>
@@ -1931,7 +2042,7 @@ If not, it will continue use the <code>Natty</code> Library to parse the date va
 </div>
 </div>
 <div class="sect3">
-<h4 id="code-edit-reservation-code-command"><a class="link" href="#code-edit-reservation-code-command">4.8.3. <code>edit-reservation</code> Command</a></h4>
+<h4 id="code-edit-reservation-code-command"><a class="link" href="#code-edit-reservation-code-command">4.9.3. <code>edit-reservation</code> Command</a></h4>
 <div class="paragraph">
 <p>The command takes in 1 mandatory parameter, <code>Index</code>, followed by <strong>1 or more</strong> of the following  optional parameters,
  <code>Name</code>, <code>Pax</code>, <code>Date</code>, <code>Time</code>.</p>
@@ -1942,7 +2053,7 @@ then has its values updated to the new values specified by the <code>Name</code>
 </div>
 </div>
 <div class="sect3">
-<h4 id="code-delete-reservation-code-command"><a class="link" href="#code-delete-reservation-code-command">4.8.4. <code>delete-reservation</code> Command</a></h4>
+<h4 id="code-delete-reservation-code-command"><a class="link" href="#code-delete-reservation-code-command">4.9.4. <code>delete-reservation</code> Command</a></h4>
 <div class="paragraph">
 <p>The command takes in 1 parameter, <code>Index</code>.</p>
 </div>
@@ -1952,7 +2063,7 @@ then has its values updated to the new values specified by the <code>Name</code>
 </div>
 </div>
 <div class="sect3">
-<h4 id="code-list-reservations-code-command"><a class="link" href="#code-list-reservations-code-command">4.8.5. <code>list-reservations</code> Command</a></h4>
+<h4 id="code-list-reservations-code-command"><a class="link" href="#code-list-reservations-code-command">4.9.5. <code>list-reservations</code> Command</a></h4>
 <div class="paragraph">
 <p>The command does not require any additional parameters.</p>
 </div>
@@ -1974,7 +2085,7 @@ the UI.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-8"><a class="link" href="#design-considerations-8">4.8.6. Design Considerations</a></h4>
+<h4 id="design-considerations-9"><a class="link" href="#design-considerations-9">4.9.6. Design Considerations</a></h4>
 <div class="paragraph">
 <p><strong>Aspect: How <code>Date</code> and <code>Time</code> are parsed</strong></p>
 </div>
@@ -2011,14 +2122,14 @@ the UI.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="logging"><a class="link" href="#logging">4.9. Logging</a></h3>
+<h3 id="logging"><a class="link" href="#logging">4.10. Logging</a></h3>
 <div class="paragraph">
 <p>We are using <code>java.util.logging</code> package for logging. The <code>LogsCenter</code> class is used to manage the logging levels and logging destinations.</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 4.10, &#8220;Configuration&#8221;</a>)</p>
+<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 4.11, &#8220;Configuration&#8221;</a>)</p>
 </li>
 <li>
 <p>The <code>Logger</code> for a class can be obtained using <code>LogsCenter.getLogger(Class)</code> which will log messages according to the specified logging level</p>
@@ -2049,7 +2160,7 @@ the UI.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">4.10. Configuration</a></h3>
+<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">4.11. Configuration</a></h3>
 <div class="paragraph">
 <p>Certain properties of the application can be controlled (e.g App name, logging level) through the configuration file (default: <code>config.json</code>).</p>
 </div>
@@ -3014,6 +3125,29 @@ The use case for creating account role is the same.
 <div class="ulist none">
 <ul class="none">
 <li>
+<p>1a. The user enters an invalid command format.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1a1. App returns a message telling user that the command format is invalid.</p>
+</li>
+<li>
+<p>1a2. User requests to add ingredient again.</p>
+<div class="paragraph">
+<p>Steps 1a1-1a2 are repeated until a valid command format is entered.</p>
+</div>
+<div class="paragraph">
+<p>Use case resumes at step 2.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
 <p>2a. The ingredient name entered is already in the ingredient list.</p>
 <div class="ulist none">
 <ul class="none">
@@ -3024,29 +3158,6 @@ The use case for creating account role is the same.
 <p>2a2. User requests to add ingredient again.</p>
 <div class="paragraph">
 <p>Steps 2a1-2a2 are repeated until an ingredient name which does not exist is entered.</p>
-</div>
-<div class="paragraph">
-<p>Use case resumes at step 3.</p>
-</div>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-<div class="ulist none">
-<ul class="none">
-<li>
-<p>2b. The user enters an invalid command format.</p>
-<div class="ulist none">
-<ul class="none">
-<li>
-<p>2b1. App returns a message telling user that the command format is invalid.</p>
-</li>
-<li>
-<p>2b2. User requests to add ingredient again.</p>
-<div class="paragraph">
-<p>Steps 2b1-2b2 are repeated until a valid command format is entered.</p>
 </div>
 <div class="paragraph">
 <p>Use case resumes at step 3.</p>
@@ -3188,16 +3299,16 @@ The use case for creating account role is the same.
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>1a. The given index is invalid.</p>
+<p>1a. The given index or name is invalid.</p>
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>1a1. App returns a message telling user that the index is invalid.</p>
+<p>1a1. App returns a message telling user the index or name entered is invalid.</p>
 </li>
 <li>
 <p>1a2. User requests to edit ingredient again.</p>
 <div class="paragraph">
-<p>Steps 1a1-1a2 are repeated until a valid index is entered.</p>
+<p>Steps 1a1-1a2 are repeated until a valid index or name is entered.</p>
 </div>
 <div class="paragraph">
 <p>Use case resumes at step 2.</p>
@@ -3231,6 +3342,29 @@ The use case for creating account role is the same.
 </li>
 </ul>
 </div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>2a. The ingredient name does not exist.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>2a1. App returns a message telling user that the ingredient cannot be found.</p>
+</li>
+<li>
+<p>2a2. User requests to edit ingredient again.</p>
+<div class="paragraph">
+<p>Steps 2a1-2a2 are repeated until an existing ingredient name is entered.</p>
+</div>
+<div class="paragraph">
+<p>Use case resumes at step 3.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
 <h3 id="use-case-uc204-stock-up-ingredient" class="discrete">Use case: UC204 - Stock up ingredient</h3>
 <div class="paragraph">
 <p><strong>MSS</strong></p>
@@ -3257,66 +3391,18 @@ The use case for creating account role is the same.
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>1a. The ingredient name does not exist.</p>
+<p>1a. The user enters an invalid format.</p>
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>1a1. App returns a message telling user that the ingredient does not exist.</p>
+<p>1a1. App returns a message telling user that the command format is invalid.</p>
 </li>
 <li>
-<p>1a2. User requests to stock up ingredient again.</p>
-<div class="paragraph">
-<p>Steps 1a1-1a2 are repeated until a valid ingredient name is entered.</p>
-</div>
-<div class="paragraph">
-<p>Use case resumes at step 2.</p>
-</div>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-<h3 id="use-case-uc205-consume-ingredient" class="discrete">Use case: UC205 - Consume ingredient</h3>
-<div class="paragraph">
-<p><strong>MSS</strong></p>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>User requests to consume a specific ingredient.</p>
-</li>
-<li>
-<p>App updates the count of the specified ingredient.</p>
-</li>
-<li>
-<p>App returns a success message confirming the specified ingredient has been consumed.</p>
-<div class="paragraph">
-<p>Use case ends.</p>
-</div>
-</li>
-</ol>
-</div>
-<div class="paragraph">
-<p><strong>Extensions</strong></p>
-</div>
-<div class="ulist none">
-<ul class="none">
-<li>
-<p>1a. The ingredient name does not exist.</p>
-<div class="ulist none">
-<ul class="none">
-<li>
-<p>1a1. App returns a message telling user that the ingredient does not exist.</p>
-</li>
-<li>
-<p>1a2. User requests to consume ingredient again.</p>
-<div class="paragraph">
-<p>Steps 1a1-1a2 are repeated until a valid ingredient name is entered.</p>
-</div>
-<div class="paragraph">
-<p>Use case resumes at step 2.</p>
-</div>
+<p>1a2. User requests to stock up ingredient again.
++
+Steps 1a1-1a2 are repeated until a valid command format is entered.
++
+Use case resumes at step 2.</p>
 </li>
 </ul>
 </div>
@@ -3326,20 +3412,18 @@ The use case for creating account role is the same.
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>1b. The intended consumption is more than the number of units available.</p>
+<p>2b. The ingredient name does not exist.</p>
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>1b1. App informs user that there is not enough of the ingredient.</p>
+<p>2b1. App returns a message telling user that the ingredient does not exist.</p>
 </li>
 <li>
-<p>1b2. User requests to consume ingredient again.</p>
-<div class="paragraph">
-<p>Steps 1b1-1b2 are repeated until the number of units entered is less than the number of units available.</p>
-</div>
-<div class="paragraph">
-<p>Use case resumes at step 2.</p>
-</div>
+<p>2b2. User requests to stock up ingredient again.
++
+Steps 2b1-2b2 are repeated until a valid ingredient name is entered.
++
+Use case resumes at step 3.</p>
 </li>
 </ul>
 </div>
@@ -4372,7 +4456,180 @@ These instructions only provide a starting point for testers to work on; testers
 </div>
 </div>
 <div class="sect2">
-<h3 id="menu-management"><a class="link" href="#menu-management">F.2. Menu Management</a></h3>
+<h3 id="ingredient-management"><a class="link" href="#ingredient-management">F.2. Ingredient Management</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Adding an ingredient</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Pre-requisites: The ingredient must not have the same name as another existing ingredient in the ingredient list
+and must be logged in.</p>
+</li>
+<li>
+<p>Test case: <code>add-ing n/Chicken Thigh u/kilogram p/14.00 m/20</code><br>
+<strong>Expected</strong>: Ingredient is added into the ingredient list. Details of the added ingredient is shown in the
+status message. Timestamp in the status bar is updated.</p>
+</li>
+<li>
+<p>Test case: add-ing n/<br>
+<strong>Expected</strong>: No ingredient is added. Error details are shown in the status message. Status bar remains the
+same.</p>
+</li>
+<li>
+<p>Other incorrect <code>add-ing</code> commands to try: <code>add-ing</code>, <code>add-ing n/123 u/kilogram p/14.00 m/20</code>,
+<code>add-ing n/Chicken Thigh u/+ p/14.00 m/20</code><br>
+   <strong>Expected</strong>: Similar to previous.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Listing all ingredients</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Pre-requisites: Must be logged in.</p>
+</li>
+<li>
+<p>Test case: <code>list-ing</code><br>
+<strong>Expected</strong>: All ingredients are listed at the panel on the left of the UI.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Listing all the items that are low on stock</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Pre-requisites: Must be logged in.</p>
+</li>
+<li>
+<p>Test case: <code>low-stock</code><br>
+<strong>Expected</strong>: All ingredients that have a number of units less than its minimum value are listed.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Deleting an ingredient</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Pre-requisites: At least one ingredient in the ingredient list and must be logged in.</p>
+</li>
+<li>
+<p>Test case: <code>delete-ing 1</code><br>
+<strong>Expected</strong>: The first ingredient in the displayed ingredient list is deleted. Details of the deleted ingredient is
+shown in the status message. Timestamp in the status bar is updated.</p>
+</li>
+<li>
+<p>Test case: <code>delete-ing Chicken Thigh</code><br>
+<strong>Expected</strong>: The ingredient with the specified name is deleted. Details of the deleted ingredient is
+shown in the status message. Timestamp in the status bar is updated.</p>
+</li>
+<li>
+<p>Test case: <code>delete-ing 0</code><br>
+<strong>Expected</strong>: No ingredient is deleted. Error details are shown in the status message. Status bar
+remains the same.</p>
+</li>
+<li>
+<p>Other incorrect <code>delete-ing</code> commands to try: <code>delete-ing</code>, <code>delete-ing x</code> (where x is larger
+than the ingredient list size)<br>
+  <strong>Expected</strong>: Similar to previous.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Editing an ingredient</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Pre-requisites: The ingredient to be edited must be an existing entry in the ingredient list and must be logged in.
+The edited ingredient must not have the same name as another ingredient existing in the ingredient list.</p>
+</li>
+<li>
+<p>Test case: <code>edit-ing 1 n/Chicken Drumstick</code><br>
+<strong>Expected</strong>: Edited ingredient replaces the existing ingredient in the ingredient list. Details of the edited
+ingredient is shown in the status message. Timestamp in the status bar is updated.</p>
+</li>
+<li>
+<p>Test case: <code>edit-ing Chicken Thigh n/Chicken Drumstick</code><br>
+<strong>Expected</strong>: Similar to previous.</p>
+</li>
+<li>
+<p>Test case: <code>edit-ing n/</code><br>
+<strong>Expected</strong>: No ingredient is edited. Error details are shown in the status message. Status bar
+remains the same.</p>
+</li>
+<li>
+<p>Other incorrect <code>edit-ing</code> commands to try: <code>edit-ing</code>, <code>edit-ing Chicken Drumstick+</code><br>
+<strong>Expected</strong>: Similar to previous.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Stocking up an ingredient or multiple ingredients</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Pre-requisites: The ingredient(s) to be stocked up must be an existing entry or existing entries in the ingredient
+list and must be logged in.</p>
+</li>
+<li>
+<p>Test case: <code>stockup n/Chicken Drumstick nu/10</code><br>
+<strong>Expected</strong>: The number of units of the ingredient increases by the specified number. The name of the
+ingredient being restocked is shown in the status message. Timestamp in the status bar is updated.</p>
+</li>
+<li>
+<p>Test case: <code>stockup n/Chicken Drumstick nu/10 n/Cheese nu/15</code><br>
+<strong>Expected</strong>: Similar to previous.</p>
+</li>
+<li>
+<p>Test case: <code>stockup n/Chicken Drumstick</code><br>
+<strong>Expected</strong>: No ingredient is stocked up. Error details are shown in the status message. Status
+ bar remains the same.</p>
+</li>
+<li>
+<p>Other incorrect <code>stockup</code> commands to try: <code>stockup</code>, <code>stockup n/Chicken Drumstick n/Cheese nu/10 nu/20</code><br>
+<strong>Expected</strong>: Similar to previous.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Selecting an ingredient</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Pre-requisites: At least one ingredient in the ingredient list and must be logged in.</p>
+</li>
+<li>
+<p>Test case: <code>select-ing 1</code><br>
+<strong>Expected</strong>: The first ingredient in the displayed ingredient list is selected. Details of the selected ingredient is
+shown in the right panel of the UI.</p>
+</li>
+<li>
+<p>Test case: <code>select-ing 0</code><br>
+<strong>Expected</strong>: No ingredient is selected. Error details are shown in the status message.</p>
+</li>
+<li>
+<p>Other incorrect <code>select-ing</code> commands to try: <code>select-ing</code>, <code>select-ing x</code> (where x is larger
+than the ingredient list size)
+  <strong>Expected</strong>: Similar to previous.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="menu-management"><a class="link" href="#menu-management">F.3. Menu Management</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -4586,7 +4843,7 @@ status message.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="reservation-management"><a class="link" href="#reservation-management">F.3. Reservation Management</a></h3>
+<h3 id="reservation-management"><a class="link" href="#reservation-management">F.4. Reservation Management</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -4730,4 +4987,4 @@ logged in.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-12 12:58:07 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-12 14:02:19 UTC</div></div></div></body></html>
