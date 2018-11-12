@@ -41,7 +41,7 @@
 <li><a href="#auto-ingredient-update-feature">4.4. Auto-ingredient update feature</a></li>
 <li><a href="#display-sales-report-feature">4.5. Display sales report feature</a></li>
 <li><a href="#delete-ingredient-feature">4.6. Delete Ingredient feature</a></li>
-<li><a href="#menu-management-feature">4.7. Menu Management feature</a></li>
+<li><a href="#menu-management-feature">4.7. Menu management feature</a></li>
 <li><a href="#reservations-feature">4.8. Reservations feature</a></li>
 <li><a href="#logging">4.9. Logging</a></li>
 <li><a href="#Implementation-Configuration">4.10. Configuration</a></li>
@@ -82,7 +82,8 @@
 <li><a href="#instructions-for-manual-testing">Appendix F: Instructions for Manual Testing</a>
 <ul class="sectlevel2">
 <li><a href="#launch-and-shutdown">F.1. Launch and Shutdown</a></li>
-<li><a href="#reservation-management">F.2. Reservation Management</a></li>
+<li><a href="#menu-management">F.2. Menu Management</a></li>
+<li><a href="#reservation-management">F.3. Reservation Management</a></li>
 </ul>
 </li>
 </ul>
@@ -1628,9 +1629,9 @@ their own behaviour for these methods.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="menu-management-feature"><a class="link" href="#menu-management-feature">4.7. Menu Management feature</a></h3>
+<h3 id="menu-management-feature"><a class="link" href="#menu-management-feature">4.7. Menu management feature</a></h3>
 <div class="paragraph">
-<p>Menu management feature extends <code>MeNuS</code> with a menu and provides the users with the ability to add items to the
+<p>Menu management feature extends <code>MeNUS</code> with a menu and provides the users with the ability to add items to the
 menu, edit items and remove items from the menu.</p>
 </div>
 <div class="sect3">
@@ -1649,10 +1650,14 @@ The menu management feature implements the following operations:</p>
 must be in the menu and editedItem must not be the same as another existing item in the menu.</p>
 </li>
 <li>
-<p><code>delete-item</code> command&#8201;&#8212;&#8201;Removes the equivalent item from the menu. The item must exist in the menu.</p>
+<p><code>delete-item-index</code> or <code>delete-item-name</code> command&#8201;&#8212;&#8201;Removes the equivalent item(s) from the menu.
+The item(s) must exist in the menu.</p>
 </li>
 <li>
 <p><code>list-items</code> command&#8201;&#8212;&#8201;Lists all the items in the menu.</p>
+</li>
+<li>
+<p><code>clear-menu</code> command&#8201;&#8212;&#8201;Removes all items from the menu.</p>
 </li>
 <li>
 <p><code>select-item</code> command&#8201;&#8212;&#8201;Selects an item in the menu and loads the page of the selected item.</p>
@@ -1669,41 +1674,24 @@ must be in the menu and editedItem must not be the same as another existing item
 <li>
 <p><code>today-special</code> command&#8201;&#8212;&#8201;Finds items whose tags contain the <code>DAY_OF_THE_WEEK</code>.</p>
 </li>
+<li>
+<p><code>discount-item</code> command&#8201;&#8212;&#8201;Gives discount to the equivalent item(s) in the menu. The item(s) must exist in the menu.</p>
+</li>
+<li>
+<p><code>recipe-item</code> command&#8201;&#8212;&#8201;Adds a recipe to the equivalent item in the menu. The item must exist in the menu.</p>
+</li>
+<li>
+<p><code>add-required-ingredients</code> command&#8201;&#8212;&#8201; Adds the required ingredients to the equivalent item in the menu. The item
+must exist in the menu.</p>
+</li>
 </ul>
 </div>
 <div class="paragraph">
-<p>Each <code>Item</code> object consists of <code>Name</code> and <code>Price</code>.</p>
+<p>Each <code>Item</code> object consists of <code>Name</code>, <code>Price</code>, <code>Recipe</code>, <code>Set&lt;Tag&gt;</code> and <code>Map&lt;IngredientName, Integer&gt;</code></p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="code-add-item-code-command"><a class="link" href="#code-add-item-code-command">4.7.2. <code>add-item</code> Command</a></h4>
-<div class="paragraph">
-<p>The <code>add-item</code> command is facilitated by <code>AddItemCommand</code> and <code>AddItemCommandParser</code>. The command takes in
-user input for <code>Name</code>, <code>Price</code> and <code>Tag</code>(optional).</p>
-</div>
-<div class="paragraph">
-<p>The <code>AddItemCommandParser</code> will parse the user input and checks if the input is valid.
-It will then construct an <code>Item</code> object.</p>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-If the input is not valid, it will throw a <code>ParseException</code>.
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p>The <code>AddItemCommand</code> will indirectly call the <code>UniqueItemList#add(Item toAdd)</code> and the adds the item.
-After adding the item, it will save the current state for undo/redo.</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="code-sort-menu-code-command"><a class="link" href="#code-sort-menu-code-command">4.7.3. <code>sort-menu</code> Command</a></h4>
+<h4 id="code-sort-menu-code-command"><a class="link" href="#code-sort-menu-code-command">4.7.2. <code>sort-menu</code> Command</a></h4>
 <div class="paragraph">
 <p>The <code>sort-menu</code> command is facilitated by <code>SortMenuCommand</code> and <code>SortMenuCommandParser</code>. The command takes in
 user input for the sorting method.</p>
@@ -1715,13 +1703,14 @@ user input for the sorting method.</p>
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-Currently only sort by name or price.
+Currently only sort by name or price
 </td>
 </tr>
 </table>
 </div>
 <div class="paragraph">
-<p>The <code>SortMenuCommandParser</code> will parse the user input and checks if the input is valid.</p>
+<p>The <code>SortMenuCommandParser</code> will parse the user input and checks if the input is valid. If the input is valid, it
+constructs an <code>SortMenuCommand</code> object.</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -1730,13 +1719,13 @@ Currently only sort by name or price.
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-If the input is not valid, it will throw a <code>ParseException</code>.
+If the input is not valid, it will throw a <code>ParseException</code>
 </td>
 </tr>
 </table>
 </div>
 <div class="paragraph">
-<p>The <code>SortMenuCommand</code> will indirectly call the <code>UniqueItemList#sortItemsByName()</code> or
+<p>The <code>SortMenuCommand</code> object will indirectly call the <code>UniqueItemList#sortItemsByName()</code> or
 <code>UniqueItemList#sortItemsByPrice()</code> and the sorts the menu.
 After sorting the menu, it will save the current state for undo/redo.</p>
 </div>
@@ -1749,6 +1738,9 @@ After sorting the menu, it will save the current state for undo/redo.</p>
 </div>
 </div>
 <div class="paragraph">
+<p><em>Figure 4.7.2.1: SortMenu Activity diagram</em></p>
+</div>
+<div class="paragraph">
 <p>The following sequence diagram shows how the <code>sort-menu</code> command works:</p>
 </div>
 <div class="imageblock">
@@ -1756,16 +1748,21 @@ After sorting the menu, it will save the current state for undo/redo.</p>
 <img src="images/SortMenuSequenceDiagram.png" alt="SortMenuSequenceDiagram" width="1000">
 </div>
 </div>
+<div class="paragraph">
+<p><em>Figure 4.7.2.2: SortMenu Sequence diagram</em></p>
+</div>
 </div>
 <div class="sect3">
-<h4 id="code-filter-menu-code-command"><a class="link" href="#code-filter-menu-code-command">4.7.4. <code>filter-menu</code> Command</a></h4>
+<h4 id="code-discount-item-code-command"><a class="link" href="#code-discount-item-code-command">4.7.3. <code>discount-item</code> Command</a></h4>
 <div class="paragraph">
-<p>The <code>filter-menu</code> command is facilitated by <code>FilterMenuCommand</code> and <code>FilterMenuCommandParser</code>. The command takes in
-user input for the keywords.</p>
+<p>The <code>discount-item</code> command is facilitated by <code>DiscountItemCommand</code> and <code>DiscountItemCommandParser</code>. The command
+takes in user input for discount percentage and index or the keyword <code>all</code>.</p>
 </div>
 <div class="paragraph">
-<p>The <code>FilterMenuCommandParser</code> will parse the user input and checks if the input is valid and constructs an
-<code>TagContainsKeywordsPredicate</code> object.</p>
+<p>The <code>DiscountItemCommandParser</code> will parse the user input and checks if the input is valid. It will check if the
+keyword <code>all</code> is entered. If keyword <code>all</code> is entered, <code>DiscountItemCommandParser</code> will construct an
+<code>DiscountItemCommand</code> object with <code>isAll</code> set to true. If index or a range of index is entered, it will construct an
+<code>DiscountItemCommand</code> object with <code>isAll</code> set to false.</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -1774,18 +1771,32 @@ user input for the keywords.</p>
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-If the input is not valid, it will throw a <code>ParseException</code>.
+If the inputs are not valid, it will throw a <code>ParseException</code>
 </td>
 </tr>
 </table>
 </div>
 <div class="paragraph">
-<p>The <code>FilterMenuCommand</code> will directly call the <code>ModelManager#updateFilteredItemList(Predicate&lt;Item&gt; predicate)</code> and
-set the predicate for <code>ModelManger#filteredItems</code>.</p>
+<p>The <code>DiscountItemCommand</code> object will check if <code>isAll</code> is true. If <code>isAll</code> is true, it will give the discount to all
+items in the <code>UniqueItemList</code>. Otherwise, it will give the discount to the item(s) specified by the index or the
+range of index. The <code>DiscountItemCommand</code> object create an <code>Item with discounted price</code> and indirectly call
+<code>UniqueItemList#setItem(Item target, Item editedItem)</code> to update the <code>Item</code> with <code>Item with discounted price</code>. It will
+then save the current state for undo/redo.</p>
+</div>
+<div class="paragraph">
+<p>The following activity diagram summarizes what happens when a user executes <code>discount-item</code> command:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/DiscountItemActivityDiagram.png" alt="DiscountItemActivityDiagram" width="650">
+</div>
+</div>
+<div class="paragraph">
+<p><em>Figure 4.7.3.1: DiscountItem Activity diagram</em></p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-7"><a class="link" href="#design-considerations-7">4.7.5. Design Considerations</a></h4>
+<h4 id="design-considerations-7"><a class="link" href="#design-considerations-7">4.7.4. Design Considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-how-code-price-code-is-parsed"><a class="link" href="#aspect-how-code-price-code-is-parsed">Aspect: How <code>Price</code> is parsed</a></h5>
 <div class="ulist">
@@ -2642,12 +2653,6 @@ application</p></td>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">restaurant owner</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">export menu</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">print hard copies of the menu</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">restaurant owner</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">add a reservation</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">keep track of who booked a table in my restaurant</p></td>
 </tr>
@@ -3406,7 +3411,7 @@ The use case for creating account role is the same.
 </li>
 </ul>
 </div>
-<h3 id="use-case-uc302-delete-item-from-menu" class="discrete">Use case: UC302 - Delete item from menu</h3>
+<h3 id="use-case-uc302-delete-item-by-index-from-menu" class="discrete">Use case: UC302 - Delete item by index from menu</h3>
 <div class="paragraph">
 <p><strong>MSS</strong></p>
 </div>
@@ -3611,52 +3616,6 @@ The use case for creating account role is the same.
 </div>
 <div class="paragraph">
 <p>Use case resumes at step 4.</p>
-</div>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-<h3 id="use-case-uc305-export-menu" class="discrete">Use case: UC305 - Export menu</h3>
-<div class="paragraph">
-<p><strong>MSS</strong></p>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>User requests to export menu.</p>
-</li>
-<li>
-<p>App export the menu.</p>
-</li>
-<li>
-<p>App returns a success message confirming the menu has been exported.</p>
-<div class="paragraph">
-<p>Use case ends.</p>
-</div>
-</li>
-</ol>
-</div>
-<div class="paragraph">
-<p><strong>Extensions</strong></p>
-</div>
-<div class="ulist none">
-<ul class="none">
-<li>
-<p>1a. Invalid file path given for the command.</p>
-<div class="ulist none">
-<ul class="none">
-<li>
-<p>1a1. App shows an error message that file path is invalid.</p>
-</li>
-<li>
-<p>1a2. User requests to export menu again.</p>
-<div class="paragraph">
-<p>Steps 1a1-1a2 are repeated until invalid file path is entered.</p>
-</div>
-<div class="paragraph">
-<p>Use case resumes at step 2.</p>
 </div>
 </li>
 </ul>
@@ -4413,7 +4372,221 @@ These instructions only provide a starting point for testers to work on; testers
 </div>
 </div>
 <div class="sect2">
-<h3 id="reservation-management"><a class="link" href="#reservation-management">F.2. Reservation Management</a></h3>
+<h3 id="menu-management"><a class="link" href="#menu-management">F.2. Menu Management</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Adding a new item with valid name, price and tag</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: You must not have the item, specified in the test case below, in the menu.</p>
+</li>
+<li>
+<p>Test case: <code>add-item n/Chicken Rice p/3 t/rice t/chicken</code><br>
+<strong>Expected</strong>: Item is added to the menu. Details of the item shown in status message.</p>
+</li>
+<li>
+<p>Incorrect commands to try: <code>add-item n/test p/string</code>, <code>add-item n/@<strong>@^&amp;@</strong> p/3</code></p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Editing an item with valid name, price and tag</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: You must have at least 1 item in the menu.</p>
+</li>
+<li>
+<p>Test case: <code>edit-item 1 n/Duck Rice p/3 t/rice t/duck</code><br>
+<strong>Expected</strong>: Item specified by the index is updated with new details. New details of the item shown in status message.</p>
+</li>
+<li>
+<p>Incorrect commands to try: <code>edit-item 1 n/test p/string</code>, <code>edit-item n/name p/3</code></p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Deleting an item by index</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: You must have at least 1 item in the menu.</p>
+</li>
+<li>
+<p>Test case: <code>delete-item-index 1</code><br>
+<strong>Expected</strong>: Item specified by the index is deleted from the menu. Number of items deleted shown in status message.</p>
+</li>
+<li>
+<p>Incorrect commands to try: <code>delete-item-index -2</code>, <code>delete-item-index string</code></p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Deleting an item by name</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: You must have the item, specified in the test case below, in the menu.</p>
+</li>
+<li>
+<p>Test case: <code>delete-item-name chicken rice</code><br>
+<strong>Expected</strong>: Item specified by name is deleted from the menu. Details of the deleted item shown in status message.</p>
+</li>
+<li>
+<p>Incorrect commands to try: <code>delete-item-name @<strong>@^&amp;@</strong></code></p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Listing all items</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Test case: <code>list-items</code><br>
+<strong>Expected</strong>: List all items in the menu.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Clearing menu</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Test case: <code>clear-menu</code><br>
+<strong>Expected</strong>: Deletes all items in the menu.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Selecting an item</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: You must have at least 1 item in the menu.</p>
+</li>
+<li>
+<p>Test case: <code>select-item 1</code><br>
+<strong>Expected</strong>: Selects the item specified by the index in the menu. Index of the selected item shown in status message.</p>
+</li>
+<li>
+<p>Incorrect commands to try: <code>select-item -2</code>, <code>select-item string</code></p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Locating items by name</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: You must have at least 1 item with name matching the keyword specified in the test case below.</p>
+</li>
+<li>
+<p>Test case: <code>find-item rice</code><br>
+<strong>Expected</strong>: Finds the item with name matching the keyword in the menu. Number of matched items shown in status message.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Locating items by tag</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: You must have at least item with tag matching the keyword specified in the test case below.</p>
+</li>
+<li>
+<p>Test case: <code>filter-menu duck</code><br>
+<strong>Expected</strong>: Finds the item with tag matching the keyword in the menu. Number of matched items shown in status message.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Sorting the menu by name</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Test case: <code>sort-menu name</code><br>
+<strong>Expected</strong>: Sorts the menu by name. Sorting method shown in status message.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Sorting the menu by price</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Test case: <code>sort-menu price</code><br>
+<strong>Expected</strong>: Sorts the menu by price. Sorting method shown in status message.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Giving discount to all item</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: You must have at least 1 item in the menu.</p>
+</li>
+<li>
+<p>Test case: <code>discount-item ALL dp/20</code><br>
+<strong>Expected</strong>: Gives all items in the menu a discount. Number of items given a discount shown in status message.</p>
+</li>
+<li>
+<p>Incorrect commands to try: <code>discount-item -2 dp/20</code>, <code>discount-item string dp/20</code></p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Adding a recipe to an item</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: You must have at least 1 item in the menu.</p>
+</li>
+<li>
+<p>Test case: <code>recipe-item 1 r/some recipe</code><br>
+<strong>Expected</strong>: Adds the recipe to the item specified by the index in the menu. Details of specified item shown in
+status message.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Adding required ingredients to an item</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: You must have at least 1 item in the menu.</p>
+</li>
+<li>
+<p>Test case: <code>add-required-ingredients 1 n/chicken nu/3 n/rice nu/3</code><br>
+<strong>Expected</strong>: Adds the required ingredients to the item specified by the index in the menu. Details of specified item shown in status message.</p>
+</li>
+<li>
+<p>Incorrect commands to try: <code>add-required-ingredients -2 n/str nu/3</code>, <code>add-required-ingredients 1 n/str nu/-3</code>,
+<code>add-required-ingredients 1 n/str n/other nu/3 nu/3</code></p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="reservation-management"><a class="link" href="#reservation-management">F.3. Reservation Management</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -4557,4 +4730,4 @@ logged in.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-12 11:52:38 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-12 12:58:07 UTC</div></div></div></body></html>
